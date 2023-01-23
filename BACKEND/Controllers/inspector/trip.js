@@ -4,10 +4,10 @@ const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
 }
 
-const getTrips = (request, response) => {
+const getTrips = (request, res) => {
     pool.query('SELECT * FROM public.trip ORDER BY id ASC ', (error, results) => {
      
-      response.status(200).json(results.rows)
+      res.status(200).json(results.rows)
     }),handleErr
 }
 
@@ -24,36 +24,37 @@ const getTrips = (request, response) => {
 
     const { user_id, departing_from, travelling_to, price } = req.body
 
-    pool.query('INSERT INTO public.TRIP(user_id, departing_from, travelling_to, price) VALUES ($1, $2,$3,$4)', [user_id, departing_from, travelling_to, price ], (error, results) => {
+    pool.query('INSERT INTO public.trip(user_id, departing_from, travelling_to, price) VALUES ($1, $2,$3,$4)', [user_id, departing_from, travelling_to, price ], (error, results) => {
       if (error) {
         throw error
       }
-      res.status(201).send()
+      res.status(201).send({message:"route has been successfully added"})
     })
     
   }
   
-  const updateTrip = (request, response) => {
+  const updateTrip = (request, res) => {
     const id = parseInt(request.params.id);
-    const { name,price,image,category,description } = request.body
+    const { user_id, departing_from, travelling_to, price } = request.body
   
-    pool.query('UPDATE public.food SET name=$1, price=$2, image=$3, category=$4, description=$5  WHERE id=$6',[name,price,image,category,description, id], (error, results) => {
+    pool.query('UPDATE public.trip SET user_id = $1, departing_from = $2, travelling_to = $3, price = $4 WHERE id=$5',[user_id, departing_from, travelling_to, price, id], (error, results) => {
         if (error) {
           throw error
         }
         //response.send(JSON.stringify(results));
-        response.status(200).send()
+        res.status(201).send({message:"route has been successfully updated"})
+        
       }
     )
   }
 
-  const deleteTrip = (request, response) => {
+  const deleteTrip = (request, res) => {
     const id = parseInt(request.params.id)
-    console.log(id);
+   
   
     pool.query('DELETE FROM public.trip WHERE id = $1', [id], (error, results) => {
      
-      response.status(200).send()
+      res.status(200).send({message:"trip has been successfully deleted"})
     }),handleErr
   }
   

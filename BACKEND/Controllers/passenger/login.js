@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 //Login Function
 const passengerLogin = async (req, res) => {
     const { email, password } = req.body;
+    
     try {
     const data = await pool.query(`SELECT * FROM public.users WHERE email= $1;`, [email]) //Verifying if the user exists in the database
     const user = data.rows;

@@ -7,6 +7,8 @@ const http = require('http')
 
 const register = require("../controllers/passenger/register")
 const login = require("../controllers/passenger/login")
+const search = require("../controllers/passenger/search")
+//const profile = require("../controllers/passenger/profile")
 
 const trip = require("../controllers/inspector/trip")
 
@@ -41,12 +43,20 @@ router.post('/passenger/register', register.registerUser)
  router.post('/passenger/login', login.passengerLogin)
 
 
-  //routes for trips
+  //routes for trips(inspector)
   router.get('/allTrips', trip.getTrips)
-  router.get('/trip/byName', trip.getTripByName)
-  router.post('/create/trip', trip.postTrip)
-  router.put('/update/trip', trip.updateTrip)
-  router.delete('/delete/trip', trip.deleteTrip)
+  router.get('/tripByName', trip.getTripByName)
+  router.post('/createTrip', trip.postTrip)
+  router.put('/updateTrip/:id', trip.updateTrip)
+  router.delete('/deleteTrip/:id', trip.deleteTrip)
+
+  //routes for searching the destination
+  router.get('/seachDestination', search.getTripByName)
+
+  //profile routes
+  //router.get('/viewProfile', profile.getProfile)
+
+
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)
