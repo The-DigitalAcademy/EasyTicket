@@ -8,7 +8,7 @@ const http = require('http')
 const register = require("../controllers/passenger/register")
 const login = require("../controllers/passenger/login")
 const search = require("../controllers/passenger/search")
-//const profile = require("../controllers/passenger/profile")
+const profile = require("../controllers/passenger/profile")
 
 const trip = require("../controllers/inspector/trip")
 
@@ -54,7 +54,7 @@ router.post('/passenger/register', register.registerUser)
   router.get('/seachDestination', search.getTripByName)
 
   //profile routes
-  //router.get('/viewProfile', profile.getProfile)
+  router.get('/viewProfile', profile.getProfile)
 
 
 
