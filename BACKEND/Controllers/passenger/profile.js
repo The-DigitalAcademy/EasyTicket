@@ -15,9 +15,25 @@ const getProfile = (request, res) => {
     }),handleErr
 
 }
+
+const updateProfile = (request, res) => {
+    const id = parseInt(request.params.id);
+    const { firstname,lastname} = request.body
+  
+    pool.query('UPDATE public.users SET firstname = $1,lastname = $2 WHERE id=$3',[firstname,lastname, id], (error, results) => {
+        if (error) {
+          throw error
+        }
+        //response.send(JSON.stringify(results));
+        res.status(201).send({message:"user details have been successfully updated"})
+        
+      }
+    )
+  }
   
   module.exports = {
-    getProfile
+    getProfile,
+    updateProfile
   }
 
   
