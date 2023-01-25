@@ -6,7 +6,7 @@ const pool = require("../../Data Access/connection")
 //Registration Function
 
 const registerUser  =  async (req, res) => {
-    const { firstname, lastname, email, password,account_type } =  req.body;
+    const { fullname, email, password } =  req.body;
     try {
         const  data  =  await pool.query(`SELECT * FROM public.users WHERE email= $1;`, [email]); //Checking if user already exists
         const  arr  =  data.rows;
@@ -23,19 +23,17 @@ const registerUser  =  async (req, res) => {
             error: "Server error",
             });
             const  user  = {
-                firstname,
-                lastname,
+                fullname,
                 email,
-                password: hash,
-                account_type
+                password: hash
 
             };
             var  flag  =  1; //Declaring a flag
 
             //Inserting data into the database
-            if(user.firstname !==  null && user.firstname !==  '' && user.lastname !==  null && user.lastname !==  '' && user.email !==  null && user.email !==  ''  && user.password !==  null && user.password !==  '' && user.account_type !==  null && user.account_type !==  '' )
+            if(user.fullname !==  null && user.fullname !==  '' && user.email !==  null && user.email !==  ''  && user.password !==  null && user.password !==  ''  )
             {
-                pool.query(`INSERT INTO public.users(firstname, lastname, email, password,account_type) VALUES ($1,$2,$3,$4,$5);`, [user.firstname, user.lastname, user.email, user.password,user.account_type], (err) => {
+                pool.query(`INSERT INTO public.users(fullname, email, password) VALUES ($1,$2,$3);`, [user.fullname, user.email, user.password], (err) => {
                     if (err) {
                         flag  =  0; //If user is not inserted is not inserted to database assigning flag as 0/false.
                         console.error(err);
@@ -43,7 +41,8 @@ const registerUser  =  async (req, res) => {
                     }
                     else {
                         flag  =  1;
-                        res.status(200).send({ message: 'User has been added to database' });
+                       //res.status(200).send({ message: 'User has been added to database' });
+                     res.send('User has been added to database')
                     }
                 })
             }

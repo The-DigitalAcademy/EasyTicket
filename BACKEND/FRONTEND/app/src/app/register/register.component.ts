@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.minLength(6),
+            Validators.minLength(8),
             Validators.maxLength(15),
             Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,15}')
           ]
@@ -59,15 +59,17 @@ export class RegisterComponent implements OnInit {
   onSubmit(data:any){
 
     this.submitted = true;
-if(data.fullname=='' && data.email==''&& data.password=='')
+if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPassword=='')
 {
 
 
 }else{
     //Add the User to the Database
-    this.http.post('http://localhost:3000/register',data, {responseType:'text'}).subscribe((results)=>{
+    this.http.post('http://localhost:3001/register',data, {responseType:'text'}).subscribe((results)=>{
+      
+    console.log(results);
 
-      if(results == 'Account created succesfully!')
+      if(results == 'User has been added to database')
       {
         this.openSucess();
         this.router.navigate(['/login'])

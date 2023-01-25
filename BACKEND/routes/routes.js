@@ -70,9 +70,9 @@ router.get('/', (request, response) => {
   })
 
    //routes for registering
-router.post('/passenger/register', register.registerUser)
+router.post('/register', register.registerUser)
  //routes for logging in
- router.post('/passenger/login', login.passengerLogin)
+ router.post('/login', login.passengerLogin)
 
 
   //routes for trips(inspector)

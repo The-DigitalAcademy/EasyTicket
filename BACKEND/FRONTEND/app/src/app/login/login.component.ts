@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
   onSubmit(data:any): void {
     this.submitted = true;
 
-  if(data.email==''&& data.password=='')
+  if(data.email=='' || data.password=='')
   {
 
 
