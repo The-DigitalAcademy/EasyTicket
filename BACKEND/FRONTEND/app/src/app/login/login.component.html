@@ -16,7 +16,7 @@
                                         <input class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"   id="email"  name="email" type="email"  placeholder="Enter your email" style="height: 60px;font-size: 18px;border-radius: 10px;">
                                     
                                     <!-----validate email----->
-                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div style="text-align: left;" *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                         <div *ngIf="f['email'].errors['required']">Email is required</div>
                                         <div *ngIf="f['email'].errors['email']">Email is invalid</div>
                                       </div>
@@ -27,7 +27,7 @@
                                     <div class="mb-3"><input class="form-control" formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" type="password" id="password"  name="password" placeholder="Enter your password" style="height: 60px;font-size: 18px;border-radius: 10px;">
                                     
                                      <!-----validate password-->
-                                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                    <div style="text-align: left;" *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                                         <div *ngIf="f['password'].errors['required']">Password is required</div>
                                         <div *ngIf="f['password'].errors['minlength']">
                                         Password must be at least 8 characters
@@ -39,7 +39,7 @@
                                     <!--------------------------------------->
                                     
                                     </div>
-                                    <div class="mb-3" style="padding-top: 10px;"><button class="btn text-uppercase shadow-lg d-block w-100" type="submit" [disabled]="form.invalid" style="height: 60px;background: #F7970A;color: rgb(255,255,255);font-size: 20px;border-radius: 10px;">Sign in</button></div>
+                                    <div class="mb-3" style="padding-top: 10px;"><button class="btn text-uppercase shadow-lg d-block w-100" type="submit" style="height: 60px;background: #F7970A;color: rgb(255,255,255);font-size: 20px;border-radius: 10px;">Sign in</button></div>
                                     <p style="color: var(--bs-card-bg);">Don't have account?&nbsp;<a routerLink='/register' style="text-decoration: none;"><span style="color: rgb(247,152,9);text-decoration: none;">Sign Up</span></a>&nbsp;</p>
                                 </form>
                             </div>

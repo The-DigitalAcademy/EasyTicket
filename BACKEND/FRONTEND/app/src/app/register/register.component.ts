@@ -14,8 +14,8 @@ import { EasyticketService } from '../service/easyticket.service';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup = new FormGroup({
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
+   
+    fullname: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
     confirmPassword: new FormControl('')
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        fulltname: ['', [Validators.required,
+        fullname: ['', [Validators.required,
                     Validators.minLength(3),Validators.pattern("^(?=.{1,40}$)[a-zA-Z ]+(?:[-'\s][a-zA-Z ]+)*$")]
                   ],
         
@@ -59,7 +59,11 @@ export class RegisterComponent implements OnInit {
   onSubmit(data:any){
 
     this.submitted = true;
+if(data.fullname=='' && data.email==''&& data.password=='')
+{
 
+
+}else{
     //Add the User to the Database
     this.http.post('http://localhost:3000/register',data, {responseType:'text'}).subscribe((results)=>{
 
@@ -88,7 +92,7 @@ export class RegisterComponent implements OnInit {
       )
       
     }
-  
+  }
   
     openSucess(){
       this.toast.success({detail:"Warning", summary:"Succesfully Registered"})
@@ -100,3 +104,4 @@ export class RegisterComponent implements OnInit {
 
 
 }
+
