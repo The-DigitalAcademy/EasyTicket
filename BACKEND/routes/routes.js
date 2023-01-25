@@ -12,6 +12,7 @@ const search = require("../controllers/passenger/search")
 const profile = require("../controllers/passenger/profile")
 const password = require("../controllers/passenger/password")
 const invoice = require("../controllers/passenger/invoice")
+const getTokens = require("../controllers/passenger/getTokens")
 
 //routes for inspector
 const trip = require("../controllers/inspector/trip")
@@ -100,6 +101,8 @@ router.post('/passenger/register', register.registerUser)
 
   //loading tokens
   router.post('/loadTokens', tokens.postToken)
+  //viewing tokens
+  router.get('/viewTokens', getTokens.getToken)
 
 
    //routes for company information
