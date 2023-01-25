@@ -32,9 +32,8 @@ export class LoginComponent implements OnInit {
 
 
   user = {
-    user_id: '',
-    firstname:'',
-    lastname:'',
+    id: '',
+    fullname:'',
     email:''
 
 }
@@ -69,6 +68,8 @@ export class LoginComponent implements OnInit {
   onSubmit(data:any): void {
     this.submitted = true;
 
+
+
   if(data.email=='' || data.password=='')
   {
 
@@ -82,42 +83,25 @@ export class LoginComponent implements OnInit {
 this.guardservice.login();
 
 
-
-this.http.post('http://localhost:3000/login',data)
+this.http.post('http://localhost:3001/login',data)
 .subscribe((results:any)=>{
- console.log(results);
+ 
 
   localStorage.setItem('token',results.token);
 
-if(results.token!=null){
+ 
+if(localStorage.getItem('token')!=null){
 
 this.user= this.jwtService.getDetails(localStorage.getItem('token')).data[0];
-let id=this.user.user_id
-
-  
- if(this.user.user_id < '3')
- {
 
 
-  if(this.isVisible) { 
-    return;
-  } 
   this.isVisible = true;
   setTimeout(()=> this.isVisible = false,850)
-  this.toast.success({detail:"Success",summary:'Admin Loggedin Succesfully', duration:2000})
-  setTimeout(()=> this.router.navigate(['/dashboardadmin']),900)
+  this.toast.success({detail:"Success",summary:'Loggedin Succesfully', duration:2000})
+  setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
 
- }else
- {
-  if(this.isVisible) { 
-    return;
-  }
-  this.isVisible = false;
-  setTimeout(()=> this.isVisible = false,850)
-  this.openSucess();
-  setTimeout(()=> this.router.navigate(['/']),900)
  
-}
+
    
   }
   else{

@@ -69,7 +69,7 @@ if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPasswo
       
     console.log(results);
 
-      if(results == 'User has been added to database')
+      if(results == 'Account created succesfully!')
       {
         this.openSucess();
         this.router.navigate(['/login'])
