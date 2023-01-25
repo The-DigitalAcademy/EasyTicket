@@ -93,14 +93,11 @@ this.http.post('http://localhost:3001/login',data)
 if(localStorage.getItem('token')!=null){
 
 this.user= this.jwtService.getDetails(localStorage.getItem('token')).data[0];
-
-
   this.isVisible = true;
   setTimeout(()=> this.isVisible = false,850)
   this.toast.success({detail:"Success",summary:'Loggedin Succesfully', duration:2000})
   setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
 
- 
 
    
   }

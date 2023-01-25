@@ -13,6 +13,7 @@ import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomepageComponent,
     PDashboardComponent,
     PProfileComponent,
-    PPaymentComponent
+    PPaymentComponent,
+    BottomMenuComponent
   ],
   imports: [
     BrowserModule,
