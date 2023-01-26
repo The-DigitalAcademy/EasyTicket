@@ -13,6 +13,10 @@ import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProofComponent } from './admin/proof/proof.component';
+import { AdmRoutesComponent } from './admin/adm-routes/adm-routes.component';
+import { SearchComponent } from './search/search.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { HttpClientModule } from '@angular/common/http';
     HomepageComponent,
     PDashboardComponent,
     PProfileComponent,
-    PPaymentComponent
+    PPaymentComponent,
+    ProofComponent,
+    AdmRoutesComponent,
+    SearchComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,

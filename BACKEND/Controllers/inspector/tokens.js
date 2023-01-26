@@ -8,6 +8,8 @@ const postToken = (req, res) => {
 
     const { user_id, amount } = req.body
 
+    
+
     pool.query('INSERT INTO public.wallet(user_id, amount) VALUES ($1, $2)', [user_id, amount], (error, results) => {
       if (error) {
         throw error

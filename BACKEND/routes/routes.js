@@ -103,6 +103,7 @@ router.post('/passenger/register', register.registerUser)
   router.post('/loadTokens', tokens.postToken)
   //viewing tokens
   router.get('/viewTokens', getTokens.getToken)
+  router.put('/updateTokens/:user_id', getTokens.updateTokens)
 
 
    //routes for company information

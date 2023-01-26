@@ -6,9 +6,9 @@ const handleErr = (err, req, res, next) => {
 
 const getToken = (req, res) => {  
 
-    const { id } = req.body
+    const { user_id } = req.body
 
-    pool.query('SELECT user_id, amount FROM public.wallet WHERE id = $1', [id], (error, results) => {
+    pool.query('SELECT amount FROM public.wallet WHERE user_id = $1', [user_id], (error, results) => {
       if (error) {
         throw error
       }
@@ -17,7 +17,24 @@ const getToken = (req, res) => {
     
 }
 
+const updateTokens = (request, res) => {
+    const user_id = parseInt(request.params.user_id);
+    const { input } = request.body
+   
+  
+    pool.query('UPDATE public.wallet SET amount=(amount + $1) WHERE user_id=$2',[input, user_id], (error, results) => {
+        if (error) {
+          throw error
+        }
+        //response.send(JSON.stringify(results));
+        res.status(201).send({message:"wallet has been successfully updated"})
+        
+      }
+    )
+  }
+
   module.exports = {
 
-    getToken
+    getToken,
+    updateTokens
   }
