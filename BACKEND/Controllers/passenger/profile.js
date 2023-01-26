@@ -9,7 +9,7 @@ const getProfile = (request, res) => {
     const { email } = request.body;
                                                                                      
 
-    pool.query('SELECT fullname,email FROM public.users WHERE email = $1', [email], (error, results) => {
+    pool.query('SELECT fullname FROM public.users WHERE email = $1', [email], (error, results) => {
     
         res.status(200).json(results.rows)
     }),handleErr
@@ -22,7 +22,7 @@ const updateProfile = (request, res) => {
   
 try{
    
-    pool.query('UPDATE public.users SET fullname=$1 WHERE id=$2',[fullname, id], (error, results) => {
+    pool.query('UPDATE public.users SET fullname = $1 WHERE id=$2',[fullname,id], (error, results) => {
         // if (error) {
         //   throw error
         // }

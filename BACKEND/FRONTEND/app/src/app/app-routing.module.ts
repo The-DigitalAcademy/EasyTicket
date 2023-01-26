@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { PDashboardComponent } from './passenger/p-dashboard/p-dashboard.component';
+import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
+import { PProfileComponent } from './passenger/p-profile/p-profile.component';
+import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
 
@@ -10,7 +13,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 
 {path: 'homepage', component: HomepageComponent},
 { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-{ path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] }
+{ path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },{ path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
+{ path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] }
 
 ];
 
