@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit {
   private _auth: any;
   guardService: any;
 
-  public isVisible: boolean = false;
-  public Visible: boolean = false;
 
 
   form: FormGroup = new FormGroup({
@@ -31,10 +29,11 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
 
-  user = {
-    id: '',
-    fullname:'',
-    email:''
+  users = {
+    email:'',
+    fullname: '',
+    id:''
+  
 
 }
 
@@ -88,13 +87,18 @@ this.http.post('http://localhost:3001/login',data)
  
 
   localStorage.setItem('token',results.token);
+  
 
  
 if(localStorage.getItem('token')!=null){
 
-this.user= this.jwtService.getDetails(localStorage.getItem('token')).data[0];
-  this.isVisible = true;
-  setTimeout(()=> this.isVisible = false,850)
+this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
+
+
+// console.log(this.users.id);
+// console.log(this.users.fullname);
+// console.log(this.users.email);
+
   this.toast.success({detail:"Success",summary:'Loggedin Succesfully', duration:2000})
   setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
 
@@ -103,10 +107,10 @@ this.user= this.jwtService.getDetails(localStorage.getItem('token')).data[0];
   }
   else{
    
-   setTimeout(()=> this.Visible = true,850)
+
    
    setTimeout(()=> this.router.navigate(['/login']),900)
-   this.Visible = false;
+
    console.warn(results)
    this.toast.warning({detail:"Warning",summary:'Email does not exist'})
 

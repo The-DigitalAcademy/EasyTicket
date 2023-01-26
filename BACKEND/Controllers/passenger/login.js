@@ -82,7 +82,7 @@ const passengerLogin = (req, res) => {
         expiresIn:120
        })
 
-       //console.log(token)
+       
        res.status(200).json({token: token})
       // res.send({ status: 1, data: results, token: token });
   

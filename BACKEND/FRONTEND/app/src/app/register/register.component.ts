@@ -65,6 +65,13 @@ if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPasswo
 
 }else{
     //Add the User to the Database
+
+
+    if(data.password != data.confirmPassword)
+    {
+
+
+    }else{
     this.http.post('http://localhost:3001/register',data, {responseType:'text'}).subscribe((results)=>{
       
     console.log(results);
@@ -94,6 +101,7 @@ if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPasswo
       )
       
     }
+  }
   }
   
     openSucess(){
