@@ -102,6 +102,8 @@ router.post('/register', register.registerUser)
   //loading tokens
   router.post('/loadTokens', tokens.postToken)
   //viewing tokens
+  router.get('/viewTokens', getTokens.getToken)
+  router.put('/updateTokens/:user_id', getTokens.updateTokens)
   router.get('/viewTokens/:id', getTokens.getToken)
 
 

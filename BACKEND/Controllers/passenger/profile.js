@@ -9,7 +9,7 @@ const getProfile = (request, res) => {
     const { email } = request.body;
                                                                                      
 
-    pool.query('SELECT firstname,lastname,email FROM public.users WHERE email = $1', [email], (error, results) => {
+    pool.query('SELECT fullname,email FROM public.users WHERE email = $1', [email], (error, results) => {
     
         res.status(200).json(results.rows)
     }),handleErr
@@ -18,11 +18,11 @@ const getProfile = (request, res) => {
 
 const updateProfile = (request, res) => {
     const id = parseInt(request.params.id);
-    const { firstname,lastname} = request.body
+    const { fullname} = request.body
   
 try{
    
-    pool.query('UPDATE public.users SET firstname = $1,lastname = $2 WHERE id=$3',[firstname,lastname, id], (error, results) => {
+    pool.query('UPDATE public.users SET fullname=$1 WHERE id=$2',[fullname, id], (error, results) => {
         // if (error) {
         //   throw error
         // }
