@@ -18,7 +18,8 @@ export class PDashboardComponent implements OnInit {
   user = {
     id: '',
     fullname:'',
-    email:''
+    email:'',
+    amount:''
 
 }
 

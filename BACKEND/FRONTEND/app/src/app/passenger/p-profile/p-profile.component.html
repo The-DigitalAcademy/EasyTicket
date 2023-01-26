@@ -34,8 +34,8 @@
                         <div class="row">
                             <div class="col-2"><span class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="border-radius: 23px;background: rgb(247,152,9);font-size: 28px;"><span style="font-weight: bold;">B</span></span></div>
                             <div class="col-7" style="text-align: left;">
-                                <p style="color: rgb(247,152,9);margin-top: 3px;"><strong>Beki Nature</strong></p>
-                                <p style="color: rgb(247,152,9);font-size: 11px;margin-top: -18px;"><strong><span style="color: rgb(255, 255, 255);">bekinature@gmail.com</span></strong><br></p>
+                                <p style="color: rgb(247,152,9);margin-top: 3px;"><strong>{{user.fullname}}</strong></p>
+                                <p style="color: rgb(247,152,9);font-size: 11px;margin-top: -18px;"><strong><span style="color: rgb(255, 255, 255);">{{user.email}}</span></strong><br></p>
                             </div>
                             <div class="col-3"><button class="btn shadow-lg float-end" type="button" style="background: #f79809;"><i class="fas fa-pen text-white"></i></button></div>
                         </div>
@@ -48,7 +48,7 @@
                 <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
                     <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;My balance</p>
-                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;950.00</p>
+                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;{{user.amount|number:'1.2-2'}}</p>
                     </div>
                 </div>
             </div>
