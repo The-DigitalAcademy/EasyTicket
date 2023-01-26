@@ -6,9 +6,11 @@ const handleErr = (err, req, res, next) => {
 
 const getToken = (req, res) => {  
 
-    const { id } = req.body
+    //const { user_id } = req.body
 
-    pool.query('SELECT user_id, amount FROM public.wallet WHERE id = $1', [id], (error, results) => {
+    const user_id=parseInt(req.params.id)
+
+    pool.query('SELECT amount FROM public.wallet WHERE user_id = $1', [user_id], (error, results) => {
       if (error) {
         throw error
       }

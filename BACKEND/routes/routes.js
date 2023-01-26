@@ -102,7 +102,7 @@ router.post('/register', register.registerUser)
   //loading tokens
   router.post('/loadTokens', tokens.postToken)
   //viewing tokens
-  router.get('/viewTokens', getTokens.getToken)
+  router.get('/viewTokens/:id', getTokens.getToken)
 
 
    //routes for company information
