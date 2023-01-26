@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit {
   private _auth: any;
   guardService: any;
 
-  public isVisible: boolean = false;
-  public Visible: boolean = false;
 
 
   form: FormGroup = new FormGroup({
@@ -31,11 +29,11 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
 
-  user = {
-    user_id: '',
-    firstname:'',
-    lastname:'',
-    email:''
+  users = {
+    email:'',
+    fullname: '',
+    id:''
+  
 
 }
 
@@ -67,71 +65,69 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(data:any): void {
-
-    console.log(data);
-    //check
     this.submitted = true;
-     //connect to server
-     this.guardservice.login();
- 
-     
- 
-     this.http.post('http://localhost:3000/login',data)
-     .subscribe((results:any)=>{
-      console.log(results);
- 
-       localStorage.setItem('token',results.token);
 
-     if(results.token!=null){
- 
-     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data[0];
-     let id=this.user.user_id
-    
-       
-      if(this.user.user_id < '3')
-      {
- 
- 
-       if(this.isVisible) { 
-         return;
-       } 
-       this.isVisible = true;
-       setTimeout(()=> this.isVisible = false,850)
-       this.toast.success({detail:"Success",summary:'Admin Loggedin Succesfully', duration:2000})
-       setTimeout(()=> this.router.navigate(['/dashboardadmin']),900)
- 
-      }else
-      {
-       if(this.isVisible) { 
-         return;
-       }
-       this.isVisible = false;
-       setTimeout(()=> this.isVisible = false,850)
-       this.openSucess();
-       setTimeout(()=> this.router.navigate(['/']),900)
-      
-     }
-        
-       }
-       else{
-        
-        setTimeout(()=> this.Visible = true,850)
-        
-        setTimeout(()=> this.router.navigate(['/login']),900)
-        this.Visible = false;
-        console.warn(results)
-        this.toast.warning({detail:"Warning",summary:'Email does not exist'})
-     
-       }
-       
-     },(err)=>{
-      this.openWarning();
-    })
+
+
+  if(data.email=='' || data.password=='')
+  {
+
+
+
+  }else
+  {
+//check
+
+//connect to server
+this.guardservice.login();
+
+
+this.http.post('http://localhost:3001/login',data)
+.subscribe((results:any)=>{
  
 
+  localStorage.setItem('token',results.token);
+  
+
+ 
+if(localStorage.getItem('token')!=null){
+
+this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
+
+
+// console.log(this.users.id);
+// console.log(this.users.fullname);
+// console.log(this.users.email);
+
+  this.toast.success({detail:"Success",summary:'Loggedin Succesfully', duration:2000})
+  setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
+
+
+   
+  }
+  else{
+   
+
+   
+   setTimeout(()=> this.router.navigate(['/login']),900)
+
+   console.warn(results)
+   this.toast.warning({detail:"Warning",summary:'Email does not exist'})
+
+  }
+  
+},(err)=>{
+ this.openWarning();
+})
+
+
+
+
+}
 
 
   }
+    
 
   openSucess(){
     this.toast.success({detail:"Warning", summary:"Succesfully Login"})

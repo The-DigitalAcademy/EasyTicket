@@ -13,10 +13,7 @@ import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ProofComponent } from './admin/proof/proof.component';
-import { AdmRoutesComponent } from './admin/adm-routes/adm-routes.component';
-import { SearchComponent } from './search/search.component';
-import { WalletComponent } from './wallet/wallet.component';
+import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +24,7 @@ import { WalletComponent } from './wallet/wallet.component';
     PDashboardComponent,
     PProfileComponent,
     PPaymentComponent,
-    ProofComponent,
-    AdmRoutesComponent,
-    SearchComponent,
-    WalletComponent
+    BottomMenuComponent
   ],
   imports: [
     BrowserModule,

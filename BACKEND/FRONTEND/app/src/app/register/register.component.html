@@ -1,4 +1,4 @@
-<body style="background: #303030;font-family: 'Public Sans', sans-serif;height: 1000px;">
+<body style="background: #303030;font-family: 'Public Sans', sans-serif;">
     <div class="container">
         <section class="position-relative py-4 py-xl-5">
             <div class="container">
@@ -10,18 +10,74 @@
                     <div class="col-md-6 col-xl-4" style="margin-top: -31px;height: 570px;">
                         <div class="card mb-5" style="border-style: none;">
                             <div class="card-body d-flex flex-column align-items-center" style="background: #303030;">
-                                <form class="text-center" method="post" style="width: 300px;">
+                                <form [formGroup]="form" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" class="text-center" method="post" style="width: 300px;">
                                     <div class="mb-3">
-                                        <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Fullname</label></div><input class="form-control" type="email" name="text" placeholder="Enter your fullname" style="height: 60px;font-size: 18px;border-radius: 10px;">
+                                        <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Fullname</label></div>
+                                        
+                                        <input class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"  formControlName="fullname" id="fullname" name="fullname" placeholder="Enter your fullname" style="height: 60px;font-size: 18px;border-radius: 10px;">
+                                        <!-----------vali-->    
+                                        <div style="text-align: left;" *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+                                            <div *ngIf="f['fullname'].errors['minlength']">Fullname must be atleast 3 characters</div>
+                                            <div *ngIf="f['fullname'].errors['pattern']">field should contain alaphabetical characters only.</div>
+                                        </div>
+                                            
+                                        <!-----------vali-->   
+
                                     </div>
                                     <div class="mb-3">
-                                        <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Email</label></div><input class="form-control" type="email" name="email" placeholder="Enter your email" style="height: 60px;font-size: 18px;border-radius: 10px;">
+                                        <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Email</label></div>
+                                        <input class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email"   type="email" id="email"  name="email" placeholder="Enter your email" style="height: 60px;font-size: 18px;border-radius: 10px;">
+                                        <!-----------vali-->    
+          
+                                            <div style="text-align: left;" *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['email'].errors['required']">Email is required</div>
+                                            
+                                                <div *ngIf="f['email'].errors['pattern']">Incorrect email format</div>
+                                            </div>
+                                        <!-----------vali--> 
                                     </div>
                                     <div class="mb-3">
-                                        <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Password</label></div><input class="form-control" type="email" name="email" placeholder="Enter your password" style="height: 60px;font-size: 18px;border-radius: 10px;">
+                                        <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Password</label></div>
+                                        <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors } "   formControlName="password"  type="password" id="password"  name="password" placeholder="Enter your password" style="height: 60px;font-size: 18px;border-radius: 10px;">
+                                   
+                                   <!-------validation password-->
+                                    <div style="text-align: left;" *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                                        <div *ngIf="f['password'].errors['pattern']">
+                                        Password should contain atleast 1 lowercase,atleast 1 uppercase,atleast 1 number and one character.
+                                    </div>
+                                        <div style="text-align: left;" *ngIf="f['password'].errors['minlength']">
+                                            Password should be atleast 6 characters long.
+                                        </div>
+                                        <div *ngIf="f['password'].errors['maxlength']">
+                                        must not exceed 15 characters
+                                        </div>
+                                    
+                                    
+                                    </div>
+                                    <!----------------->
+                                   
                                     </div>
                                     <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Confirm Password</label></div>
-                                    <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Confirm your password" style="height: 60px;font-size: 18px;border-radius: 10px;"></div>
+                                    <div class="mb-3">
+                                        <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"  placeholder="Confirm Password"  formControlName="confirmPassword" type="password" id="confirmPassword"  name="confirmPassword" placeholder="Confirm your password" style="height: 60px;font-size: 18px;border-radius: 10px;">
+                                    
+                                    
+                                         <!-------validation password-->
+                                        <div style="text-align: left;"
+                                        *ngIf="submitted && f['confirmPassword'].errors"
+                                        class="invalid-feedback"
+                                        >
+                                        <div *ngIf="f['confirmPassword'].errors['required']">
+                                            Confirm Password is required
+                                        </div>
+                                        <div *ngIf="f['confirmPassword'].errors['matching']">
+                                            Confirm Password does not match
+                                        </div>
+                                        </div>
+                                                <!----------------->
+                                    </div>
                                     <div class="mb-3" style="padding-top: 10px;"><button class="btn text-uppercase shadow-lg d-block w-100" type="submit" style="height: 60px;background: #F7970A;color: rgb(255,255,255);font-size: 20px;border-radius: 10px;">Sign Up</button></div>
                                     <p style="color: var(--bs-card-bg);">Already have an account?&nbsp;<a routerLink='/login' style="text-decoration: none;"><span style="color: rgb(247,152,9);">Sign in</span></a></p>
                                 </form>

@@ -1,1 +1,41 @@
-<p>p-dashboard works!</p>
+<body style="background: #303030;font-family: 'Public Sans', sans-serif;">
+    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="border-radius: 16px;background: rgb(247,152,9);"><span>{{init}}</span></span><span style="font-size: 14px;">{{single}}</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-comment" style="color: rgb(247,152,9);font-size: 20px;"></i></a></li>
+                </ul ><a *ngFor="let w of wallet"  class="btn btn-primary btn-sm ms-md-2" role="button" href="#" style="border-radius: 8px;background: rgb(255,255,255);--bs-primary: rgb(247,152,9);--bs-primary-rgb: 247,152,9;color: rgb(94,89,89);border-color: rgb(247,152,9);font-size: 11px;">Bal {{ w.amount | number:'1.2-2' }}</a>
+            </div>
+        </div>
+    </nav>
+   <!-------bottom menu-->
+<app-bottom-menu></app-bottom-menu>
+   <!-------------------->
+
+
+
+
+    <div class="col-12" style="margin-top: 100px;"><a class="btn btn-sm shadow float-end" role="button" style="background: #f79809;color: rgb(255,255,255);border-radius: 8px;margin-right: 12px;position: static;margin-top: 28px;" href="uploadproof.html"><i class="fas fa-coins"></i>&nbsp;Recharge</a></div>
+    <div class="col">
+        <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 0px;position: static;">
+            <p style="color: rgb(255,255,255);">Saved Destinations</p>
+            <div class="row p-2">
+                <div class="col">
+                    <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;">
+                        <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                            <p style="color: rgb(255,255,255);margin-top: 11px;font-size: 13px;"><i class="fas fa-search-location" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Auckland Park</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;">
+                        <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                            <p style="color: rgb(255,255,255);margin-top: 11px;font-size: 13px;"><i class="fas fa-search-location" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Auckland Park</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

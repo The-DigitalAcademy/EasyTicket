@@ -70,9 +70,9 @@ router.get('/', (request, response) => {
   })
 
    //routes for registering
-router.post('/passenger/register', register.registerUser)
+router.post('/register', register.registerUser)
  //routes for logging in
- router.post('/passenger/login', login.passengerLogin)
+ router.post('/login', login.passengerLogin)
 
 
   //routes for trips(inspector)
@@ -104,6 +104,7 @@ router.post('/passenger/register', register.registerUser)
   //viewing tokens
   router.get('/viewTokens', getTokens.getToken)
   router.put('/updateTokens/:user_id', getTokens.updateTokens)
+  router.get('/viewTokens/:id', getTokens.getToken)
 
 
    //routes for company information
