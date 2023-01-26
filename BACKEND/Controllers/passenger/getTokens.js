@@ -8,9 +8,9 @@ const getToken = (req, res) => {
 
     //const { user_id } = req.body
 
-    const user_id=parseInt(req.params.id)
+    const id=parseInt(req.params.id)
 
-    pool.query('SELECT amount FROM public.wallet WHERE user_id = $1', [user_id], (error, results) => {
+    pool.query('SELECT amount FROM public.users WHERE id = $1', [id], (error, results) => {
       if (error) {
         throw error
       }
@@ -19,24 +19,9 @@ const getToken = (req, res) => {
     
 }
 
-const updateTokens = (request, res) => {
-    const user_id = parseInt(request.params.user_id);
-    const { input } = request.body
-   
-  
-    pool.query('UPDATE public.wallet SET amount=(amount + $1) WHERE user_id=$2',[input, user_id], (error, results) => {
-        if (error) {
-          throw error
-        }
-        //response.send(JSON.stringify(results));
-        res.status(201).send({message:"wallet has been successfully updated"})
-        
-      }
-    )
-  }
+
 
   module.exports = {
 
-    getToken,
-    updateTokens
+    getToken
   }

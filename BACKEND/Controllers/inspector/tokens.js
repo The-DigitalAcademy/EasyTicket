@@ -1,25 +1,31 @@
 const pool = require("../../Data Access/connection");
 
-const handleErr = (err, req, res, next) => {
-    res.status(400).send({ error: err.message })
+
+const updateTokens = (request, res) => {
+  const id = parseInt(request.params.id);
+  const { input } = request.body
+ 
+try{
+  pool.query('UPDATE public.users SET amount=(amount + $1) WHERE id=$2',[input, id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    //response.send(JSON.stringify(results));
+    res.status(201).send({message:"wallet has been successfully updated"})
+    
   }
+)
 
-const postToken = (req, res) => {  
-
-    const { user_id, amount } = req.body
-
-    
-
-    pool.query('INSERT INTO public.wallet(user_id, amount) VALUES ($1, $2)', [user_id, amount], (error, results) => {
-      if (error) {
-        throw error
-      }
-      res.status(201).send({message:"Tokens have been successfully loaded"})
-    }),handleErr
-    
+}catch (err) {
+  console.log(err);
+  res.status(500).json({
+  error: "Database error occurred while updating!", //Database connection error
+});
+};
+ 
 }
 
   module.exports = {
 
-    postToken
+    updateTokens
   }
