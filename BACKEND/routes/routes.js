@@ -100,10 +100,10 @@ router.post('/register', register.registerUser)
   router.get('/proofOfPayment', proof.getProof)
 
   //loading tokens
-  router.post('/loadTokens', tokens.postToken)
+  router.put('/loadTokens/:id', tokens.updateTokens)
   //viewing tokens
   router.get('/viewTokens', getTokens.getToken)
-  router.put('/updateTokens/:user_id', getTokens.updateTokens)
+  // router.put('/updateTokens/:user_id', getTokens.updateTokens)
   router.get('/viewTokens/:id', getTokens.getToken)
 
 
