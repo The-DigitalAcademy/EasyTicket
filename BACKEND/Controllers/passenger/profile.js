@@ -9,7 +9,7 @@ const getProfile = (request, res) => {
     const { email } = request.body;
                                                                                      
 
-    pool.query('SELECT fullnameFROM public.users WHERE email = $1', [email], (error, results) => {
+    pool.query('SELECT fullname FROM public.users WHERE email = $1', [email], (error, results) => {
     
         res.status(200).json(results.rows)
     }),handleErr

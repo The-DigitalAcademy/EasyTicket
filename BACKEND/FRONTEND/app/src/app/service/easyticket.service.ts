@@ -8,6 +8,11 @@ export class EasyticketService {
 
   constructor(private http:HttpClient) { }
 
+  
+  postRoutes(routeDetails:any){
+    return this.http.post('http://localhost:3001/createTrip',routeDetails);
+  }
+ 
   baseUrl = "http://localhost:3001"
  //main service
 
