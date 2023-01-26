@@ -14,6 +14,7 @@ import { GuardService } from './service/guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
+import { WalletComponent } from './passenger/wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.compone
     PDashboardComponent,
     PProfileComponent,
     PPaymentComponent,
-    BottomMenuComponent
+    BottomMenuComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,
