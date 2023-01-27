@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #303030;
+  }
+  .social-login img {
+    width: 24px;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+  .card {
+    font-family: sans-serif;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    margin-bottom:3em;
+    border-radius: 10px;
+    background-color: #303030;
+    padding: 1.8rem;
+    box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
+      
+  }
+  
+  .cta-btn {
+    background-color: #F7970A;
+    color: white;
+    padding: 18px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    font-weight: 100rem;
+    height: 60px;
+  }
+  
+  .icon{
+   
+    padding-left: 100%;
+  }
+  .bi{
+    color: #F7970A;
+  }
+  
+  
+  
