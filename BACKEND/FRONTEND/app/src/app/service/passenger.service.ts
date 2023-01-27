@@ -15,5 +15,10 @@ export class PassengerService {
     return this.http.get(this.baseUrl +"/viewTokens/"+id);
   }
 
+
+  postProof(data:any) {
+    return this.http.post(this.baseUrl+'/postProof',data);
+  }
+
   
 }

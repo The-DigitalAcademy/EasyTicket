@@ -10,6 +10,9 @@ export class WalletComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
+    
   }
 
 }
