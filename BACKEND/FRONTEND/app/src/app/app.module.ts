@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
+import { ComplaintComponent } from './passenger/complaint/complaint.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WalletComponent } from './passenger/wallet/wallet.component';
     PProfileComponent,
     PPaymentComponent,
     BottomMenuComponent,
-    WalletComponent
+    WalletComponent,
+    ComplaintComponent
   ],
   imports: [
     BrowserModule,

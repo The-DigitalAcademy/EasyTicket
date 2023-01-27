@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
+import { ComplaintComponent } from './passenger/complaint/complaint.component';
 import { PDashboardComponent } from './passenger/p-dashboard/p-dashboard.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { PProfileComponent } from './passenger/p-profile/p-profile.component';
@@ -15,7 +16,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: '', redirectTo: 'homepage', pathMatch: 'full' },
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },{ path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
 { path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] }
-
+,{ path: 'complaint', component: ComplaintComponent,canActivate:[AuthService] }
 ];
 
 @NgModule({
