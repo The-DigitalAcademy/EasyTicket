@@ -21,7 +21,7 @@ import { IdashboardComponent } from './inspector/idashboard/idashboard.component
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,7 @@ import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,ReactiveFormsModule,NgToastModule
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule,NgToastModule,PdfViewerModule
   ],
   providers: [GuardService,AuthService],
   bootstrap: [AppComponent]
