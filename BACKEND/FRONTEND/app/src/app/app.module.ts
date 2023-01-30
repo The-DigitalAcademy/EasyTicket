@@ -15,6 +15,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
+import { SidemenuComponent } from './inspector/sidemenu/sidemenu.component';
+
+import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
+import { PaymentComponent } from './inspector/payment/payment.component';
+import { TopnavComponent } from './inspector/topnav/topnav.component';
+import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,13 @@ import { WalletComponent } from './passenger/wallet/wallet.component';
     PProfileComponent,
     PPaymentComponent,
     BottomMenuComponent,
-    WalletComponent
+    WalletComponent,
+    SidemenuComponent,
+ 
+    IdashboardComponent,
+    PaymentComponent,
+    TopnavComponent,
+    LoadtokenComponent
   ],
   imports: [
     BrowserModule,
