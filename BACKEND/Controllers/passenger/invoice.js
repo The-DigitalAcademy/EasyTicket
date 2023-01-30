@@ -19,7 +19,14 @@ const handleErr = (err, req, res, next) => {
 
     const { user_id,proof } = req.body
 
-    pool.query('INSERT INTO public.invoice(user_id, proof) VALUES ($1,$2)', [user_id,proof ], (error, results) => {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    
+    today = mm + '/' + dd + '/' + yyyy;
+
+    pool.query('INSERT INTO public.invoice(user_id, proof,date) VALUES ($1,$2,$3)', [user_id,proof,today], (error, results) => {
       if (error) {
         throw error
       }

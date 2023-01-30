@@ -4,6 +4,8 @@ import { PassengerService } from 'src/app/service/passenger.service';
 // import { Upload } from 'src/app/upload';
 import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +26,7 @@ export class PPaymentComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private jwtService : JwtService,private Passenger:PassengerService, private http:HttpClient) { }
+  constructor(private jwtService : JwtService,private Passenger:PassengerService, private http:HttpClient,private toast :NgToastService,private router:Router) { }
 
   user = {
     id: '',
@@ -88,6 +90,10 @@ export class PPaymentComponent implements OnInit {
     console.log(uploading);
 
     this.Passenger.postProof(uploading).subscribe((next:any) => {
+
+
+      this.toast.success({detail:"Success",summary:'File Uploaded', duration:2000})
+  setTimeout(()=> this.router.navigate(['p-dashboard']),900)
 
       //console.log('Document has been added successfully!');
       this.submitted = false;
