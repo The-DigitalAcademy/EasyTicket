@@ -5,8 +5,9 @@ const handleErr = (err, req, res, next) => {
 }
 
 //getting the invoice
-  const getInvoice = (request, res) => {
-    const {id} = request.body
+  const getInvoice = (req, res) => {
+    
+    const id=parseInt(req.params.id)
   
     pool.query('SELECT * FROM public.invoice WHERE id = $1', [id], (error, results) => {
     

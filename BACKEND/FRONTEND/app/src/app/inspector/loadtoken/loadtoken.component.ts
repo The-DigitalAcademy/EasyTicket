@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PassengerService } from 'src/app/service/passenger.service';
 
 @Component({
   selector: 'app-loadtoken',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loadtoken.component.scss']
 })
 export class LoadtokenComponent implements OnInit {
-  src = 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf';
-  constructor() { }
-
+  src :any
+  constructor(private passenger:PassengerService) { }
+ proofuser:any
   ngOnInit(): void {
-  }
 
+
+    let id=localStorage.getItem('id');
+    console.log(id)
+
+    this.passenger.getProofOfuser(id).subscribe((data)=>{
+      this.proofuser= data;
+      this.src = this.proofuser[0].proof;
+  }
+    )
+}
 }

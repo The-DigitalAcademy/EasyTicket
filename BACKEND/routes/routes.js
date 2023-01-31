@@ -94,8 +94,8 @@ router.post('/register', register.registerUser)
 
   //invoice routes
   router.post('/postProof', invoice.postInvoice)
-  router.get('/getProof', invoice.getInvoice)
-
+  router.get('/getProof/:id', invoice.getInvoice)
+  router.get('/getProofuser', proof.getProofuser)
   //route for getting proof of payment
   router.get('/proofOfPayment', proof.getProof)
 

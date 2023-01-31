@@ -16,6 +16,17 @@ const getProof = (request, res) => {
 
 }
 
+const getProofuser = (req, res) => {
+  
+                                                                                   
+
+  pool.query('SELECT invoice.id as id,user_id,proof,fullname,date FROM public.invoice,public.users WHERE public.users.id =public.invoice.user_id', [], (error, results) => {
+  
+      res.status(200).json(results.rows)
+  }),handleErr
+
+}
+
   module.exports = {
-    getProof
+    getProof,getProofuser
   }
