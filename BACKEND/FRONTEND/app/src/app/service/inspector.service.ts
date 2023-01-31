@@ -14,5 +14,10 @@ export class InspectorService {
   return this.http.get(this.baseUrl +"/getProofuser");
 }
 
+loadToken(data:any){
+  return this.http.put(this.baseUrl +"/loadTokens",data);
+}
+
+
  
 }

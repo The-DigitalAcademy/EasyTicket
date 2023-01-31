@@ -100,7 +100,7 @@ router.post('/register', register.registerUser)
   router.get('/proofOfPayment', proof.getProof)
 
   //loading tokens
-  router.put('/loadTokens/:id', tokens.updateTokens)
+  router.put('/loadTokens', tokens.updateTokens)
   //viewing tokens
   router.get('/viewTokens', getTokens.getToken)
   // router.put('/updateTokens/:user_id', getTokens.updateTokens)

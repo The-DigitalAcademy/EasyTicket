@@ -49,10 +49,12 @@
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z" fill="currentColor"></path>
                                                         </svg></button></p>
                                                 <p class="text-center" style="color: rgb(255,255,255);">Load token</p>
-                                                <form>
+                                                <form [formGroup]="form" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)"  method="post">
                                                     <div class="input-group" style="margin-bottom: 38px;">
-                                                        <input class="form-control" type="text" style="height: 50px;">
-                                                        <button class="btn" type="button" style="background: rgb(246,152,4);color: rgb(255,255,255);">Load</button>
+                                                        <input class="form-control" formControlName="token" id="token" name="token" type="number" style="height: 50px;">
+
+
+                                                        <button class="btn" type="submit"   style="background: rgb(246,152,4);color: rgb(255,255,255);">Load</button>
                                                     
                                                     </div>
                                                 </form>
