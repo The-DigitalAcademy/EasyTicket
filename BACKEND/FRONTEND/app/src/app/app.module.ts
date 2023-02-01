@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { ComplaintComponent } from './passenger/complaint/complaint.component';
+import { TripComponent } from './passenger/trip/trip.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { ComplaintComponent } from './passenger/complaint/complaint.component';
     PPaymentComponent,
     BottomMenuComponent,
     WalletComponent,
-    ComplaintComponent
+    ComplaintComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,
