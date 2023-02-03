@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
+import { CompanyinfoComponent } from './inspector/companyinfo/companyinfo.component';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
@@ -19,7 +20,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },{ path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
 { path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] },
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },{ path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
-{ path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] }
+{ path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },{ path: 'companyInfo', component: CompanyinfoComponent,canActivate:[AuthService] }
 
 ];
 
