@@ -1,0 +1,145 @@
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: white;
+}
+
+.topnav h2 {
+    margin-top:auto;
+
+    color: black;
+    text-align: center;
+    position: relative;
+    top: 0px;
+    right: 0px;
+    justify-content:right; 
+    right: 0%;
+
+    
+}
+.backicon {
+    display:-webkit-flex;
+    display:flex;
+    list-style-type:none;
+    position:absolute;
+    padding:0;
+    justify-content:left; 
+}
+
+.infoicon {
+    display:-webkit-flex;
+    display:flex;
+    list-style-type:none;
+    position:absolute;
+    top: 10px;
+    right: 0%;
+    justify-content:right; 
+}
+img{
+    margin-left: 40%;
+}
+
+h1{
+    color:white;
+    text-align: center;
+    
+}
+
+
+
+
+
+
+.cloudicon {
+    display:flex;
+    list-style-type:none;
+    position:absolute;
+    align-items: center;
+    padding-top: 8rem; 
+    padding-left: 8rem;
+
+}
+
+
+
+.container2 {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+label {
+    color: white;
+}
+
+
+.selectFile {
+    height: 50px;
+    margin: 20px auto;
+    position: relative;
+    width: 200px;          
+  }
+
+  .zone {      
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: radial-gradient(ellipse at center,#000000 0,	#000000 100%);
+  width:50%;
+  height:20%;  
+  border:5px dashed white;
+  text-align:center;
+  color: white;
+  z-index: 20;
+  transition: all 0.3s ease-out; 
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05),inset 0 0 .25em 0 rgba(0,0,0,.25);
+
+    } 
+    i {
+        text-align: center;
+        font-size: 10em;  
+        color:#fff;
+        margin-top: 50px;
+      }
+  .uploadbtn {
+    background-color: #F7970A;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+       }
+.uploadbtn:hover {
+    opacity: 1;
+
+}
+   
+.Upload{
+    background-color: #f1f1f1;
+    text-align: center;
+}
+.buttonupload {
+    margin-top: 50%;
+}
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
