@@ -22,6 +22,7 @@ import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { TripComponent } from './trip/trip.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     IdashboardComponent,
     PaymentComponent,
     TopnavComponent,
-    LoadtokenComponent
+    LoadtokenComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,
