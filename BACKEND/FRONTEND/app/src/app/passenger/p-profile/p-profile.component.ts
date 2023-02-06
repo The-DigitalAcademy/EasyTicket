@@ -29,7 +29,4 @@ export class PProfileComponent implements OnInit {
     let id=this.user.id
   }
 
-
-
-
 }

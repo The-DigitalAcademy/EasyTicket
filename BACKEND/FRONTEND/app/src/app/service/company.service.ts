@@ -6,27 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CompanyService {
-  getCompInfo() {
-    throw new Error('Method not implemented.');
-  }
+  companyInfo: any;
+
 
   constructor( private http:HttpClient) { }
 
   baseUrl="http://localhost:3001"
 
     //Company services
-    getCompanyInfo(){
-
-return this.http.get(this.baseUrl+"/getInfo");
-    }
-    get(_arg0: string) {
-
-      throw new Error('Method not implemented.');
-
-    }
     //Http Companyget method
-public getInfo(): Observable<any> {
+getInfo( data: any){
+  return this.http.get(this.baseUrl + '/getInfo',data);
+}
 
-  return this.http.get<any>(this.baseUrl);
+// getInfo( data: any){
+//   return this.http.get('${this.baseUrl}/this.getCompInfo')
+// }
+
 }
-}
+
+
