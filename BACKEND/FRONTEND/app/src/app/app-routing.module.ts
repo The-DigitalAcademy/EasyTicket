@@ -12,6 +12,7 @@ import { PProfileComponent } from './passenger/p-profile/p-profile.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
+import { ScanComponent } from './scan/scan.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 
@@ -20,7 +21,15 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },{ path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
 { path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] },
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },{ path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
-{ path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },{ path: 'destination', component: DestinationComponent,canActivate:[AuthService] }
+{ path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },{ path: 'destination', component: DestinationComponent,canActivate:[AuthService] },
+{ path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
+{ path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
+{ path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },
+{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] },
+{ path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
+{ path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
+{ path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
+{ path: 'scan', component: ScanComponent,canActivate:[AuthService] }
 
 ];
 
