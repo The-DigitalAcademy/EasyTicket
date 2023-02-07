@@ -11,7 +11,7 @@ import { PProfileComponent } from './passenger/p-profile/p-profile.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
@@ -22,6 +22,10 @@ import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ScanComponent } from './scan/scan.component';
+import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { SafePipe } from './safe.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,11 +42,19 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     IdashboardComponent,
     PaymentComponent,
     TopnavComponent,
-    LoadtokenComponent
+    LoadtokenComponent,
+    ScanComponent,
+    SafePipe 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,ReactiveFormsModule,NgToastModule,PdfViewerModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgToastModule,
+    PdfViewerModule,
+    NgxScannerQrcodeModule,
+    FormsModule
   ],
   providers: [GuardService,AuthService],
   bootstrap: [AppComponent]
