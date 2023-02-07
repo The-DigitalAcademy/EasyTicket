@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
+import { CompanyService } from 'src/app/service/company.service';
 
 
 @Component({
@@ -14,6 +15,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./p-payment.component.scss']
 })
 export class PPaymentComponent implements OnInit {
+
+//companys ind
+  data :any;
+   name:any;
+   id: any;
+   userid: any;
+   companyname:any;
+   companylogo:any;
+   companycontact:any;
+   companyemail:any;
+   companyaccount:any;
+
+    companyInfo={
+    id:'',
+    user_id:'',
+    companyname:'',
+    companylogo:'',
+    companycontact:'',
+    companyemail:'',
+    companyaccount:'',
+
+  }
+
 
   // proof: Upload[] = [];
   file: any;
@@ -26,7 +50,7 @@ export class PPaymentComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private jwtService : JwtService,private Passenger:PassengerService, private http:HttpClient,private toast :NgToastService,private router:Router) { }
+  constructor(private jwtService : JwtService,private Passenger:PassengerService, private http:HttpClient,private toast :NgToastService,private router:Router,private companyService: CompanyService) { }
 
   user = {
     id: '',
@@ -36,11 +60,18 @@ export class PPaymentComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    
-    this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
-    
+    this.companyService.getInfo(this.companyInfo).subscribe((data: any)=>{
+      this.id=data[0].id
+      this.userid=data[0].user_id;
+      this.companyname=data[0].company_name;
+      this.companylogo=data[0].company_logo;
+      this.companycontact=data[0].company_contact;
+      this.companyemail=data[0].company_email;
+      this.companyaccount=data[0].company_account;
+      console.log(data)
+      } )
 
-  }
+    }
 
   onFileChange(event :any)
   {

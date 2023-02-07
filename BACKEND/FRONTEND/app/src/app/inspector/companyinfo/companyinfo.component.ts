@@ -37,7 +37,7 @@ export class CompanyinfoComponent implements OnInit {
   constructor( private companyService: CompanyService) { }
   ngOnInit(): void {
     
-    this.companyService.getInfo(this.companyInfo).subscribe((data: any)=>{
+     this.companyService.getInfo(this.companyInfo).subscribe((data: any)=>{
      this.id=data[0].id
      this.userid=data[0].user_id;
      this.companyname=data[0].company_name;
@@ -45,7 +45,6 @@ export class CompanyinfoComponent implements OnInit {
      this.companycontact=data[0].company_contact;
      this.companyemail=data[0].company_email;
      this.companyaccount=data[0].company_account;
-    // this.companyService.getCompInfo().subscribe(Response :  any)=>{
      console.log(data)
      } )
   }
