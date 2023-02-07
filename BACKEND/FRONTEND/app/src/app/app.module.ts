@@ -44,7 +44,7 @@ import { SafePipe } from './safe.pipe';
     PaymentComponent,
     TopnavComponent,
     LoadtokenComponent,
-    DestinationComponent
+    DestinationComponent,
     ScanComponent,
     SafePipe 
   ],
