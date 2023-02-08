@@ -23,6 +23,8 @@ import { TopnavComponent } from './inspector/topnav/topnav.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { TripComponent } from './trip/trip.component';
+import { ScanTripComponent } from './scan-trip/scan-trip.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,11 +42,12 @@ import { TripComponent } from './trip/trip.component';
     PaymentComponent,
     TopnavComponent,
     LoadtokenComponent,
-    TripComponent
+    TripComponent,
+    ScanTripComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,ReactiveFormsModule,NgToastModule,PdfViewerModule
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule,NgToastModule,PdfViewerModule, NgbModule
   ],
   providers: [GuardService,AuthService],
   bootstrap: [AppComponent]

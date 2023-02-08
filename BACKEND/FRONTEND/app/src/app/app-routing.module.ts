@@ -10,6 +10,7 @@ import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { PProfileComponent } from './passenger/p-profile/p-profile.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
+import { ScanTripComponent } from './scan-trip/scan-trip.component';
 import { AuthService } from './service/auth.service';
 import { TripComponent } from './trip/trip.component';
 
@@ -21,7 +22,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] },
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },{ path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
-{path: 'trip', component: TripComponent, canActivate: [AuthService]}
+{path: 'trip', component: TripComponent, canActivate: [AuthService]},
+{path: 'scantrip', component: ScanTripComponent, canActivate: [AuthService]}
 
 ];
 
