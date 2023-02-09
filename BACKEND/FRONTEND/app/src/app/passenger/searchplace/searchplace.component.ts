@@ -1,16 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
-  selector: 'app-destination',
-  templateUrl: './destination.component.html',
-  styleUrls: ['./destination.component.scss']
+  selector: 'app-searchplace',
+  templateUrl: './searchplace.component.html',
+  styleUrls: ['./searchplace.component.scss']
 })
-export class DestinationComponent implements OnInit {
+export class SearchplaceComponent implements OnInit {
 
   searchText = '';
+  heroes = [];
+  got: any;
   dropList: string[] = [];
-  constructor(private http: HttpClient) {}
+
+
+
+  constructor(private http: HttpClient,private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -36,11 +43,7 @@ if(this.searchText!='')
 
    
     results.forEach((item: any) => {
-      
-      this.dropList.push(item.formatted)
-
-      
-
+      this.got=this.dropList.push(item.formatted)
 
     });
 
@@ -49,5 +52,16 @@ if(this.searchText!='')
 
 }
    
+  }
+
+ 
+
+  save(place:any)
+  {
+  
+   console.log(place)
+   //setTimeout(()=> this.router.navigate(['/destination']),1600)
+   this.router.navigate(['/destination'])
+
   }
 }
