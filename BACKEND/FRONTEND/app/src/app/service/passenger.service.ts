@@ -25,5 +25,19 @@ export class PassengerService {
 
   }
 
+  postDestination(id:any,data:any) {
+    return this.http.post(this.baseUrl+'/postDestination/',data);
+  }
+
+  getUserPlaces(id: any){
+
+    return this.http.get(this.baseUrl +"/getUserPlaces/"+id);
+
+  }
+  deleteAddress(id: any){
+
+    return this.http.delete(this.baseUrl +"/deleteAddress/"+id);
+
+  }
   
 }
