@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scan-trip.component.scss']
 })
 export class ScanTripComponent implements OnInit {
+progress: any;
+clickHandler($event: MouseEvent) {
+throw new Error('Method not implemented.');
+}
+showMenuToggle: any;
+disabled: any;
 
   constructor() { }
 
