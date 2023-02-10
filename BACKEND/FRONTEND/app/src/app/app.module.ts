@@ -25,6 +25,10 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ScanComponent } from './scan/scan.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
+import { ModalComponent } from './modal/modal.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { SafePipe } from './safe.pipe';
     TopnavComponent,
     LoadtokenComponent,
     ScanComponent,
-    SafePipe 
+    SafePipe,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,10 @@ import { SafePipe } from './safe.pipe';
     NgToastModule,
     PdfViewerModule,
     NgxScannerQrcodeModule,
-    FormsModule
+    FormsModule,
+
+    
+    // NgxSmartModalModule.forRoot()
   ],
   providers: [GuardService,AuthService],
   bootstrap: [AppComponent]
