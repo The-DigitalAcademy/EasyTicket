@@ -47,5 +47,9 @@ export class PassengerService {
     return this.http.delete(this.baseUrl +"/deleteAddress/"+id);
 
   }
+  updateProfile(id: any,data:any){
+    return this.http.put(this.baseUrl +"/updateProfile/"+id,data);
+  }
+
   
 }
