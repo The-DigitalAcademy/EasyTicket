@@ -11,7 +11,8 @@ import { PProfileComponent } from './passenger/p-profile/p-profile.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
@@ -22,14 +23,20 @@ import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { DestinationComponent } from './passenger/destination/destination.component';
 import { ScanComponent } from './scan/scan.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
+import { ModalComponent } from './modal/modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { ModalComponent } from './modal/modal.component';
 
 
+
+
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// import { NgxSmartModalModule,NgxSmartModalService } from 'ngx-smart-modal';
 
 
 @NgModule({
@@ -49,11 +56,11 @@ import { ModalComponent } from './modal/modal.component';
     PaymentComponent,
     TopnavComponent,
     LoadtokenComponent,
-    DestinationComponent,
     ScanComponent,
     SafePipe,
-    SearchplaceComponent ,
     ModalComponent,
+    SearchplaceComponent
+
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,9 @@ import { ModalComponent } from './modal/modal.component';
     NgToastModule,
     PdfViewerModule,
     NgxScannerQrcodeModule,
-    FormsModule,
+
+    FormsModule
+
 
     
     // NgxSmartModalModule.forRoot()

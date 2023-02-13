@@ -29,6 +29,10 @@ export class PassengerService {
 
   }
 
+  updateProfile(id: any,data:any){
+    return this.http.put(this.baseUrl +"/updateProfile/"+id,data);
+  }
+
   postDestination(id:any,data:any) {
     return this.http.post(this.baseUrl+'/postDestination/',data);
   }
