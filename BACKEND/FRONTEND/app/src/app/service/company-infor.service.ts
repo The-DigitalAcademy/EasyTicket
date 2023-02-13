@@ -14,5 +14,9 @@ export class CompanyInforService {
   infor(data: any){
     return this.http.post(this.baseUrl +"/postInfo", data);
   }
+
+  getInfor(data: any){
+    return this.http.post(this.baseUrl +"/getInfo", data);
+  }
 }
  
