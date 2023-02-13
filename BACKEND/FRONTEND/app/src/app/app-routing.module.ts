@@ -14,7 +14,6 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
 import { ScanComponent } from './scan/scan.component';
 import { ModalComponent } from './modal/modal.component';
-import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
