@@ -27,6 +27,7 @@ import { ScanComponent } from './scan/scan.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
+import { StatusComponent } from './passenger/status/status.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SearchplaceComponent } from './passenger/searchplace/searchplace.compon
     DestinationComponent,
     ScanComponent,
     SafePipe,
-    SearchplaceComponent 
+    SearchplaceComponent,
+    StatusComponent 
   ],
   imports: [
     BrowserModule,
