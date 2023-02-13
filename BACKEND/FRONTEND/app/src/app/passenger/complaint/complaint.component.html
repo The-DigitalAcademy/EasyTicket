@@ -20,6 +20,7 @@
   <app-bottom-menu></app-bottom-menu>
    <!-------------------->
    <!-- comment Box -->
+   <form [formGroup]="form" #complaintform="ngForm" (ngSubmit)="onComplaintCreate(complaintform.value)">
     <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 34px;position: static;">
             <div style="text-align: left;"><label class="form-label" style="color: rgb(247,152,9);">Message</label></div>
          
@@ -31,4 +32,7 @@
             </div>
         </div>
     </div>
+   </form>
 </body>
+
+
