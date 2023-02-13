@@ -27,7 +27,7 @@ import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
 import { ModalComponent } from './modal/modal.component';
 
-
+// import { NgxSmartModalModule,NgxSmartModalService } from 'ngx-smart-modal';
 
 
 @NgModule({

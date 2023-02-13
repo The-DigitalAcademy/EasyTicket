@@ -13,7 +13,6 @@ const profile = require("../controllers/passenger/profile")
 const password = require("../controllers/passenger/password")
 const invoice = require("../controllers/passenger/invoice")
 const getTokens = require("../controllers/passenger/getTokens")
-const complains = require("../controllers/passenger/complains")
 
 //routes for inspector
 const proof = require("../controllers/inspector/proof")
@@ -112,9 +111,6 @@ router.post('/register', register.registerUser)
    router.put('/updateCompInfo/:id', comp_info.updateCompInfo)
    router.delete('/deleteInfo/:id', comp_info.deleteCompInfo)
 
-   //routes for complains
-   router.post('/postComplains', complains.postComplains)
-   router.get('/getComplains', complains.getComplains)
  
    
    

@@ -5,6 +5,7 @@ import { IdashboardComponent } from './inspector/idashboard/idashboard.component
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { LoginComponent } from './login/login.component';
+import { DestinationComponent } from './passenger/destination/destination.component';
 import { PDashboardComponent } from './passenger/p-dashboard/p-dashboard.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { PProfileComponent } from './passenger/p-profile/p-profile.component';
@@ -13,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
 import { ScanComponent } from './scan/scan.component';
 import { ModalComponent } from './modal/modal.component';
+import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
+import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 
@@ -27,6 +30,17 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'modal', component: ModalComponent,canActivate:[AuthService]},
+{ path: 'destination', component: DestinationComponent,canActivate:[AuthService] },
+{ path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
+{ path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
+{ path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },
+{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] },
+{ path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
+{ path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
+{ path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
+{ path: 'scan', component: ScanComponent,canActivate:[AuthService] },
+{ path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] }
+
 ];
 
 @NgModule({
