@@ -27,6 +27,10 @@ import { ScanComponent } from './scan/scan.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
+import { ModalComponent } from './modal/modal.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -48,7 +52,8 @@ import { SearchplaceComponent } from './passenger/searchplace/searchplace.compon
     DestinationComponent,
     ScanComponent,
     SafePipe,
-    SearchplaceComponent 
+    SearchplaceComponent ,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,10 @@ import { SearchplaceComponent } from './passenger/searchplace/searchplace.compon
     NgToastModule,
     PdfViewerModule,
     NgxScannerQrcodeModule,
-    FormsModule
+    FormsModule,
+
+    
+    // NgxSmartModalModule.forRoot()
   ],
   providers: [GuardService,AuthService],
   bootstrap: [AppComponent]
