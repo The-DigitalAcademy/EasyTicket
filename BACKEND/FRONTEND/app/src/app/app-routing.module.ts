@@ -15,7 +15,7 @@ import { AuthService } from './service/auth.service';
 import { ScanComponent } from './scan/scan.component';
 import { ModalComponent } from './modal/modal.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
-import { ModalComponent } from './modal/modal.component';
+
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 

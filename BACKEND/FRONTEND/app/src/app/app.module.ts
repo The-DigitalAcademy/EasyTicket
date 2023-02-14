@@ -29,7 +29,7 @@ import { SafePipe } from './safe.pipe';
 import { ModalComponent } from './modal/modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
-import { ModalComponent } from './modal/modal.component';
+
 
 
 
