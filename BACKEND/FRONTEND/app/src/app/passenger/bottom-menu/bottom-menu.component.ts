@@ -14,7 +14,7 @@ export class BottomMenuComponent implements OnInit {
   }
 
   onClick(){
-    console.log('we are logging out')
+
     localStorage.removeItem("token");
     this.route.navigate(['/'])
   }

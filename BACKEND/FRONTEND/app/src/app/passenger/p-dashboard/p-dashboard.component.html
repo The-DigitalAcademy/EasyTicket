@@ -1,10 +1,9 @@
-<body style="background: #303030;font-family: 'Public Sans', sans-serif;">
+<body style="background: #303030;">
     <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
         <div class="container"><a class="navbar-brand d-flex align-items-center" routerLink="/p-profile"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="border-radius: 16px;background: rgb(247,152,9);"><span>{{init}}</span></span><span style="font-size: 14px;">{{single}}</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
-             <!-- Commemt icon  -->  
-             
+                    <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-comment" style="color: rgb(247,152,9);font-size: 20px;display: none;"></i></a></li>
                 </ul ><a *ngFor="let w of wallet"  class="btn btn-primary btn-sm ms-md-2" role="button" routerLink="/wallet" style="border-radius: 8px;background: rgb(255,255,255);--bs-primary: rgb(247,152,9);--bs-primary-rgb: 247,152,9;color: rgb(94,89,89);border-color: rgb(247,152,9);font-size: 11px;">Bal {{ user.amount | number:'1.2-2' }}</a>
             </div>
         </div>

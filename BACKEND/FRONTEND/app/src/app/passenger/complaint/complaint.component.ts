@@ -12,7 +12,7 @@ import { FormControl,FormGroup } from '@angular/forms';
   styleUrls: ['./complaint.component.scss']
 })
 export class ComplaintComponent implements OnInit {
-
+ 
   form:FormGroup= new FormGroup(
   {
     compName: new FormControl(''),
@@ -25,10 +25,11 @@ export class ComplaintComponent implements OnInit {
   {
 
 console.log(data);
- this.http.post('http://localhost:3001/complaint',data).subscribe((res)=>
+ this.http.post('http://localhost:3001/complaint',data,{responseType:'text'}).subscribe((res)=>
  {
 
   console.log(res);
+  
  });
 
   }

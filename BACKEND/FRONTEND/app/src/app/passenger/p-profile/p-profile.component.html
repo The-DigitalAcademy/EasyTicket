@@ -1,4 +1,4 @@
-<body style="background: #303030;font-family: 'Public Sans', sans-serif;">
+<body style="background: #303030;">
     <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
         <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
@@ -38,7 +38,27 @@
                                 <p style="color: rgb(247,152,9);margin-top: 3px;"><strong>{{user.fullname}}</strong></p>
                                 <p style="color: rgb(247,152,9);font-size: 11px;margin-top: -18px;"><strong><span style="color: rgb(255, 255, 255);">{{user.email}}</span></strong><br></p>
                             </div>
-                            <div class="col-3"><button class="btn shadow-lg float-end" type="button" style="background: #f79809;"><i class="fas fa-pen text-white"></i></button></div>
+                            <div class="col-3">
+                                <!-- <div *ngIf="user">
+
+                                        <form >
+                                         
+                                            <div>
+                                                <label>fullname:</label>
+                                                <input [(ngModel)]="user.fullname" name="fullname" id="name" placeholder="update" required/>
+                                            </div>
+                                        
+                                            <button type="submit" (click)="updateProfile()" id="save" >Save</button>
+                                            
+                                        </form>
+
+                                </div> -->
+                                <!-- <button class="bi bi-pen-fill btn btn-primary">Edit</button> -->
+
+                                <button type="edit" [routerLink]="['/modal']" class="btn shadow-lg float-end" type="button" style="background: #f79809;">
+                                    <i class="fas fa-pen text-white"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

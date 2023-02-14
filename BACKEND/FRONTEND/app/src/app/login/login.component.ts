@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(data:any): void {
     this.submitted = true;
-
+   this.guardservice.login();
 
 
   if(data.email=='' || data.password=='')
@@ -76,10 +76,8 @@ export class LoginComponent implements OnInit {
 
   }else
   {
-//check
 
-//connect to server
-this.guardservice.login();
+ 
 
 
 this.http.post('http://localhost:3001/login',data)
@@ -92,15 +90,27 @@ this.http.post('http://localhost:3001/login',data)
  
 if(localStorage.getItem('token')!=null){
 
+
 this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
+let id=this.users.id
 
 
-// console.log(this.users.id);
-// console.log(this.users.fullname);
-// console.log(this.users.email);
+if(this.users.id < '16')
+{
 
-  this.toast.success({detail:"Success",summary:'Loggedin Succesfully', duration:2000})
+  this.toast.success({detail:"Success",summary:'Loggedin Succesfully as Passenger', duration:2000})
   setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
+
+}else
+{
+
+  this.toast.success({detail:"Success",summary:'Loggedin Succesfully as Inspector', duration:2000})
+  setTimeout(()=> this.router.navigate(['/idashboard']),900)
+
+
+}
+
+
 
 
    
@@ -119,6 +129,9 @@ this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[
 },(err)=>{
  this.openWarning();
 })
+
+
+
 
 
 

@@ -2,8 +2,8 @@ const pool = require("../../Data Access/connection");
 
 
 const updateTokens = (request, res) => {
-  const id = parseInt(request.params.id);
-  const { input } = request.body
+  //const id = parseInt(request.params.id);
+  const { id,input } = request.body
  
 try{
   pool.query('UPDATE public.users SET amount=(amount + $1) WHERE id=$2',[input, id], (error, results) => {
