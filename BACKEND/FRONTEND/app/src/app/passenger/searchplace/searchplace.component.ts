@@ -85,7 +85,7 @@ if(this.searchText!='')
     .subscribe((results)=>{
   
   //  this.toast.success({detail:"Success",summary:'Destination saved successfully', duration:2000})
-        setTimeout(()=> this.router.navigate(['/destination']),1600)
+        setTimeout(()=> this.router.navigate(['/travel']),1600)
 
       })
 

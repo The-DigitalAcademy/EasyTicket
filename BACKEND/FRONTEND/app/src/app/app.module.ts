@@ -12,12 +12,11 @@ import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { SidemenuComponent } from './inspector/sidemenu/sidemenu.component';
-
+import { RouterModule, Routes } from '@angular/router';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
@@ -31,6 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
+
+import { TravelComponent } from './passenger/travel/travel.component';
 
 
 
@@ -65,7 +66,9 @@ import { NavigateComponent } from './passenger/navigate/navigate.component';
     StarttripComponent,
     NavigateComponent,
     ModalComponent,
-    SearchplaceComponent
+    SearchplaceComponent,
+
+    TravelComponent
 
   ],
   imports: [
@@ -76,7 +79,7 @@ import { NavigateComponent } from './passenger/navigate/navigate.component';
     NgToastModule,
     PdfViewerModule,
     NgxScannerQrcodeModule,
-
+    RouterModule,
     FormsModule
 
 

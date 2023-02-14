@@ -17,6 +17,10 @@ import { ModalComponent } from './modal/modal.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { TravelComponent } from './passenger/travel/travel.component';
 
 
 
@@ -45,14 +49,14 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
 { path: 'navigate/:address', component: NavigateComponent,canActivate:[AuthService] },
-
-
+{ path: 'travel', component: TravelComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'modal', component: ModalComponent,canActivate:[AuthService]},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), BrowserModule,
+    FormsModule  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

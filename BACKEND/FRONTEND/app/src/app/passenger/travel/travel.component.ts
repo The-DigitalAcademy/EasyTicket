@@ -5,17 +5,17 @@ import { NgToastService } from 'ng-angular-popup';
 import { JwtService } from 'src/app/service/jwt.service';
 import { PassengerService } from 'src/app/service/passenger.service';
 
-
 @Component({
-  selector: 'app-destination',
-  templateUrl:'./destination.component.html',
-  styleUrls: ['./destination.component.scss']
+  selector: 'app-travel',
+  templateUrl: './travel.component.html',
+  styleUrls: ['./travel.component.scss']
 })
-export class DestinationComponent implements OnInit {
+export class TravelComponent implements OnInit {
 
+  constructor(private http: HttpClient,private passenger:PassengerService,private jwtService : JwtService,private router: Router,private toast : NgToastService) { }
   searchText = '';
   dropList: string[] = [];
-  constructor(private http: HttpClient,private passenger:PassengerService,private jwtService : JwtService,private router: Router,private toast : NgToastService) {}
+  
   user = {
     id: '',
     fullname:'',
@@ -26,8 +26,8 @@ export class DestinationComponent implements OnInit {
 
 info:any;
 inf=[];
-
   ngOnInit(): void {
+
 
 
     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
@@ -40,12 +40,8 @@ inf=[];
     console.log(res);
     
   })
-
-
-
-
-
   }
+
   log(value: any) {
 
     this.dropList = []
@@ -77,7 +73,6 @@ if(this.searchText!='')
 }
    
   }
-
   delete(value:any)
   {
 
@@ -99,11 +94,11 @@ if(this.searchText!='')
 })
      }
 
-     onClick(){
+     
+  onClick(){
 
-      localStorage.removeItem("token");
-      this.router.navigate(['/'])
-    }
+    localStorage.removeItem("token");
+    this.router.navigate(['/'])
+  }
 
-  
 }
