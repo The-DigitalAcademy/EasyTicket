@@ -18,6 +18,9 @@ loadToken(data:any){
   return this.http.put(this.baseUrl +"/loadTokens",data);
 }
 
+getStatus(){
+  return this.http.get(this.baseUrl +"/getStatus");
+}
 
  
 }
