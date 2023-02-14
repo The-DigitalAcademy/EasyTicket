@@ -21,18 +21,18 @@ export class ComplaintComponent implements OnInit {
 
   constructor(private http:HttpClient,private complaintService:ComplaintService) { }
 
-    onComplaintCreate(data:any)
-  {
+//     onComplaintCreate(data:any)
+//   {
 
-console.log(data);
- this.http.post('http://localhost:3001/complaint',data,{responseType:'text'}).subscribe((res)=>
- {
+// console.log(data);
+//  this.http.post('http://localhost:3001/complaint',data,{responseType:'text'}).subscribe((res)=>
+//  {
 
-  console.log(res);
+//   console.log(res);
   
- });
+//  });
 
-  }
+//   }
   ngOnInit(): void {
   }
 
