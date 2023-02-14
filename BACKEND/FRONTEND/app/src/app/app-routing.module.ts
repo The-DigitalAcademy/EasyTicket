@@ -15,8 +15,12 @@ import { AuthService } from './service/auth.service';
 import { ScanComponent } from './scan/scan.component';
 import { ModalComponent } from './modal/modal.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
+
+import { PassengersComponent } from './inspector/passengers/passengers.component';
+
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
+
 
 
 
@@ -43,10 +47,9 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
+{ path: 'passengers', component: PassengersComponent,canActivate:[AuthService] },
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
 { path: 'navigate/:address', component: NavigateComponent,canActivate:[AuthService] },
-
-
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'modal', component: ModalComponent,canActivate:[AuthService]},
 ];
