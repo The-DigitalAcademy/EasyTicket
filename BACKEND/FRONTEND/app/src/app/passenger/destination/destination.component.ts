@@ -82,7 +82,7 @@ if(this.searchText!='')
 
     this.passenger.deleteAddress(value).subscribe(res=>{
     
-      this.toast.success({detail:"Warning",summary:'Destination removed successfully', duration:2000})
+      // this.toast.success({detail:"Success",summary:'Destination removed successfully', duration:2000})
      // setTimeout(()=> this.router.navigate(['/destination']),1600)
 
     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
