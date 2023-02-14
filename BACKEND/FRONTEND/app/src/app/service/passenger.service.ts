@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PassengerService {
+  get(id: number) {
+    throw new Error('Method not implemented.');
+  }
+  save: any;
 
   constructor(private http:HttpClient) { }
 
@@ -25,6 +29,8 @@ export class PassengerService {
 
   }
 
+ 
+
   postDestination(id:any,data:any) {
     return this.http.post(this.baseUrl+'/postDestination/',data);
   }
@@ -39,5 +45,9 @@ export class PassengerService {
     return this.http.delete(this.baseUrl +"/deleteAddress/"+id);
 
   }
+  updateProfile(id: any,data:any){
+    return this.http.put(this.baseUrl +"/updateProfile/"+id,data);
+  }
+
   
 }

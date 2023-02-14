@@ -16,6 +16,8 @@ const getProfile = (request, res) => {
 
 }
 
+
+
 const updateProfile = (request, res) => {
     const id = parseInt(request.params.id);
     const { fullname} = request.body

@@ -13,7 +13,7 @@ import { PassengerService } from 'src/app/service/passenger.service';
 })
 export class SearchplaceComponent implements OnInit {
 
-  searchText = '';
+  searchText:any;
   heroes = [];
   got: any;
   dropList: string[] = [];

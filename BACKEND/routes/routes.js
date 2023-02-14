@@ -14,12 +14,14 @@ const password = require("../controllers/passenger/password")
 const invoice = require("../controllers/passenger/invoice")
 const getTokens = require("../controllers/passenger/getTokens")
 const destination = require("../controllers/passenger/destination")
+const complains = require("../controllers/passenger/complains")
+
 
 //routes for inspector
-const trip = require("../controllers/inspector/trip")
 const proof = require("../controllers/inspector/proof")
 const comp_info = require("../controllers/inspector/company")
 const tokens = require("../Controllers/inspector/tokens")
+const status = require("../controllers/inspector/status")
 
 //code for uploading files
 const cloudinary = require("cloudinary").v2;
@@ -59,6 +61,12 @@ var corsOptions = {
 
 router.use(cors(corsOptions));
 
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");    
+  next();
+});
+
 router.use(bodyParser.json())
 router.use(
   bodyParser.urlencoded({
@@ -75,6 +83,11 @@ router.post('/register', register.registerUser)
  //routes for logging in
  router.post('/login', login.passengerLogin)
 
+   //routes for saving and deleting addresses
+   router.post('/postAddress', destination.postDestination)
+   router.delete('/deleteAddress/:id', destination.deleteDestination)
+   router.get('/getPlaces/:id', destination.getPlaces)
+   router.get('/getUserPlaces/:id', destination.getUserPlaces)
 
   //routes for trips(inspector)
   router.get('/allTrips', trip.getTrips)
@@ -93,10 +106,11 @@ router.post('/register', register.registerUser)
   //update password
   router.put('/updatePassword/:id', password.updatePassword)
 
-  //invoice routes
+  //payment routes
   router.post('/postProof', invoice.postInvoice)
   router.get('/getProof/:id', invoice.getInvoice)
   router.get('/getProofuser', proof.getProofuser)
+
   //route for getting proof of payment
   router.get('/proofOfPayment', proof.getProof)
 
@@ -114,13 +128,14 @@ router.post('/register', register.registerUser)
    router.put('/updateCompInfo/:id', comp_info.updateCompInfo)
    router.delete('/deleteInfo/:id', comp_info.deleteCompInfo)
 
-   //routes for saving and deleting addresses
-   router.post('/postAddress', destination.postDestination)
-   router.delete('/deleteAddress/:id', destination.deleteDestination)
-   router.get('/getPlaces/:id', destination.getPlaces)
-   router.get('/getUserPlaces/:id', destination.getUserPlaces)
    
-   
+   //routes for complains
+   router.post('/postComplains', complains.postComplains)
+   router.get('/getComplains', complains.getComplains)
+
+  //  status
+  router.get('/getStatus', status.getUsers)
+
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)
