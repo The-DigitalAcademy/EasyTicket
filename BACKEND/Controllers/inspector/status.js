@@ -14,7 +14,18 @@ const getUsers = (request, res) => {
     }),handleErr
 }
 
+const getAllUsers = (request, res) => {
+
+    // const {status} = request.body
+
+    pool.query('SELECT fullname,status,amount FROM public.users', (error, results) => {
+     
+      res.status(200).json(results.rows)
+    }),handleErr
+}
+
 module.exports = {
-    getUsers
+    getUsers,
+    getAllUsers
   }
 
