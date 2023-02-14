@@ -5,7 +5,7 @@ const handleErr = (err, req, res, next) => {
 }
 
 const getComplains = (request, res) => {
-    pool.query('SELECT * FROM public.complains ORDER BY id ASC ', (error, results) => {
+    pool.query('SELECT * FROM public.complains,public.users WHERE public.complains.user_id=public.users.id ', (error, results) => {
      
       res.status(200).json(results.rows)
     }),handleErr

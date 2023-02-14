@@ -18,7 +18,6 @@ const complains = require("../controllers/passenger/complains")
 
 
 //routes for inspector
-const trip = require("../controllers/inspector/trip")
 const proof = require("../controllers/inspector/proof")
 const comp_info = require("../controllers/inspector/company")
 const tokens = require("../Controllers/inspector/tokens")
@@ -62,6 +61,12 @@ var corsOptions = {
 
 router.use(cors(corsOptions));
 
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");    
+  next();
+});
+
 router.use(bodyParser.json())
 router.use(
   bodyParser.urlencoded({
@@ -101,10 +106,11 @@ router.post('/register', register.registerUser)
   //update password
   router.put('/updatePassword/:id', password.updatePassword)
 
-  //invoice routes
+  //payment routes
   router.post('/postProof', invoice.postInvoice)
   router.get('/getProof/:id', invoice.getInvoice)
   router.get('/getProofuser', proof.getProofuser)
+
   //route for getting proof of payment
   router.get('/proofOfPayment', proof.getProof)
 
@@ -121,7 +127,6 @@ router.post('/register', register.registerUser)
    router.post('/postInfo', comp_info.postCompInfo)
    router.put('/updateCompInfo/:id', comp_info.updateCompInfo)
    router.delete('/deleteInfo/:id', comp_info.deleteCompInfo)
-
 
    
    //routes for complains

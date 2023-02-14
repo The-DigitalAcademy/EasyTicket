@@ -13,9 +13,9 @@ import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
 import { ScanComponent } from './scan/scan.component';
-import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
-import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { ModalComponent } from './modal/modal.component';
+import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
+
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 
@@ -28,6 +28,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
 { path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
+{ path: 'scan', component: ScanComponent,canActivate:[AuthService] },
+{ path: 'modal', component: ModalComponent,canActivate:[AuthService]},
 { path: 'destination', component: DestinationComponent,canActivate:[AuthService] },
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
 { path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
