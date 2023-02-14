@@ -41,13 +41,15 @@
                         <p style="color: rgb(255,255,255);font-size: 13px;position: fixed;"><i class="fas fa-bus-alt" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Saved destinations</p>
                         <div class="row" style="margin-top: 38px;" >
                             <div class="col-md-6 col-xl-3 mb-4" *ngFor="let p of info">
+                                
                                 <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
                                     <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
                                         <div class="row align-items-center no-gutters">
                                             <div class="col me-2">
                                                 <div class="text-uppercase text-primary fw-bold text-xs mb-1">
-                                                    <p class="text-capitalize" style="font-size: 10px;margin-top: 14px;"><strong><span style="color: rgb(245, 152, 5);"> {{p.address}}</span></strong></p>
-            
+                                                    <a routerLink="/starttrip/{{p.address}}" style="text-decoration:none;">
+                                                        <p class="text-capitalize" style="font-size: 10px;margin-top: 14px;"><strong><span style="color: rgb(255, 255, 255);"> {{p.address}}</span></strong></p></a>
+                                   
                                                 </div>
                                             </div>
 
@@ -57,7 +59,7 @@
                                                         <div class="modal-body" style="background: rgb(68, 65, 65);border-radius: 6px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;height: 106.5px;">
                                                             <p style="font-size: 11px;text-align: center;color: rgb(246,152,4);"><i class="fa fa-warning"></i>&nbsp;Warning</p>
                                                             <p style="font-size: 11px;text-align: center;margin-top: -11px;color: rgb(255,255,255);">Are you sure ,you wanna delete the destination.</p>
-                                                            <p style="font-size: 13px;text-align: center;margin-top: -14px;"><button class="btn btn-sm" type="button" style="font-size: 11px;background: rgb(246,152,4);" (click)="delete(p.id)" data-bs-dismiss="modal">Yes</button>&nbsp;&nbsp;<button class="btn btn-sm" type="button" data-bs-dismiss="modal" style="font-size: 11px;background: #303030;color: rgb(246,152,4);">&nbsp;No&nbsp;</button>&nbsp;&nbsp;</p>
+                                                            <p style="font-size: 13px;text-align: center;margin-top: -14px;"><button class="btn btn-sm" type="button" style="font-size: 11px;background: rgb(246,152,4);color: #ffffff;" (click)="delete(p.id)" data-bs-dismiss="modal">Yes</button>&nbsp;&nbsp;<button class="btn btn-sm" type="button" data-bs-dismiss="modal" style="font-size: 11px;background: #303030;color: rgb(246,152,4);">&nbsp;No&nbsp;</button>&nbsp;&nbsp;</p>
                                                         </div>
                                                     </div>
                                                 </div>

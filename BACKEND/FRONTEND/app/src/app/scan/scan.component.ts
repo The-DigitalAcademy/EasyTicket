@@ -12,7 +12,7 @@ export class ScanComponent implements OnInit {
   public config: ScannerQRCodeConfig = {
     // fps: 1000,
     vibrate: 400,
-    isAuto: false,
+    isAuto: true,
     // isBeep: true,
     // decode: 'macintosh',
     deviceActive: 1,

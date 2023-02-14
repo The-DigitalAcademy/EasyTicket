@@ -15,6 +15,9 @@ import { AuthService } from './service/auth.service';
 import { ScanComponent } from './scan/scan.component';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
+import { StarttripComponent } from './passenger/starttrip/starttrip.component';
+import { NavigateComponent } from './passenger/navigate/navigate.component';
+
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 
@@ -36,7 +39,10 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
-{ path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] }
+{ path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
+{ path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
+{ path: 'navigate/:address', component: NavigateComponent,canActivate:[AuthService] },
+
 
 ];
 
