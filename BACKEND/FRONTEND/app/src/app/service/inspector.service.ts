@@ -22,5 +22,9 @@ getStatus(){
   return this.http.get(this.baseUrl +"/getStatus");
 }
 
+getAllUsers(){
+  return this.http.get(this.baseUrl +"/getAllUsers");
+}
+
  
 }

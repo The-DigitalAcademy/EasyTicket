@@ -135,6 +135,8 @@ router.post('/register', register.registerUser)
 
   //  status
   router.get('/getStatus', status.getUsers)
+  router.get('/getAllUsers', status.getAllUsers)
+
 
 
 router.listen(port, () => {
