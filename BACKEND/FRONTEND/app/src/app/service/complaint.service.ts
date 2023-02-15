@@ -6,16 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class ComplaintService {
 
+  baseUrl = "http://localhost:3001"
+
   constructor(private http:HttpClient) { }
    
   postComplains(data:any){
 
     const postMessage={
       user_id:'',
-      message:'',
+      complains:'',
     };
     return this.http.post('http://localhost:3001/postcomplains',data);
   }
+
+
  
-  baseUrl = "http://localhost:3001"
+
 }

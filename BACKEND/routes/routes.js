@@ -13,11 +13,15 @@ const profile = require("../controllers/passenger/profile")
 const password = require("../controllers/passenger/password")
 const invoice = require("../controllers/passenger/invoice")
 const getTokens = require("../controllers/passenger/getTokens")
+const destination = require("../controllers/passenger/destination")
+const complains = require("../controllers/passenger/complains")
+
 
 //routes for inspector
 const proof = require("../controllers/inspector/proof")
 const comp_info = require("../controllers/inspector/company")
 const tokens = require("../Controllers/inspector/tokens")
+const status = require("../controllers/inspector/status")
 
 //code for uploading files
 const cloudinary = require("cloudinary").v2;
@@ -79,6 +83,19 @@ router.post('/register', register.registerUser)
  //routes for logging in
  router.post('/login', login.passengerLogin)
 
+   //routes for saving and deleting addresses
+   router.post('/postAddress', destination.postDestination)
+   router.delete('/deleteAddress/:id', destination.deleteDestination)
+   router.get('/getPlaces/:id', destination.getPlaces)
+   router.get('/getUserPlaces/:id', destination.getUserPlaces)
+
+  //routes for trips(inspector)
+  router.get('/allTrips', trip.getTrips)
+  router.get('/tripByName', trip.getTripByName)
+  router.post('/createTrip', trip.postTrip)
+  router.put('/updateTrip/:id', trip.updateTrip)
+  router.delete('/deleteTrip/:id', trip.deleteTrip)
+
   //routes for searching the destination
   router.get('/seachDestination', search.getTripByName)
 
@@ -111,9 +128,14 @@ router.post('/register', register.registerUser)
    router.put('/updateCompInfo/:id', comp_info.updateCompInfo)
    router.delete('/deleteInfo/:id', comp_info.deleteCompInfo)
 
- 
    
-   
+   //routes for complains
+   router.post('/postComplains', complains.postComplains)
+   router.get('/getComplains', complains.getComplains)
+
+  //  status
+  router.get('/getStatus', status.getUsers)
+
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

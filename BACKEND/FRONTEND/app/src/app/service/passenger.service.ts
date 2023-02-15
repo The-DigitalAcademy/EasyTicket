@@ -29,9 +29,7 @@ export class PassengerService {
 
   }
 
-  updateProfile(id: any,data:any){
-    return this.http.put(this.baseUrl +"/updateProfile/"+id,data);
-  }
+ 
 
   postDestination(id:any,data:any) {
     return this.http.post(this.baseUrl+'/postDestination/',data);
@@ -47,9 +45,9 @@ export class PassengerService {
     return this.http.delete(this.baseUrl +"/deleteAddress/"+id);
 
   }
-  // updateProfile(id: any,data:any){
-  //   return this.http.put(this.baseUrl +"/updateProfile/"+id,data);
-  // }
+  updateProfile(id: any,data:any){
+    return this.http.put(this.baseUrl +"/updateProfile/"+id,data);
+  }
 
   
 }

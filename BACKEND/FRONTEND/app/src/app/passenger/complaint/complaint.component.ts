@@ -5,6 +5,8 @@ import { ThisReceiver } from '@angular/compiler';
 import { ComplaintService } from 'src/app/service/complaint.service';
 import { text } from 'stream/consumers';
 import { FormControl,FormGroup } from '@angular/forms';
+import { JwtService } from 'src/app/service/jwt.service';
+import { PassengerService } from 'src/app/service/passenger.service';
 
 @Component({
   selector: 'app-complaint',
@@ -15,25 +17,51 @@ export class ComplaintComponent implements OnInit {
  
   form:FormGroup= new FormGroup(
   {
-    compName: new FormControl(''),
+    complain: new FormControl('')
   }
-)
+);
 
-  constructor(private http:HttpClient,private complaintService:ComplaintService) { }
 
-//     onComplaintCreate(data:any)
-//   {
+user = {
+  id: '',
+  fullname:'',
+  email:'',
+  amount:''
 
-// console.log(data);
-//  this.http.post('http://localhost:3001/complaint',data,{responseType:'text'}).subscribe((res)=>
-//  {
+}
+submitted = false;
 
-//   console.log(res);
-  
-//  });
+  constructor(private http:HttpClient,private complaintService:ComplaintService,private jwtService : JwtService,private Passenger:PassengerService) { }
 
-//   }
+
+
   ngOnInit(): void {
+
   }
+
+
+  onComplaintCreate(value:any)
+  {
+    this.submitted = true;
+
+
+this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
+let id=this.user.id;
+
+var complain_data={
+  user_id:id,
+  complains:value.complain
+}
+
+console.log(complain_data)
+this.http.post('http://localhost:3001/postComplains',complain_data, {responseType:'text'}).subscribe((res)=>
+ {
+   let result=res;
+  console.log(res);
+  
+ });
+
+}
+
 
 }

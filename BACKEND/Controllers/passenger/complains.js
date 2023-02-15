@@ -16,17 +16,17 @@ const getComplains = (request, res) => {
 
     const { user_id, complains } = req.body
 
-    pool.query('INSERT INTO public.complains( user_id, complains) VALUES ($1, $2)', [ user_id, complains], (error, results) => {
+    pool.query('INSERT INTO public.complains(user_id, complains) VALUES ($1, $2)', [user_id, complains], (error, results) => {
       if (error) {
         throw error
       }
-      res.status(201).send({message:"Your complain has been successfully sent"})
+      res.status(201).send({message:"Your complain has been successfully lodged"})
     })
     
   }
 
-  module.exports = {
+
+module.exports = {
     getComplains,
     postComplains
-  
   }
