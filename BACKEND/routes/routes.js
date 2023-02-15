@@ -90,11 +90,11 @@ router.post('/register', register.registerUser)
    router.get('/getUserPlaces/:id', destination.getUserPlaces)
 
   //routes for trips(inspector)
-  router.get('/allTrips', trip.getTrips)
-  router.get('/tripByName', trip.getTripByName)
-  router.post('/createTrip', trip.postTrip)
-  router.put('/updateTrip/:id', trip.updateTrip)
-  router.delete('/deleteTrip/:id', trip.deleteTrip)
+  // router.get('/allTrips', trip.getTrips)
+  // router.get('/tripByName', trip.getTripByName)
+  // router.post('/createTrip', trip.postTrip)
+  // router.put('/updateTrip/:id', trip.updateTrip)
+  // router.delete('/deleteTrip/:id', trip.deleteTrip)
 
   //routes for searching the destination
   router.get('/seachDestination', search.getTripByName)
@@ -135,6 +135,8 @@ router.post('/register', register.registerUser)
 
   //  status
   router.get('/getStatus', status.getUsers)
+  router.get('/getAllUsers', status.getAllUsers)
+
 
 
 router.listen(port, () => {

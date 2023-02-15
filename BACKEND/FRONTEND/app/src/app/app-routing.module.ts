@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CompanyInforComponent } from './company-infor/company-infor.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
@@ -18,14 +19,24 @@ import { ScanComponent } from './scan/scan.component';
 import { ModalComponent } from './modal/modal.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 
+import { PassengersComponent } from './inspector/passengers/passengers.component';
+
+import { StarttripComponent } from './passenger/starttrip/starttrip.component';
+import { NavigateComponent } from './passenger/navigate/navigate.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { TravelComponent } from './passenger/travel/travel.component';
+
+
+
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 
 {path: 'homepage', component: HomepageComponent},
 { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-{ path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },{ path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
-{ path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },{ path: 'p-payment', component: PPaymentComponent,canActivate:[AuthService] },
-{ path: 'complaint', component: ComplaintComponent,canActivate:[AuthService] },{ path: 'trip',component:TripComponent,canActivate:[AuthService]},
+{ path: 'complaint', component: ComplaintComponent,canActivate:[AuthService] },
+{path: 'company-infor' , component: CompanyInforComponent,canActivate:[AuthService]},
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
 { path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
 { path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },
@@ -45,13 +56,19 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
-
+{ path: 'passengers', component: PassengersComponent,canActivate:[AuthService] },
+{ path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
+{ path: 'navigate/:address', component: NavigateComponent,canActivate:[AuthService] },
+{ path: 'travel', component: TravelComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
+{ path: 'modal', component: ModalComponent,canActivate:[AuthService]},
+
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), BrowserModule,
+    FormsModule  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

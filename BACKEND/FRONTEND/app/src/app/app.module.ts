@@ -12,6 +12,9 @@ import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
 import { NgForm } from '@angular/forms';
+
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 // import { WalletComponent } from './passenger/wallet/wallet.component';
@@ -23,12 +26,15 @@ import { TripComponent } from './passenger/trip/trip.component';
 // import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { SidemenuComponent } from './inspector/sidemenu/sidemenu.component';
-
+import { RouterModule, Routes } from '@angular/router';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+import { CompanyInforComponent } from './company-infor/company-infor.component';
+
 import { ScanComponent } from './scan/scan.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
@@ -36,12 +42,22 @@ import { ModalComponent } from './modal/modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 
+import { PassengersComponent } from './inspector/passengers/passengers.component';
+
+import { StarttripComponent } from './passenger/starttrip/starttrip.component';
+import { NavigateComponent } from './passenger/navigate/navigate.component';
+
+import { TravelComponent } from './passenger/travel/travel.component';
+
+
+
 
 
 
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import { NgxSmartModalModule,NgxSmartModalService } from 'ngx-smart-modal';
+
 
 
 @NgModule({
@@ -63,16 +79,24 @@ import { SearchplaceComponent } from './passenger/searchplace/searchplace.compon
     PaymentComponent,
     TopnavComponent,
     LoadtokenComponent,
+    CompanyInforComponent,
     ScanComponent,
     SafePipe,
+    SearchplaceComponent,
+    StarttripComponent,
+    NavigateComponent,
     ModalComponent,
-    SearchplaceComponent
+    SearchplaceComponent,
+    TravelComponent,
+    PassengersComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,ReactiveFormsModule,NgToastModule,
     PdfViewerModule,
     NgxScannerQrcodeModule,
+    RouterModule,
     FormsModule
 
   ],
