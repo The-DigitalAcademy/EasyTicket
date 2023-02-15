@@ -21,6 +21,9 @@
   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
   crossorigin=""/>
 
+  <link rel="stylesheet" type="text/css" href="assets/lib/leaflet/leaflet.css">
+  <link rel="stylesheet" type="text/css" href="assets/leaflet-routing-machine.css">
+
 </head>
 <body style="background: #303030;">
   <app-root></app-root>
@@ -30,34 +33,10 @@ integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
 crossorigin=""></script>
 <!-- leaflet js  -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
+<script type="text/javascript" src="assets/lib/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="assets/leaflet-routing-machine.js"></script>
 <!-- jquery  -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-<script>
-    // Map initialization 
-    var map = L.map('map').setView([28.3949, 84.1240], 8);
-
-    //osm layer
-    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-    osm.addTo(map);
-
-    // marker add 
-    var marker = L.marker([28.3949, 84.1240]).addTo(map);
-
-    // search button click 
-    $('#search-btn').click(function(){
-        var latlng = $('input').val();
-        var latlngArr = latlng.split(',');
-        var lat = latlngArr[0];
-        var lng = latlngArr[1];
-        map.setView([lat, lng], 8);
-        marker.setLatLng([lat, lng]);
-    });
-
-</script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/script.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@undecaf/zbar-wasm@0.9.12/dist/index.js" async></script>

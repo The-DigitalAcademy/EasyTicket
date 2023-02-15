@@ -10,7 +10,7 @@ import { ScannerQRCodeConfig,  ScannerQRCodeSelectedFiles,  NgxScannerQrcodeServ
 export class ScanComponent implements OnInit {
 
   public config: ScannerQRCodeConfig = {
-    // fps: 1000,
+    //fps: 1000,
     vibrate: 400,
     isAuto: false,
     // isBeep: true,

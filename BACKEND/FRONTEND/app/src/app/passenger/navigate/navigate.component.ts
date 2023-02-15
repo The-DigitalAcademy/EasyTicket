@@ -20,71 +20,56 @@ export class NavigateComponent implements OnInit {
     this.params = route.snapshot.params;
    }
    Direction: string[] = [];
+   public lat: any;
+   public lng: any;
+   dropList: string[] = [];
+   latD:any;
+   lngD:any;
 
   ngOnInit(): void {
 
+//find my current location
+ navigator.geolocation.getCurrentPosition((position) => {
 
-
-//getting current location
-
- if (!navigator.geolocation) {
-      console.log('location is not supported');
-    }
-    navigator.geolocation.getCurrentPosition((position) => {
-      const coords = position.coords;
-      const latLong = [coords.latitude, coords.longitude];
-      console.log(
-        `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-      );
-      let mymap = L.map('map').setView(latLong, 20);
-
-      L.tileLayer(
-        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3VicmF0MDA3IiwiYSI6ImNrYjNyMjJxYjBibnIyem55d2NhcTdzM2IifQ.-NnMzrAAlykYciP4RP9zYQ',
-        {
-          attribution:
-            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-          maxZoom: 19,
-          id: 'mapbox/streets-v11',
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken: 'your.mapbox.access.token',
-        }
-      ).addTo(mymap);
-
-      let marker = L.marker(latLong).addTo(mymap);
-    
-
-      let popup = L.popup()
-        .setLatLng(latLong)
-        .setContent('Youre Here')
-        .openOn(mymap);
-    });
-    this.watchPosition();
-  }
-
-  watchPosition() {
-    let desLat = 0;
-    let desLon = 0;
-    let id = navigator.geolocation.watchPosition(
-      (position) => {
-        console.log(
-          `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-        );
-        if (position.coords.latitude === desLat) {
-          navigator.geolocation.clearWatch(id);
-        }
-      },
-      (err) => {
-        console.log(err);
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
+      if (position) {
+        this.lat=position.coords.latitude;
+        this.lng=position.coords.longitude;
+       
       }
-    );
 
+    
+      this.http
+      .get(
+        'https://api.opencagedata.com/geocode/v1/json?q='+this.params.address+'&key=a2580d3bbb4940d9bfa47c349d3cac3a'
+      )
+      .subscribe((data: any) => {
+   
+  
+        this.latD=data.results[0].geometry.lat;
+        this.lngD=data.results[0].geometry.lng;
 
+        var map = L.map('map').setView([-41.2858, 174.78682], 8);
+        var mapLink =
+        '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; ' + mapLink,
+        maxZoom: 20,
+        }).addTo(map);
+        
+  
+  
+        var routing = L.Routing.control({
+          waypoints: [
+          L.latLng(this.lat,this.lng),
+          L.latLng( this.latD,this.lngD)
+          ]
+        })
+        routing.addTo(map);
+      
+      });
+    })
+  
 
 //getting routes api
     this.get_Data().subscribe((data:any) =>{
@@ -93,7 +78,11 @@ export class NavigateComponent implements OnInit {
     });  
   }
   get_Data(){
-   return this.http.get('https://api.geoapify.com/v1/routing?waypoints=-26.2047811,28.0480381|-26.2010763,28.0505651&mode=walk&apiKey=5c2b95106e094fa08e3f0fabf3c97c93')
+
+  let pointA='-26.1861256,28.0189559';
+  let pointB='-26.183182600000002,28.020225638225238';
+  return this.http.get('https://api.geoapify.com/v1/routing?waypoints='+pointA+'|'+pointB+'&mode=walk&apiKey=5c2b95106e094fa08e3f0fabf3c97c93')
+
   }
 
 }
