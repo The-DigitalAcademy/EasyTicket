@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CompanyInforComponent } from './company-infor/company-infor.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
@@ -32,6 +33,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 
 {path: 'homepage', component: HomepageComponent},
 { path: '', redirectTo: 'homepage', pathMatch: 'full' },
+{path: 'company-infor' , component: CompanyInforComponent,canActivate:[AuthService]},
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
 { path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
 { path: 'p-profile', component: PProfileComponent,canActivate:[AuthService] },
@@ -57,6 +59,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'travel', component: TravelComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'modal', component: ModalComponent,canActivate:[AuthService]},
+
 ];
 
 @NgModule({

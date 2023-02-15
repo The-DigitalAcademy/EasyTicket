@@ -22,6 +22,9 @@ import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+import { CompanyInforComponent } from './company-infor/company-infor.component';
+
 import { ScanComponent } from './scan/scan.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
@@ -47,6 +50,7 @@ import { TravelComponent } from './passenger/travel/travel.component';
 // import { NgxSmartModalModule,NgxSmartModalService } from 'ngx-smart-modal';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +68,7 @@ import { TravelComponent } from './passenger/travel/travel.component';
     PaymentComponent,
     TopnavComponent,
     LoadtokenComponent,
+    CompanyInforComponent,
     ScanComponent,
     SafePipe,
     SearchplaceComponent,
@@ -71,9 +76,9 @@ import { TravelComponent } from './passenger/travel/travel.component';
     NavigateComponent,
     ModalComponent,
     SearchplaceComponent,
-
     TravelComponent,
     PassengersComponent
+
 
   ],
   imports: [
