@@ -14,6 +14,7 @@ export class ScanComponent implements OnInit {
     vibrate: 400,
     isAuto: false,
     // isBeep: true,
+
     // decode: 'macintosh',
     deviceActive: 1,
     constraints: { 
