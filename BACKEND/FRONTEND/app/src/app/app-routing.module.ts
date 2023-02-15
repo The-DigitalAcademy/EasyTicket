@@ -6,10 +6,12 @@ import { IdashboardComponent } from './inspector/idashboard/idashboard.component
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { LoginComponent } from './login/login.component';
+import { ComplaintComponent } from './passenger/complaint/complaint.component';
 import { DestinationComponent } from './passenger/destination/destination.component';
 import { PDashboardComponent } from './passenger/p-dashboard/p-dashboard.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { PProfileComponent } from './passenger/p-profile/p-profile.component';
+import { TripComponent } from './passenger/trip/trip.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
@@ -33,6 +35,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 
 {path: 'homepage', component: HomepageComponent},
 { path: '', redirectTo: 'homepage', pathMatch: 'full' },
+{ path: 'complaint', component: ComplaintComponent,canActivate:[AuthService] },
 {path: 'company-infor' , component: CompanyInforComponent,canActivate:[AuthService]},
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
 { path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
@@ -59,6 +62,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'travel', component: TravelComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'modal', component: ModalComponent,canActivate:[AuthService]},
+
 
 ];
 

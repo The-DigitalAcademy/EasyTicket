@@ -11,9 +11,19 @@ import { PProfileComponent } from './passenger/p-profile/p-profile.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
+import { NgForm } from '@angular/forms';
+
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
+// import { WalletComponent } from './passenger/wallet/wallet.component';
+import { ComplaintComponent } from './passenger/complaint/complaint.component';
+import { TripComponent } from './passenger/trip/trip.component';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// import { HttpClientModule } from '@angular/common/http';
+// import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { SidemenuComponent } from './inspector/sidemenu/sidemenu.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -44,7 +54,6 @@ import { TravelComponent } from './passenger/travel/travel.component';
 
 
 
-
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import { NgxSmartModalModule,NgxSmartModalService } from 'ngx-smart-modal';
@@ -62,6 +71,8 @@ import { TravelComponent } from './passenger/travel/travel.component';
     PPaymentComponent,
     BottomMenuComponent,
     WalletComponent,
+    ComplaintComponent,
+    TripComponent,
     SidemenuComponent,
  
     IdashboardComponent,
@@ -79,23 +90,30 @@ import { TravelComponent } from './passenger/travel/travel.component';
     TravelComponent,
     PassengersComponent
 
-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgToastModule,
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule,NgToastModule,
     PdfViewerModule,
     NgxScannerQrcodeModule,
     RouterModule,
     FormsModule
 
+  ],
+  // imports: [
+  //   BrowserModule,
+  //   AppRoutingModule,
+  //   HttpClientModule,
+  //   ReactiveFormsModule,
+  //   NgToastModule,
+   
+
+   
+
 
     
-    // NgxSmartModalModule.forRoot()
-  ],
+  //   // NgxSmartModalModule.forRoot()
+  // ],
   providers: [GuardService,AuthService],
   bootstrap: [AppComponent]
 })
