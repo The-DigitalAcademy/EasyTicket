@@ -1,0 +1,64 @@
+<body id="page-top" style="font-family: 'Public Sans', sans-serif;">
+    <div id="wrapper">
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" style="background-color: #303030;">
+<app-topnav></app-topnav>
+
+<div class="container-fluid">
+    
+    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0" style="font-size: 20px;color: rgb(255,255,255);">Passengers</h3>
+       
+     <div>
+        <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="/passengers" style="font-size: 20px;color: rgb(255,255,255);">All</a>
+        <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="font-size: 20px;color: rgb(255,255,255);">Active</a>
+        <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="/suspended" style="font-size: 20px;color: rgb(255,255,255);">Suspended</a>
+
+     </div>   
+       
+    </div>
+    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0" style="font-size: 20px;color: rgb(255,255,255);">Suspended</h3> 
+       
+    </div>
+
+
+    <div class="row" >
+        <div class="col-md-6 col-xl-3 mb-4" >
+            <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;" *ngFor="let p of per">
+                <div class="card-body" *ngIf="p.status == 'suspended'">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <span class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;"><strong>{{p.fullname}}</strong></span>
+                        </div>
+
+                        <div class="col me-2">
+                            <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>{{p.status}}</strong></span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round" style="background-color:red"></span>
+                            </label>
+                        </div>
+
+                        <div class="col me-2">
+                            <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>Balance {{p.amount}}.00</strong></span>      
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    
+
+</div> 
+
+</div>
+</div>
+</div>
+   
+</body>
+

@@ -30,6 +30,7 @@ import { ModalComponent } from './modal/modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { PassengersComponent } from './inspector/passengers/passengers.component';
+import { SuspendedComponent } from './inspector/suspended/suspended.component';
 
 
 
@@ -61,7 +62,8 @@ import { PassengersComponent } from './inspector/passengers/passengers.component
     SafePipe,
     ModalComponent,
     SearchplaceComponent,
-    PassengersComponent
+    PassengersComponent,
+    SuspendedComponent
 
   ],
   imports: [
