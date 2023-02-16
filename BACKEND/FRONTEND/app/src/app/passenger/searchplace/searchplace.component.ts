@@ -26,6 +26,8 @@ export class SearchplaceComponent implements OnInit {
 
 }
 
+
+
   constructor(private http: HttpClient,private router: Router,private jwtService : JwtService,private Passenger:PassengerService,private toast : NgToastService) {}
 
   ngOnInit(): void {

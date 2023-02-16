@@ -27,6 +27,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { TravelComponent } from './passenger/travel/travel.component';
+import { ComplainsComponent } from './passenger/complains/complains.component';
+import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
+import { ScannerComponent } from './passenger/scanner/scanner.component';
 
 
 
@@ -44,7 +47,6 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
 { path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
-{ path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'modal', component: ModalComponent,canActivate:[AuthService]},
 { path: 'destination', component: DestinationComponent,canActivate:[AuthService] },
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
@@ -60,9 +62,9 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
 { path: 'navigate/:address', component: NavigateComponent,canActivate:[AuthService] },
 { path: 'travel', component: TravelComponent,canActivate:[AuthService] },
-{ path: 'scan', component: ScanComponent,canActivate:[AuthService] },
-{ path: 'modal', component: ModalComponent,canActivate:[AuthService]},
-
+{ path: 'complains', component: ComplainsComponent,canActivate:[AuthService] },
+{ path: 'lodgecomplains', component: LodgecomplainsComponent,canActivate:[AuthService] },
+{ path: 'scanner/:address', component: ScannerComponent,canActivate:[AuthService] },
 
 ];
 

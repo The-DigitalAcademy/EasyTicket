@@ -23,7 +23,7 @@ export class StarttripComponent implements OnInit {
   }
  
   constructor(route: ActivatedRoute,private jwtService : JwtService,private Passenger:PassengerService) { 
-
+    
     this.params = route.snapshot.params;
   }
 

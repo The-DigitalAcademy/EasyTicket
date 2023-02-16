@@ -48,6 +48,9 @@ import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
 
 import { TravelComponent } from './passenger/travel/travel.component';
+import { ComplainsComponent } from './passenger/complains/complains.component';
+import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
+import { ScannerComponent } from './passenger/scanner/scanner.component';
 
 
 
@@ -88,7 +91,10 @@ import { TravelComponent } from './passenger/travel/travel.component';
     ModalComponent,
     SearchplaceComponent,
     TravelComponent,
-    PassengersComponent
+    PassengersComponent,
+    ComplainsComponent,
+    LodgecomplainsComponent,
+    ScannerComponent
 
   ],
   imports: [

@@ -1,0 +1,74 @@
+<body style="background: #303030;">
+    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav flex-shrink-0 flex-fill justify-content-between" style="height: 43px;">
+                    <li class="nav-item"><a class="nav-link active float-start" routerLink="/starttrip/{{params.address}}"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-left" style="color: rgb(47,47,47);font-size: 30px;">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <polyline points="15 6 9 12 15 18"></polyline>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link active float-start" href="#" style="margin-right: 48px;">
+                            <p>Scan to start a trip</p>
+                        </a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ 
+
+<app-bottom-menu></app-bottom-menu>
+
+
+    <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 34px;position: static;">
+        <div class="row p-2">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);"></div>
+                <div class="row">
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
+                            <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col me-2">
+                                        <div class="text-uppercase text-primary fw-bold text-xs mb-1">
+                                            <p class="text-capitalize" style="font-size: 10px;margin-top: 14px;color: var(--bs-card-bg);"><i class="fas fa-map-marker-alt" style="color: rgb(246,152,4);"></i><span style="color: rgb(245, 151, 6);">&nbsp;</span>{{params.address}}<br></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+
+                             <!--toggle-->
+
+                             <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                              </label>
+
+                             <!----------->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);"></div>
+                <div class="row">
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
+                            <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                                <p>scanner here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
