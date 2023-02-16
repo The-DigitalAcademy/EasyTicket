@@ -5,6 +5,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { JwtService } from 'src/app/service/jwt.service';
 import { PassengerService } from 'src/app/service/passenger.service';
 
+
 @Component({
   selector: 'app-destination',
   templateUrl:'./destination.component.html',
@@ -82,7 +83,7 @@ if(this.searchText!='')
 
     this.passenger.deleteAddress(value).subscribe(res=>{
     
-      this.toast.success({detail:"Warning",summary:'Destination removed successfully', duration:2000})
+      // this.toast.success({detail:"Success",summary:'Destination removed successfully', duration:2000})
      // setTimeout(()=> this.router.navigate(['/destination']),1600)
 
     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
@@ -98,7 +99,11 @@ if(this.searchText!='')
 })
      }
 
-  
+     onClick(){
+
+      localStorage.removeItem("token");
+      this.router.navigate(['/'])
+    }
 
   
 }

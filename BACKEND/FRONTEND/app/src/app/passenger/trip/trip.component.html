@@ -1,0 +1,70 @@
+
+<body style="background: #303030;font-family: 'Public Sans', sans-serif;">
+    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav flex-shrink-0 flex-fill justify-content-between" style="height: 43px;">
+                    <li class="nav-item"><a class="nav-link active float-start" routerLink="/p-dashboard"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-left" style="color: rgb(47,47,47);font-size: 30px;">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <polyline points="15 6 9 12 15 18"></polyline>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link active float-start" href="#" style="margin-right: 48px;">
+                            <p>Payment</p>
+                        </a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#myModal" data-bs-target="#myModal" data-bs-toggle="modal"><i class="icon ion-information-circled" style="color: rgb(247,153,3);font-size: 25px;"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <!-------bottom menu-->
+<app-bottom-menu></app-bottom-menu>
+<!-------------------->
+
+
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container" style="margin-top: 85px;">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;"><i class="fa fa-bus" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Your trip has started </p>
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;enjoy ypur journey</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center" style="margin-top: 37px;">
+                <div class="col-md-6 col-xl-4" style="margin-top: -31px;height: 570px;">
+                    <div class="card mb-5" style="border-style: none;">
+                        <div class="card-body d-flex flex-column align-items-center" style="background: #303030;">
+                            <form class="text-center" method="post" style="width: 300px;">
+                                <div class="mb-3" style="padding-top: 10px;"><button class="btn text-uppercase shadow-lg d-block w-100" type="submit" style="height: 60px;background: #F7970A;color: rgb(255,255,255);font-size: 20px;border-radius: 10px;">RE SCAN</button></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div style="border-style: none;">
+                        <div class="modal fade" role="dialog" tabindex="-1" id="myModal" style="border-style: none;">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body" style="background: #444141;border-radius: 7px;border-style: none;">
+                                        <p class="text-center" style="color: rgb(255,255,255);"><a class="float-start" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="color: rgb(246,152,4);font-size: 20px;">
+                                                    <path d="M16.3394 9.32245C16.7434 8.94589 16.7657 8.31312 16.3891 7.90911C16.0126 7.50509 15.3798 7.48283 14.9758 7.85938L12.0497 10.5866L9.32245 7.66048C8.94589 7.25647 8.31312 7.23421 7.90911 7.61076C7.50509 7.98731 7.48283 8.62008 7.85938 9.0241L10.5866 11.9502L7.66048 14.6775C7.25647 15.054 7.23421 15.6868 7.61076 16.0908C7.98731 16.4948 8.62008 16.5171 9.0241 16.1405L11.9502 13.4133L14.6775 16.3394C15.054 16.7434 15.6868 16.7657 16.0908 16.3891C16.4948 16.0126 16.5171 15.3798 16.1405 14.9758L13.4133 12.0497L16.3394 9.32245Z" fill="currentColor"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z" fill="currentColor"></path>
+                                                </svg></a>Instructions</p>
+                                        <ul style="color: rgb(255,255,255);">
+                                            <li style="font-size: 12px;">Rescan to tap off when going off from the bus<br></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+
+
+

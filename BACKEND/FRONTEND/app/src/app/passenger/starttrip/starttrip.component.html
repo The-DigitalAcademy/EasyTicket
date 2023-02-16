@@ -1,0 +1,79 @@
+<body style="background: #303030;">
+    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav flex-shrink-0 flex-fill justify-content-between" style="height: 43px;">
+                    <li class="nav-item"><a class="nav-link active float-start" routerLink="/travel"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-left" style="color: rgb(47,47,47);font-size: 30px;">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <polyline points="15 6 9 12 15 18"></polyline>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link active float-start" href="#" style="margin-right: 48px;">
+                            <p>Start you trip</p>
+                        </a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<app-bottom-menu></app-bottom-menu>
+
+
+    <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 34px;position: static;">
+        <div class="row p-2">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;My balance</p>
+                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;{{ user.amount | number:'1.2-2'}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;Points Used</p>
+                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;00.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;"><i class="fas fa-map-marker-alt" style="color: rgb(246,152,4);"></i>&nbsp;{{params.address}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+          <a routerLink="/navigate/{{params.address}}" style="text-decoration:none;">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 14px;font-weight: bold;"><i class="fas fa-map-marked-alt" style="color: rgb(246,152,4);"></i>&nbsp;Navigate to station</p>
+                        <p style="color: rgb(255,255,255);font-size: 11px;margin-top: -10px;">Let us help you with the directions to the selected bus station.</p>
+                    </div>
+                </div>
+            </div>
+
+          </a>
+        </div>
+        <div class="row p-2">
+            <a routerLink="/scanner/{{params.address}}" style="text-decoration:none;">
+                
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 14px;font-weight: bold;"><i class="fas fa-bus-alt" style="color: rgb(246,152,4);"></i>&nbsp;Start your trip</p>
+                        <p style="color: rgb(255,255,255);font-size: 11px;margin-top: -10px;">Start you trip now !.</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+  
+</body>

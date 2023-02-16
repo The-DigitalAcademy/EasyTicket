@@ -26,6 +26,8 @@ export class SearchplaceComponent implements OnInit {
 
 }
 
+
+
   constructor(private http: HttpClient,private router: Router,private jwtService : JwtService,private Passenger:PassengerService,private toast : NgToastService) {}
 
   ngOnInit(): void {
@@ -84,8 +86,8 @@ if(this.searchText!='')
     this.http.post('http://localhost:3001/postAddress',saveplace,{responseType:'text'})
     .subscribe((results)=>{
   
-   this.toast.success({detail:"Success",summary:'Destination saved successfully', duration:2000})
-        setTimeout(()=> this.router.navigate(['/destination']),1600)
+  //  this.toast.success({detail:"Success",summary:'Destination saved successfully', duration:2000})
+        setTimeout(()=> this.router.navigate(['/travel']),1600)
 
       })
 

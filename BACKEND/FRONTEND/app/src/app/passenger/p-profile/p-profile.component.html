@@ -12,6 +12,7 @@
                         </a></li>
                     <li class="nav-item"></li>
                 </ul>
+              
             </div>
         </div>
     </nav>
@@ -38,23 +39,10 @@
                                 <p style="color: rgb(247,152,9);font-size: 11px;margin-top: -18px;"><strong><span style="color: rgb(255, 255, 255);">{{user.email}}</span></strong><br></p>
                             </div>
                             <div class="col-3">
-                                <!-- <div *ngIf="user">
 
-                                        <form >
-                                         
-                                            <div>
-                                                <label>fullname:</label>
-                                                <input [(ngModel)]="user.fullname" name="fullname" id="name" placeholder="update" required/>
-                                            </div>
-                                        
-                                            <button type="submit" (click)="updateProfile()" id="save" >Save</button>
-                                            
-                                        </form>
+                               
 
-                                </div> -->
-                                <!-- <button class="bi bi-pen-fill btn btn-primary">Edit</button> -->
-
-                                <button type="edit" [routerLink]="['/modal']" class="btn shadow-lg float-end" type="button" style="background: #f79809;">
+                                <button  class="btn shadow-lg float-end" type="button" style="background: #f79809;" data-bs-target="#myModal" data-bs-toggle="modal">
                                     <i class="fas fa-pen text-white"></i>
                                 </button>
                             </div>
@@ -84,12 +72,70 @@
         <div class="row p-2">
             <div class="col">
                 <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;height: 52.5px;">
-                        <p style="color: rgb(255,255,255);margin-top: 0px;font-size: 13px;"><i class="fas fa-user-lock" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Password</p>
+                  
+
+                    <a class="cpass" data-bs-target="#myModal1" data-bs-toggle="modal" style="text-decoration:none;">
+
+                        <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;height: 52.5px;">
+                            <p style="color: rgb(255,255,255);margin-top: 0px;font-size: 13px;"><i class="fas fa-user-lock" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Password</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!--profile update form-->
+       <div>
+        <div class="modal fade shadow-none" role="dialog" tabindex="-1" id="myModal" style="margin-top: 150px;border-style: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body shadow-none" style="background: #444141;border-radius: 10px;border-style: none;">
+                        <div class="float-end"><a href="#" data-bs-dismiss="modal"><i class="far fa-times-circle" style="font-size: 17px;color: #f79809;"></i></a></div><label class="form-label" style="margin-top: 7px;color: #f79809;">Fullname</label>
+                        <form [formGroup]="form" #userPost="ngForm" class="text-center" method="post" >
+                        <input type="text" class="form-control" style="height: 42px;" formControlName="fullname" [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }" name="fullname" >
+
+                           <!-----------vali-->    
+                           <div style="text-align: left;" *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+                            <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+                            <div *ngIf="f['fullname'].errors['minlength']">Fullname must be atleast 3 characters</div>
+                            <div *ngIf="f['fullname'].errors['pattern']">field should contain alaphabetical characters only.</div>
+                        </div>
+                         
+                        <!-----------vali-->   
+
+                
+                        <div style="margin-top: 16px;"><button class="btn shadow" (click)="update(userPost.value)" data-bs-dismiss="modal" type="button" style="background: #303030;color: #f79809;">Save</button></div>
+                    </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
+
+    <!--password change form-->
+
+
+    <div>
+        <div class="modal fade shadow-none" role="dialog" tabindex="-2" id="myModal1" style="margin-top: 150px;border-style: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body shadow-none" style="background: #444141;border-radius: 10px;border-style: none;">
+                        <div class="float-end"><a href="#" data-bs-dismiss="modal"><i class="far fa-times-circle" style="font-size: 17px;color: #f79809;"></i></a></div>
+                        
+        
+                        <form [formGroup]="form1" #passwordform="ngForm" class="text-center"  method="post" >
+                            <label class="form-label float-start" style="margin-top: 7px;color: #f79809;" name="password" >New password</label>
+                            <input type="password" class="form-control" style="height: 45px;"  formControlName="password" >
+                            <label class="form-label float-start" style="margin-top: 7px;color: #f79809;"   name="confirmPassword" >Confirm password</label>
+                            <input type="password" class="form-control" style="height: 45px;" formControlName="confirmPassword">
+                        <div style="margin-top: 16px;"><button class="btn shadow" data-bs-dismiss="modal" type="button"  style="background: #303030;color: #f79809;">Save</button></div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------------->
+
 </body>
