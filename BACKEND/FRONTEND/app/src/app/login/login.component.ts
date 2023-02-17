@@ -95,16 +95,16 @@ this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[
 let id=this.users.id
 
 
-if(this.users.id > '1')
+if(this.users.id > '6')
 {
 
-  this.toast.success({detail:"Success",summary:'Loggedin Succesfully as Passenger', duration:2000})
+  this.toast.success({detail:"Success",summary:'Logged in Succesfully as Passenger', duration:2000})
   setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
 
 }else
 {
 
-  this.toast.success({detail:"Success",summary:'Loggedin Succesfully as Inspector', duration:2000})
+  this.toast.success({detail:"Success",summary:'Logged in Succesfully as Inspector', duration:2000})
   setTimeout(()=> this.router.navigate(['/idashboard']),900)
 
 

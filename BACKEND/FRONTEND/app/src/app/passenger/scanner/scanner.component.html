@@ -76,7 +76,7 @@
                         <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
                             <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
                                 <div class="container">
-
+                                     <br>
 
                                     <!-- devices -->
                                     <div class="row" style="display: none;">
@@ -99,14 +99,10 @@
                                     <!-- loading -->
                                     <p *ngIf="action.isLoading">⌛ Loading...</p>
                                   
-                                    <!-- start/stop -->
-                                    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading">
-                                      <img *ngIf="!action.isStart" (click)="handle(action, 'start')" src="https://img.icons8.com/ios/50/000000/no-camera--v2.png" width="30px"/>
-                                      <img *ngIf="action.isStart" (click)="handle(action, 'stop')" src="https://img.icons8.com/ios/50/000000/no-camera--v1.png" width="30px"/>
-                                    </button>
+                                    <br>
                         
                                 
-                                  </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -114,5 +110,13 @@
             </div>
         </div>
     </div>
- 
+    <div class="mb-3" style="padding-top: 10px;">
+        <button class="btn text-uppercase shadow-lg d-block w-100" type="submit" style="height: 60px;background: rgb(246,152,4);color: rgb(255,255,255);font-size: 20px;border-radius: 10px;" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading">
+        
+            <img *ngIf="!action.isStart" (click)="handle(action, 'start')" src="https://img.icons8.com/ios/50/000000/no-camera--v2.png" width="30px"/>
+            <img *ngIf="action.isStart" (click)="handle(action, 'stop')" src="https://img.icons8.com/ios/50/000000/no-camera--v1.png" width="30px"/>
+        </button>
+    </div>
+</div>
+
 </body>

@@ -31,6 +31,7 @@ import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
 import { ScannerComponent } from './passenger/scanner/scanner.component';
+import { ActiveComponent } from './inspector/active/active.component';
 
 
 
@@ -68,7 +69,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'complains', component: ComplainsComponent,canActivate:[AuthService] },
 { path: 'lodgecomplains', component: LodgecomplainsComponent,canActivate:[AuthService] },
 { path: 'scanner/:address', component: ScannerComponent,canActivate:[AuthService] },
-
+{ path: 'active', component: ActiveComponent,canActivate:[AuthService] },
 ];
 
 @NgModule({
