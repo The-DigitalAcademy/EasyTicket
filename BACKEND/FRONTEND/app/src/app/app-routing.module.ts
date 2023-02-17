@@ -20,6 +20,7 @@ import { ModalComponent } from './modal/modal.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 
 import { PassengersComponent } from './inspector/passengers/passengers.component';
+import { SuspendedComponent } from './inspector/suspended/suspended.component';
 
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
@@ -30,6 +31,7 @@ import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
 import { ScannerComponent } from './passenger/scanner/scanner.component';
+import { ActiveComponent } from './inspector/active/active.component';
 
 
 
@@ -59,13 +61,15 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
 { path: 'passengers', component: PassengersComponent,canActivate:[AuthService] },
+{ path: 'scan', component: ScanComponent,canActivate:[AuthService] },
+{ path: 'suspended', component: SuspendedComponent,canActivate:[AuthService]},
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
 { path: 'navigate/:address', component: NavigateComponent,canActivate:[AuthService] },
 { path: 'travel', component: TravelComponent,canActivate:[AuthService] },
 { path: 'complains', component: ComplainsComponent,canActivate:[AuthService] },
 { path: 'lodgecomplains', component: LodgecomplainsComponent,canActivate:[AuthService] },
 { path: 'scanner/:address', component: ScannerComponent,canActivate:[AuthService] },
-
+{ path: 'active', component: ActiveComponent,canActivate:[AuthService] },
 ];
 
 @NgModule({

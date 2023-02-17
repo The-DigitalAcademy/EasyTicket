@@ -43,6 +43,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 
 import { PassengersComponent } from './inspector/passengers/passengers.component';
+import { SuspendedComponent } from './inspector/suspended/suspended.component';
 
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
@@ -51,6 +52,8 @@ import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
 import { ScannerComponent } from './passenger/scanner/scanner.component';
+import { ActiveComponent } from './inspector/active/active.component';
+import { PassengercategoryComponent } from './inspector/passengercategory/passengercategory.component';
 
 
 
@@ -90,11 +93,15 @@ import { ScannerComponent } from './passenger/scanner/scanner.component';
     NavigateComponent,
     ModalComponent,
     SearchplaceComponent,
+    PassengersComponent,
+    SuspendedComponent,
     TravelComponent,
     PassengersComponent,
     ComplainsComponent,
     LodgecomplainsComponent,
-    ScannerComponent
+    ScannerComponent,
+    ActiveComponent,
+    PassengercategoryComponent
 
   ],
   imports: [

@@ -81,29 +81,4 @@ export class ModalComponent implements OnInit {
 
   }
 
-  // updateProfile(){
-
-  //   this.submitted = true;
-
-  //   if(this.profForm.value.fullname != '')
-  //   {
-  //   let data = {
-  //       fullname: this.profForm.value.fullname
-        
-  //     }
-  //     console.log('update ',data)
-     
-  
-  //     let id = this.user.id;
-  //     // console.log(id)
-  
-  //     this.Passenger.updateProfile(id,data).subscribe((next:any) => {
-  //       this.router.navigate(['/p-profile']);
-  //       this.submitted = false;
-  //       console.log('i ',data)
-  //     })
-  
-  //   }
-  //   }
-
 }

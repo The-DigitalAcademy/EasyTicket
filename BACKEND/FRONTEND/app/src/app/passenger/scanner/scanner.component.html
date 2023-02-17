@@ -38,10 +38,24 @@
 
                              <!--toggle-->
 
-                             <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
+
+                              <div *ngIf="output == 'Your trip has started😀'">
+                                <label class="switch">
+                                  <input type="checkbox" checked  disabled/>
+                                  <span class="slider round" style="background-color:green"></span>
+                                </label>
+                              </div>
+
+                              <div
+                              *ngIf="
+                                output == 'Your trip has ended...Thank you for using our ticket😀'
+                              "
+                            >
+                              <label class="switch">
+                                <input type="checkbox" disabled />
+                                <span class="slider round" style="background-color:red"></span>
                               </label>
+                            </div>
 
                              <!----------->
 
@@ -61,7 +75,34 @@
                     <div class="col-md-6 col-xl-3 mb-4">
                         <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
                             <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
-                                <p>scanner here</p>
+                                <div class="container">
+                                     <br>
+
+                                    <!-- devices -->
+                                    <div class="row" style="display: none;">
+                                      <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
+                                        <select [ngModel]="null" (ngModelChange)="action.playDevice($event)" class="form-select form-select-sm">
+                                          <option [value]="null" selected>Select device</option>
+                                          <option *ngFor="let c of action.devices.value; let i = index" [ngValue]="c.deviceId" [selected]="i == action.deviceActive">{{c.label}}</option>
+                                        </select>
+                                      </div>
+                                  
+                                  
+                                    </div>
+                                  
+                                    <!-- ngx-scanner-qrcode -->
+                                    <ngx-scanner-qrcode #action="scanner" [config]="config" (event)="onEvent($event)"></ngx-scanner-qrcode>
+                                  
+                                    <!-- data  -->
+                                    <!-- <p class="data">{{ (action.data | async | json) }}</p> -->
+                                  
+                                    <!-- loading -->
+                                    <p *ngIf="action.isLoading">⌛ Loading...</p>
+                                  
+                                    <br>
+                        
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -69,6 +110,13 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+    <div class="mb-3" style="padding-top: 10px;">
+        <button class="btn text-uppercase shadow-lg d-block w-100" type="submit" style="height: 60px;background: rgb(246,152,4);color: rgb(255,255,255);font-size: 20px;border-radius: 10px;" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading">
+        
+            <img *ngIf="!action.isStart" (click)="handle(action, 'start')" src="https://img.icons8.com/ios/50/000000/no-camera--v2.png" width="30px"/>
+            <img *ngIf="action.isStart" (click)="handle(action, 'stop')" src="https://img.icons8.com/ios/50/000000/no-camera--v1.png" width="30px"/>
+        </button>
+    </div>
+</div>
+
 </body>
