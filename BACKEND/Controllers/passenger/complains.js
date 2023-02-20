@@ -11,6 +11,13 @@ const getComplains = (request, res) => {
     }),handleErr
 }
 
+const getAllComplains = (request, res) => {
+  pool.query('SELECT user_id, complains FROM public.complains ', (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+
   
   const postComplains = (req, res) => {  
 
@@ -27,6 +34,7 @@ const getComplains = (request, res) => {
 
 
 module.exports = {
+    getAllComplains,
     getComplains,
     postComplains
   }
