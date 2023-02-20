@@ -28,6 +28,8 @@ import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { StatusComponent } from './passenger/status/status.component';
+import { RecentComponent } from './passenger/recent/recent.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { StatusComponent } from './passenger/status/status.component';
     ScanComponent,
     SafePipe,
     SearchplaceComponent,
-    StatusComponent 
+    StatusComponent,
+    RecentComponent 
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,7 @@ import { ScanComponent } from './scan/scan.component';
 import { BottomMenuComponent } from './passenger/bottom-menu/bottom-menu.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { StatusComponent } from './passenger/status/status.component';
+import { RecentComponent } from './passenger/recent/recent.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 
@@ -38,7 +39,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
-{path: 'status', component: StatusComponent, canActivate:[AuthService]}
+{path: 'status', component: StatusComponent, canActivate:[AuthService]},
+{path: 'recent', component: RecentComponent, canActivate:[AuthService]}
 
 ];
 
