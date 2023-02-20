@@ -1,0 +1,87 @@
+<body style="background: #303030;">
+    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav flex-shrink-0 flex-fill justify-content-between" style="height: 43px;">
+                    <li class="nav-link active float-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-left" style="color: rgb(47,47,47);font-size: 30px;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <polyline points="15 6 9 12 15 18"></polyline>
+                        </svg>
+                     </li>
+                    <li class="nav-item"><a class="nav-link active float-start"  style="margin-right: 48px;">
+                            <p>EN-Route</p>
+                        </a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<app-bottom-menu></app-bottom-menu>
+
+
+
+
+<!-- 
+    <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 25px;position: static;">
+
+    
+        <div class="row p-2">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;"><i class="fas fa-map-marker-alt" style="color: rgb(246,152,4);"></i>&nbsp;{{params.address}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col">
+                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist" style="border-bottom-style: none;">
+                                <li class="nav-item" role="presentation"><a class="nav-link shadow-lg" role="tab" data-bs-toggle="tab" href="#tab-1" style="font-size: 12px;color: rgb(246,152,4);border-bottom-right-radius: 6px;border-bottom-left-radius: 6px;background: rgb(48,48,48);border-style: none;"><i class="fas fa-map" style="color: rgb(246,152,4);"></i>&nbsp;Map</a></li>
+                                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-2" style="font-size: 11px;color: #f69804;border-bottom-right-radius: 6px;border-bottom-left-radius: 6px;background: #303030;"><i class="la la-info-circle" style="color: rgb(246,152,4);"></i>&nbsp;Instructions</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane" role="tabpanel" id="tab-1">
+                                    
+                                    <div id="map" style="margin-top: 10px;border-radius: 6px;"></div>
+                                  
+                                
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" id="tab-2" style="overflow: scroll;">
+                                    <div class="card" style="margin-top: 10px;overflow: scroll;height: 400px;background: rgba(255,255,255,0);border-style: none;">
+
+                            
+                                        <div class="card-body">
+                                            <div class="row" *ngFor="let item of test">
+                                                <div class="col" style="padding-top: 7px;">
+                                                    <div class="card shadow-lg" style="background: rgb(48,48,48);border-style: none;">
+                                                        <div class="card-body">
+                                                            <p class="card-text" style="font-size: 10px;color: rgb(255,255,255);"><i class="fas fa-directions" style="color: rgb(246,152,4);"></i>&nbsp;{{ item.instruction.text}}</p>
+                                                            <div style="margin-top: -15px;"><i class="fas fa-walking" style="color: rgb(246,152,4);font-size: 12px;"></i><span style="font-size: 11px;color: var(--bs-card-bg);"> {{ item.distance}} M</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <br>
+    <br> <br>
+    <div id="map" style="width:100%; height: 100vh"></div>
+</body>
+
+
+

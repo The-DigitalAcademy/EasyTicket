@@ -54,6 +54,8 @@ import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplai
 import { ScannerComponent } from './passenger/scanner/scanner.component';
 import { ActiveComponent } from './inspector/active/active.component';
 import { PassengercategoryComponent } from './inspector/passengercategory/passengercategory.component';
+import { BoardingComponent } from './passenger/boarding/boarding.component';
+import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
 
 
 
@@ -101,7 +103,9 @@ import { PassengercategoryComponent } from './inspector/passengercategory/passen
     LodgecomplainsComponent,
     ScannerComponent,
     ActiveComponent,
-    PassengercategoryComponent
+    PassengercategoryComponent,
+    BoardingComponent,
+    PasswordrecoveryComponent
 
   ],
   imports: [

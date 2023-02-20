@@ -105,7 +105,7 @@ router.post('/register', register.registerUser)
 
   //update password
   router.put('/updatePassword/:id', password.updatePassword)
-
+  router.post('/passwordrecover', password.passwordrecover)
   //payment routes
   router.post('/postProof', invoice.postInvoice)
   router.get('/getProof/:id', invoice.getInvoice)
