@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
   users = {
     email:'',
     fullname: '',
-    id:''
+    id:'',
+    status: '',
   
 
 }
@@ -94,6 +95,7 @@ if(localStorage.getItem('token')!=null){
 this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
 let id=this.users.id
 
+if(this.users.status=='active'){
 
 if(this.users.id > '1')
 {
@@ -109,6 +111,11 @@ if(this.users.id > '1')
 
 
 }
+}else{
+  this.toast.error({detail:"error",summary:'Your Account has been suspended', duration:2000})
+  setTimeout(()=> this.router.navigate(['/']),900)
+}
+
 
 
 

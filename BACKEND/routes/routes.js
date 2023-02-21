@@ -22,6 +22,7 @@ const proof = require("../controllers/inspector/proof")
 const comp_info = require("../controllers/inspector/company")
 const tokens = require("../Controllers/inspector/tokens")
 const status = require("../controllers/inspector/status")
+const suspend = require("../controllers/inspector/suspended")
 
 //code for uploading files
 const cloudinary = require("cloudinary").v2;
@@ -132,10 +133,14 @@ router.post('/register', register.registerUser)
    //routes for complains
    router.post('/postComplains', complains.postComplains)
    router.get('/getComplains', complains.getComplains)
+   router.get('/getAllComplains', complains.getAllComplains)
 
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)
+
+  //routes for suspending a passenger
+  router.put('/updateStatus/:id', suspend.updateStatus)
 
 
 
