@@ -38,6 +38,7 @@ import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
 
 import { TravelComponent } from './passenger/travel/travel.component';
+import { ActiveUsersComponent } from './inspector/active-users/active-users.component';
 
 
 
@@ -77,7 +78,8 @@ import { TravelComponent } from './passenger/travel/travel.component';
     ModalComponent,
     SearchplaceComponent,
     TravelComponent,
-    PassengersComponent
+    PassengersComponent,
+    ActiveUsersComponent
 
 
   ],

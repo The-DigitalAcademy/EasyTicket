@@ -25,6 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { TravelComponent } from './passenger/travel/travel.component';
+import { ActiveUsersComponent } from './inspector/active-users/active-users.component';
 
 
 
@@ -59,6 +60,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'travel', component: TravelComponent,canActivate:[AuthService] },
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'modal', component: ModalComponent,canActivate:[AuthService]},
+{path: 'active_user', component: ActiveUsersComponent,canActivate:[AuthService]},
 
 ];
 

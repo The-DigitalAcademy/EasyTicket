@@ -95,7 +95,7 @@ this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[
 let id=this.users.id
 
 
-if(this.users.id < '6')
+if(this.users.id > '6')
 {
 
   this.toast.success({detail:"Success",summary:'Loggedin Succesfully as Passenger', duration:2000})

@@ -14,9 +14,9 @@ const getCompInfo = (request, res) => {
   
   const postCompInfo = (req, res) => {  
 
-    const { user_id, company_name, company_logo, company_contact, company_email, company_account } = req.body
+    const { user_id, company_name, company_contact, company_email, company_account } = req.body
 
-    pool.query('INSERT INTO public.comp_info(user_id, company_name, company_logo, company_contact, company_email, company_account) VALUES ($1, $2,$3,$4,$5,$6)', [user_id, company_name, company_logo, company_contact, company_email, company_account ], (error, results) => {
+    pool.query('INSERT INTO public.comp_info(user_id, company_name, company_contact, company_email, company_account) VALUES ($1, $2,$3,$4,$5)', [user_id, company_name, company_contact, company_email, company_account ], (error, results) => {
       if (error) {
         throw error
       }

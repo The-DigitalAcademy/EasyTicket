@@ -1,0 +1,63 @@
+<body id="page-top" style="font-family: 'Public Sans', sans-serif;">
+    <div id="wrapper">
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" style="background-color: #303030;">
+<app-topnav></app-topnav>
+
+<div class="container-fluid">
+    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0" style="font-size: 20px;color: rgb(255,255,255);">Passengers</h3>
+        <!-- <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="font-size: 20px;color: rgb(255,255,255);">All</a>
+        <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="font-size: 20px;color: rgb(255,255,255);">Active</a> -->
+        <!-- <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="font-size: 20px;color: rgb(255,255,255);">Suspended</a> -->
+
+    </div>
+
+    <div class="row" >
+
+        <div class="col-md-6 col-xl-3 mb-4" *ngFor="let n of name">
+            <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;" *ngIf="n.status == 'active'">
+                <div class="card-body" >
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <span class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;"><strong>{{n.fullname}}</strong></span>
+                        </div>
+                        
+                        <div class="col me-2">
+                            
+                            <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>{{n.status}}</strong></span>
+                        
+                            <div class="col me-2">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round" style="background-color:green"></span>
+                                </label>
+                            </div>
+                            <div *ngIf="n.status == 'suspended'">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round" style="background-color:red"></span>
+                                </label>
+                            </div>
+                           
+                        </div>
+                    </div>
+                   
+                    <div class="col me-2">
+                        
+                        <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>Balance {{n.amount}}.00</strong></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div> 
+
+</div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div>
+</div>
+   
+</body>
