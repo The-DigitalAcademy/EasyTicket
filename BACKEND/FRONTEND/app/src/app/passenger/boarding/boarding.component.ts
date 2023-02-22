@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+import { TripComponent } from '../trip/trip.component';
 declare const L: any;
 @Component({
   selector: 'app-boarding',
@@ -6,12 +9,17 @@ declare const L: any;
   styleUrls: ['./boarding.component.scss']
 })
 export class BoardingComponent implements OnInit {
+pointmap:any;
+busMoves:any;
 
-  constructor() { }
+  constructor(private router:Router,private toast :NgToastService) { }
+
+
+
 
   ngOnInit(): void {
 
-
+ var trip 
     var map = L.map('map').setView([-26.186106, 28.0189964], 11);
 		var mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Leaflet &copy; ' + mapLink + ', contribution', maxZoom: 18 }).addTo(map);
@@ -25,29 +33,63 @@ export class BoardingComponent implements OnInit {
 		var marker = L.marker([-26.186106, 28.0189964], { icon: taxiIcon }).addTo(map);
 
 		map.on('click', function (e:any) {
-			console.log(e)
+		// console.log(e)
+      
 			var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+     
+
 			L.Routing.control({
 				waypoints: [
 					L.latLng(-26.186106, 28.0189964),
 					L.latLng(e.latlng.lat, e.latlng.lng)
 				]
-			}).on('routesfound', function (e:any) {
+        
+
+        
+        
+			}).on('routesfound',  (e:any) => {
 				var routes = e.routes;
 				console.log(routes);
 
-				e.routes[0].coordinates.forEach(function (coord:any, index:any) {
-					setTimeout(function () {
-						marker.setLatLng([coord.lat, coord.lng]);
-					}, 900 * index)
 
 
+				e.routes[0].coordinates.forEach( (coord:any, index:any) => {
+					setTimeout( () => {
+            marker.setLatLng([coord.lat, coord.lng]);
+           
+            if(routes[0].coordinates.length==index + 1)
+            {
+              var kilotravelled=((routes[0].summary.totalDistance)*0.001).toFixed(4);
+             
+           
+
+            trip= open()
+             
+            }
+      
+
+					}, 1200 * index)
+
+       
 				})
+        
+        
 
 			}).addTo(map);
 		});
 
+   
+return trip;
 
   }
-
+  open()
+  {
+  
+    alert('Open');
+  }
 }
+
+
+
+
+
