@@ -32,7 +32,11 @@ busMoves:any;
 
 		var marker = L.marker([-26.186106, 28.0189964], { icon: taxiIcon }).addTo(map);
 
-		map.on('click', function (e:any) {
+
+
+
+		//map.on('click', function (e:any) to reslove the this implictly
+		map.on('click',  (e:any) => {
 		// console.log(e)
       
 			var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
@@ -63,7 +67,7 @@ busMoves:any;
              
            
 
-            trip= open()
+            trip= this.open(kilotravelled)
              
             }
       
@@ -82,10 +86,11 @@ busMoves:any;
 return trip;
 
   }
-  open()
+  open(kilos:any)
   {
-  
-    alert('Open');
+	this.toast.success({detail:"Success",summary:'Thanks for using Our ticket ('+kilos+' KM).', duration:2000})
+	setTimeout(()=> this.router.navigate(['/scanner/:address']),900)
+
   }
 }
 
