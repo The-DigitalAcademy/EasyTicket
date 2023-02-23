@@ -26,5 +26,13 @@ getAllUsers(){
   return this.http.get(this.baseUrl +"/getAllUsers");
 }
 
+getDates(){
+  return this.http.get(this.baseUrl +"/getDates");
+}
+
+getStatusDate(){
+  return this.http.get(this.baseUrl +"/getStatusDate");
+}
+
  
 }
