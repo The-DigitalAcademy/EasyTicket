@@ -27,9 +27,9 @@ const getTrip = (request, res) => {
 
   const searchStation = (req, res) => {  
 
-    const { id } = req.body
+    const { departing_from,departing_to } = req.body
 
-    pool.query('SELECT departing_from,departing_to FROM public.trip WHERE id=$1', [id], (error, results) => {
+    pool.query('SELECT departing_from,departing_to FROM public.trip WHERE departing_from=$1 AND departing_to=$2', [departing_from,departing_to], (error, results) => {
       if (error) {
         throw error
       }
