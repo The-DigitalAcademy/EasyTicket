@@ -15,6 +15,8 @@ const invoice = require("../controllers/passenger/invoice")
 const getTokens = require("../controllers/passenger/getTokens")
 const destination = require("../controllers/passenger/destination")
 const complains = require("../controllers/passenger/complains")
+const history = require("../controllers/passenger/history")
+
 
 
 //routes for inspector
@@ -132,6 +134,9 @@ router.post('/register', register.registerUser)
    router.put('/updateCompInfo/:id', comp_info.updateCompInfo)
    router.delete('/deleteInfo/:id', comp_info.deleteCompInfo)
 
+   //routes for trip history
+   router.get('/getHistory', history.getHistory)
+   router.post('/createHistory', history.createHistory)
    
    //routes for complains
    router.post('/postComplains', complains.postComplains)
