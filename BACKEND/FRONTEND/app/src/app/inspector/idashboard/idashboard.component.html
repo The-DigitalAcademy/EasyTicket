@@ -68,6 +68,24 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow-lg border-start-primary py-2" style="background: #f7f5f5;border-style: none;">
+
+                                <div id="chart">
+                                    <apx-chart
+                                    [series]="chartOptions.series"
+                                    [chart]="chartOptions.chart"
+                                    [xaxis]="chartOptions.xaxis"
+                                    [dataLabels]="chartOptions.dataLabels"
+                                    [grid]="chartOptions.grid"
+                                    [stroke]="chartOptions.stroke"
+                                    [title]="chartOptions.title"
+                                    ></apx-chart>
+                                </div>
+                            </div>
+                        </div>
+                        
+
                     </div>
                 </div>
             </div>

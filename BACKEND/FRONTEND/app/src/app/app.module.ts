@@ -54,8 +54,10 @@ import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplai
 import { ScannerComponent } from './passenger/scanner/scanner.component';
 import { ActiveComponent } from './inspector/active/active.component';
 import { PassengercategoryComponent } from './inspector/passengercategory/passengercategory.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
+
 
 
 
@@ -114,7 +116,8 @@ import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.c
     PdfViewerModule,
     NgxScannerQrcodeModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgApexchartsModule
 
   ],
   // imports: [

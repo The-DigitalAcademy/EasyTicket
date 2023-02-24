@@ -23,6 +23,7 @@ const comp_info = require("../controllers/inspector/company")
 const tokens = require("../Controllers/inspector/tokens")
 const status = require("../controllers/inspector/status")
 const suspend = require("../controllers/inspector/suspended")
+const trip = require("../controllers/inspector/trip")
 
 //code for uploading files
 const cloudinary = require("cloudinary").v2;
@@ -91,11 +92,11 @@ router.post('/register', register.registerUser)
    router.get('/getUserPlaces/:id', destination.getUserPlaces)
 
   //routes for trips(inspector)
-  // router.get('/allTrips', trip.getTrips)
-  // router.get('/tripByName', trip.getTripByName)
-  // router.post('/createTrip', trip.postTrip)
-  // router.put('/updateTrip/:id', trip.updateTrip)
-  // router.delete('/deleteTrip/:id', trip.deleteTrip)
+  router.get('/allTrips', trip.getTrip)
+  router.post('/createTrip', trip.postTrip)
+  router.put('/updateTrip/:id', trip.updateTrip)
+  router.delete('/deleteTrip/:id', trip.deleteTrip)
+
 
   //routes for searching the destination
   router.get('/seachDestination', search.getTripByName)
@@ -121,6 +122,8 @@ router.post('/register', register.registerUser)
   router.get('/viewTokens', getTokens.getToken)
   // router.put('/updateTokens/:user_id', getTokens.updateTokens)
   router.get('/viewTokens/:id', getTokens.getToken)
+  //paying the trip
+  router.put('/payingTrip', tokens.payingTrip)// payingTrip
 
 
    //routes for company information
@@ -138,6 +141,9 @@ router.post('/register', register.registerUser)
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)
+  router.get('/getDates', status.getDates)
+  router.get('/getStatusDate', status.getStatusDate)
+  // getStatusDate
 
   //routes for suspending a passenger
   router.put('/updateStatus/:id', suspend.updateStatus)

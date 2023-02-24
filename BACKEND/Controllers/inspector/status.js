@@ -14,18 +14,38 @@ const getUsers = (request, res) => {
     }),handleErr
 }
 
+const getStatusDate = (request, res) => {
+
+  pool.query(`SELECT COUNT(status),TO_CHAR(created_at,'yyyy-mm-dd'),status as cat FROM public.users GROUP BY created_at,cat ORDER BY created_at ASC`, (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+
 const getAllUsers = (request, res) => {
 
     // const {status} = request.body
 
-    pool.query('SELECT fullname,status,amount FROM public.users', (error, results) => {
+    pool.query('SELECT fullname,status,amount,created_at FROM public.users', (error, results) => {
      
       res.status(200).json(results.rows)
     }),handleErr
 }
 
+const getDates = (request, res) => {
+
+  // const {status} = request.body
+
+  pool.query('SELECT created_at FROM public.users', (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+
 module.exports = {
     getUsers,
-    getAllUsers
+    getAllUsers,
+    getDates,
+    getStatusDate
   }
 
