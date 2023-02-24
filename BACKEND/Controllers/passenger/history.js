@@ -11,7 +11,7 @@ const getHistory = (request, res) => {
     }),handleErr
 }
 
-  
+  //passenger's trip history
   const createHistory = (req, res) => {  
 
     const { user_id,departing_to } = req.body
