@@ -97,6 +97,7 @@ router.post('/register', register.registerUser)
   router.put('/updateTrip/:id', trip.updateTrip)
   router.delete('/deleteTrip/:id', trip.deleteTrip)
 
+
   //routes for searching the destination
   router.get('/seachDestination', search.getTripByName)
 
@@ -106,7 +107,7 @@ router.post('/register', register.registerUser)
 
   //update password
   router.put('/updatePassword/:id', password.updatePassword)
-
+  router.post('/passwordrecover', password.passwordrecover)
   //payment routes
   router.post('/postProof', invoice.postInvoice)
   router.get('/getProof/:id', invoice.getInvoice)
@@ -121,6 +122,8 @@ router.post('/register', register.registerUser)
   router.get('/viewTokens', getTokens.getToken)
   // router.put('/updateTokens/:user_id', getTokens.updateTokens)
   router.get('/viewTokens/:id', getTokens.getToken)
+  //paying the trip
+  router.put('/payingTrip', tokens.payingTrip)// payingTrip
 
 
    //routes for company information

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { ScannerQRCodeConfig,  ScannerQRCodeSelectedFiles,  NgxScannerQrcodeService, ScannerQRCodeResult} from 'ngx-scanner-qrcode';
 
 
@@ -12,15 +13,15 @@ export class ScannerComponent implements OnInit {
 
   params:any;
   output:any;
-  constructor(route: ActivatedRoute,private qrcode: NgxScannerQrcodeService) { 
+  constructor(route: ActivatedRoute,private qrcode: NgxScannerQrcodeService,private router:Router) { 
 
     this.params = route.snapshot.params;
   }
 
   public config: ScannerQRCodeConfig = {
     //fps: 1000,
-    vibrate: 400,
-    isAuto: false,
+    //vibrate: 400,
+    //isAuto: false,
     // isBeep: true,
 
     // decode: 'macintosh',
@@ -36,6 +37,14 @@ export class ScannerComponent implements OnInit {
   
   public onEvent(e: ScannerQRCodeResult[]): void {
     //console.log(e[0].value);
+
+
+    if(e[0].value=='Your trip has started😀'){
+
+      setTimeout(()=> this.router.navigate(['/boarding']),900)
+     
+
+    }
     this.output = e[0].value;
   }
   
