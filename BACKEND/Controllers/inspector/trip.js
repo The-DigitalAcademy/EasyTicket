@@ -24,6 +24,19 @@ const getTrip = (request, res) => {
     })
     
   }
+
+  const searchStation = (req, res) => {  
+
+    const { id } = req.body
+
+    pool.query('SELECT departing_from,departing_to FROM public.trip WHERE id=$1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(200).json(results.rows)
+    })
+    
+  }
   
   const updateTrip = (request, res) => {
     const id = parseInt(request.params.id);
@@ -53,6 +66,7 @@ const getTrip = (request, res) => {
   module.exports = {
     getTrip,
     postTrip,
+    searchStation,
     updateTrip,
     deleteTrip
   }
