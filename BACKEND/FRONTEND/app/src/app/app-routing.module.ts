@@ -15,7 +15,7 @@ import { TripComponent } from './passenger/trip/trip.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
-import { ScanComponent } from './scan/scan.component';
+
 import { ModalComponent } from './modal/modal.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 
@@ -60,10 +60,10 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
 { path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
-{ path: 'scan', component: ScanComponent,canActivate:[AuthService] },
+
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
 { path: 'passengers', component: PassengersComponent,canActivate:[AuthService] },
-{ path: 'scan', component: ScanComponent,canActivate:[AuthService] },
+
 { path: 'suspended', component: SuspendedComponent,canActivate:[AuthService]},
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
 { path: 'navigate', component: NavigateComponent,canActivate:[AuthService] },

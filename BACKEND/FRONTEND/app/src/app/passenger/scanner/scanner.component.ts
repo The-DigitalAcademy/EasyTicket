@@ -1,11 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-<<<<<<< HEAD
 import { NgToastService } from 'ng-angular-popup';
-=======
-
->>>>>>> fd6997b27a21abf83705238db1cab6ca8e95198f
 import { ScannerQRCodeConfig,  ScannerQRCodeSelectedFiles,  NgxScannerQrcodeService, ScannerQRCodeResult} from 'ngx-scanner-qrcode';
 
 
@@ -18,7 +14,6 @@ export class ScannerComponent implements OnInit {
 
   params:any;
   output:any;
-<<<<<<< HEAD
   dropList: string[] = [];
   got:any;
   public lat: any;
@@ -27,9 +22,6 @@ export class ScannerComponent implements OnInit {
 
   
   constructor(route: ActivatedRoute,private qrcode: NgxScannerQrcodeService,private http:HttpClient,private router:Router,private toast :NgToastService) { 
-=======
-  constructor(route: ActivatedRoute,private qrcode: NgxScannerQrcodeService,private router:Router) { 
->>>>>>> fd6997b27a21abf83705238db1cab6ca8e95198f
 
     this.params = route.snapshot.params;
   }
@@ -112,7 +104,7 @@ export class ScannerComponent implements OnInit {
     let Destination=sessionStorage.getItem('Destination');
 
 
-    
+
 
     this.toast.success({detail:"Success",summary:price+' tokens is deducted', duration:4000})
     setTimeout(()=> this.router.navigate(['/wallet']),10000)

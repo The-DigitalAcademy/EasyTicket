@@ -35,7 +35,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { CompanyInforComponent } from './company-infor/company-infor.component';
 
-import { ScanComponent } from './scan/scan.component';
+
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './safe.pipe';
 import { ModalComponent } from './modal/modal.component';
@@ -90,7 +90,7 @@ import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.c
     TopnavComponent,
     LoadtokenComponent,
     CompanyInforComponent,
-    ScanComponent,
+
     SafePipe,
     SearchplaceComponent,
     StarttripComponent,
@@ -117,7 +117,8 @@ import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.c
     NgxScannerQrcodeModule,
     RouterModule,
     FormsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    FormsModule
 
   ],
   // imports: [
