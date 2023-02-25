@@ -22,42 +22,41 @@
        
     </div>
 
-    <div class="col-md-6 col-xl-3 mb-4" *ngFor="let p of per">
-        <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;" *ngIf="p.status == 'suspended'">
-            <div class="card-body"  >
-                <div class="row align-items-center no-gutters">
-                    <div class="col me-2">
-                        <span class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;"><strong>{{p.fullname}}</strong></span>
+    <div class="row">
+
+
+        <div class="col-md-6 col-xl-3 mb-4" *ngFor="let p of per">
+            <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;" *ngIf="p.status == 'suspended'">
+                <div class="card-body"  >
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <span class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;"><strong>{{p.fullname}}</strong></span>
+                        </div>
+                        
+                        <div class="col me-2">
+                            
+                            <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>{{p.status}}</strong></span>
+                        
+                            <div *ngIf="p.status == 'suspended'">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round" style="background-color:red"></span>
+                                </label>
+                            </div>
+                           
+                        </div>
                     </div>
-                    
+                   
                     <div class="col me-2">
                         
-                        <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>{{p.status}}</strong></span>
-                    
-                        <!-- <div *ngIf="n.status == 'active'">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider round" style="background-color:green"></span>
-                            </label>
-                        </div> -->
-                        <div *ngIf="p.status == 'suspended'">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider round" style="background-color:red"></span>
-                            </label>
-                        </div>
-                       
+                        <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>Balance {{p.amount}}.00</strong></span>
                     </div>
                 </div>
-               
-                <div class="col me-2">
-                    
-                    <span class="text-capitalize" style="color: rgb(255,255,255);font-size: 15px;"><strong>Balance {{p.amount}}.00</strong></span>
-                </div>
             </div>
+    
         </div>
-
     </div>
+   
     <!-- <div class="row" >
         <div class="col-md-6 col-xl-3 mb-4" *ngFor="let p of per">
             <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;" >
