@@ -31,7 +31,8 @@ export class PPaymentComponent implements OnInit {
   user = {
     id: '',
     fullname:'',
-    email:''
+    email:'',
+    amount:''
 
 }
 
@@ -63,31 +64,12 @@ export class PPaymentComponent implements OnInit {
 
     this.imgUrl =  await res.url;
 
-    let pUpload = {
-      
-      
-      proof: res.url
-   
-    }
-
-    console.log(this.imgUrl); 
-    
-
-    // this.Passenger.postProof().subscribe((next:any) => {
-    //   console.log('Item has been added successfully!');
-    //   this.router.navigate(['/admin/food']);
-    //   this.toast.success({detail:'Success',summary:'Item has been added successfully!', sticky:false,position:'tr', duration:6000})
-    
-    //   this.submitted = false;
-    // });
-
-
    var uploading={
     user_id:this.user.id,
     proof:this.imgUrl
     }
 
-    console.log(uploading);
+
 
     this.Passenger.postProof(uploading).subscribe((next:any) => {
 
@@ -95,11 +77,9 @@ export class PPaymentComponent implements OnInit {
       this.toast.success({detail:"Success",summary:'File Uploaded', duration:2000})
   setTimeout(()=> this.router.navigate(['p-dashboard']),900)
 
-      //console.log('Document has been added successfully!');
       this.submitted = false;
     })
-    //   t
-    // });
+    
 })  
 
   }

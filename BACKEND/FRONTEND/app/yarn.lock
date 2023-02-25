@@ -4468,10 +4468,10 @@ ng2-pdf-viewer@^9.1.3:
     pdfjs-dist "~2.14.305"
     tslib "^2.3.1"
 
-ngx-scanner-qrcode@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/ngx-scanner-qrcode/-/ngx-scanner-qrcode-1.2.2.tgz#1d02b811828b452b7a4b1db480fbcb4f9d5c47a0"
-  integrity sha512-rWhSCtcCQbFw9wyTQa74h+JMpqI9SY0TcVzEMbiMil21jhuH7fptCHuyBkrhpDtuZUsKNmKsgaCouskBxtu+6g==
+ngx-scanner-qrcode@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/ngx-scanner-qrcode/-/ngx-scanner-qrcode-1.2.1.tgz#2cb62cb3786914694e639e6c0ef36897f6ab2734"
+  integrity sha512-7LSwDJxBvp9s84v/xdYx1vmwckOWHMn40Wj4QUxsMafYHZmt/14jl086U3T0qHgr0dg31aqA5FRP9gzcX9Dv+A==
   dependencies:
     tslib "^1.9.0"
 

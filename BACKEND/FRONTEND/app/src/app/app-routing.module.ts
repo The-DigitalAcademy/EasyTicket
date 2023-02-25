@@ -66,11 +66,11 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'scan', component: ScanComponent,canActivate:[AuthService] },
 { path: 'suspended', component: SuspendedComponent,canActivate:[AuthService]},
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
-{ path: 'navigate/:address', component: NavigateComponent,canActivate:[AuthService] },
+{ path: 'navigate', component: NavigateComponent,canActivate:[AuthService] },
 { path: 'travel', component: TravelComponent,canActivate:[AuthService] },
 { path: 'complains', component: ComplainsComponent,canActivate:[AuthService] },
 { path: 'lodgecomplains', component: LodgecomplainsComponent,canActivate:[AuthService] },
-{ path: 'scanner/:address', component: ScannerComponent,canActivate:[AuthService] },
+{ path: 'scanner', component: ScannerComponent,canActivate:[AuthService] },
 { path: 'active', component: ActiveComponent,canActivate:[AuthService] },
 { path: 'boarding', component: BoardingComponent,canActivate:[AuthService] },
 { path: 'passwordrecovery', component: PasswordrecoveryComponent}

@@ -25,8 +25,10 @@ export class NavigateComponent implements OnInit {
    dropList: string[] = [];
    latD:any;
    lngD:any;
-
+   storedaddress:any;
   ngOnInit(): void {
+
+    this.storedaddress=sessionStorage.getItem('Destination');
 
 //find my current location
  navigator.geolocation.getCurrentPosition((position) => {
@@ -40,7 +42,7 @@ export class NavigateComponent implements OnInit {
     
       this.http
       .get(
-        'https://api.opencagedata.com/geocode/v1/json?q='+this.params.address+'&key=a2580d3bbb4940d9bfa47c349d3cac3a'
+        'https://api.opencagedata.com/geocode/v1/json?q='+this.storedaddress+'&key=a2580d3bbb4940d9bfa47c349d3cac3a'
       )
       .subscribe((data: any) => {
    
@@ -48,7 +50,11 @@ export class NavigateComponent implements OnInit {
         this.latD=data.results[0].geometry.lat;
         this.lngD=data.results[0].geometry.lng;
 
-        var map = L.map('map').setView([-41.2858, 174.78682], 8);
+        console.log(this.latD,this.lngD);
+        console.log( this.lat,this.lng);
+
+
+        var map = L.map('map').setView([-26.1861256,28.0189559], 8);
         var mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
         L.tileLayer(
@@ -72,17 +78,17 @@ export class NavigateComponent implements OnInit {
   
 
 //getting routes api
-    this.get_Data().subscribe((data:any) =>{
+    // this.get_Data().subscribe((data:any) =>{
       
-      this.test = data.features[0].properties.legs[0].steps;
-    });  
+    //   this.test = data.features[0].properties.legs[0].steps;
+    // });  
   }
-  get_Data(){
+  // get_Data(){
 
-  let pointA='-26.1861256,28.0189559';
-  let pointB='-26.183182600000002,28.020225638225238';
-  return this.http.get('https://api.geoapify.com/v1/routing?waypoints='+pointA+'|'+pointB+'&mode=walk&apiKey=5c2b95106e094fa08e3f0fabf3c97c93')
+  // let pointA='-26.1861256,28.0189559';
+  // let pointB='-26.183182600000002,28.020225638225238';
+  // return this.http.get('https://api.geoapify.com/v1/routing?waypoints='+pointA+'|'+pointB+'&mode=walk&apiKey=5c2b95106e094fa08e3f0fabf3c97c93')
 
-  }
+  // }
 
 }
