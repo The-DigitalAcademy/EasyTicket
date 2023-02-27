@@ -49,5 +49,14 @@ export class PassengerService {
     return this.http.put(this.baseUrl +"/updateProfile/"+id,data);
   }
 
+
+  PayRoute(data:any){
+    return this.http.put(this.baseUrl +"/payingTrip/",data);
+  }
+
+  Historytrip(data:any){
+
+    return this.http.post(this.baseUrl +"/historyTrip/",data);
+  }
   
 }

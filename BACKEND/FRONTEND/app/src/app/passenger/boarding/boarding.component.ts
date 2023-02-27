@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
@@ -14,8 +15,11 @@ busMoves:any;
 params: any;
 public latCurrent: any;
 public lngCurrent: any;
+latD:any;
+lngD:any;
+storedaddress:any;
 
-  constructor(private router:Router,private toast :NgToastService,route: ActivatedRoute) { 
+  constructor(private router:Router,private toast :NgToastService,route: ActivatedRoute,private http: HttpClient) { 
 
 
 	this.params = route.snapshot.params;
@@ -26,6 +30,8 @@ public lngCurrent: any;
 
 
   ngOnInit(): void {
+
+	this.storedaddress=sessionStorage.getItem('Destination');
 
 //find my current location
 navigator.geolocation.getCurrentPosition((position) => {
@@ -60,11 +66,24 @@ var trip;
 	       //-26.18322,28.02021
 			//var newMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);
 	 
-        
+			this.http
+			.get(
+			  'https://api.opencagedata.com/geocode/v1/json?q='+this.storedaddress+'&key=a2580d3bbb4940d9bfa47c349d3cac3a'
+			)
+			.subscribe((data: any) => {
+
+				this.latD=data.results[0].geometry.lat;
+				this.lngD=data.results[0].geometry.lng; 
+			
+		 
+		
+			console.log('here    utioriuoeroor',this.latD,this.lngD)
+
+
 			L.Routing.control({
 				waypoints: [
 					L.latLng(this.latCurrent, this.lngCurrent),
-					L.latLng(-26.18322,28.02021)
+					L.latLng(this.latD,this.lngD)
 				]
 		
 
@@ -91,7 +110,7 @@ var trip;
 			}
 	  
 
-					}, 1200 * index)
+					}, 150 * index)
 
 	   
 				})
@@ -99,6 +118,8 @@ var trip;
 		
 
 			}).addTo(map);
+
+		})
 
 		});
 

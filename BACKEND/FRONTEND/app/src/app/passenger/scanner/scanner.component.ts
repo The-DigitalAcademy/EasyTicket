@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { NgToastService } from 'ng-angular-popup';
 import { ScannerQRCodeConfig,  ScannerQRCodeSelectedFiles,  NgxScannerQrcodeService, ScannerQRCodeResult} from 'ngx-scanner-qrcode';
+import { JwtService } from 'src/app/service/jwt.service';
+import { PassengerService } from 'src/app/service/passenger.service';
 
 
 @Component({
@@ -19,9 +22,10 @@ export class ScannerComponent implements OnInit {
   public lat: any;
   public lng: any;
   storedaddress:any;
-
+  once=false;
   
-  constructor(route: ActivatedRoute,private qrcode: NgxScannerQrcodeService,private http:HttpClient,private router:Router,private toast :NgToastService) { 
+  constructor(route: ActivatedRoute,private qrcode: NgxScannerQrcodeService,private http:HttpClient,private router:Router,private toast :NgToastService,private passenger:PassengerService,
+    private jwtService:JwtService) { 
 
     this.params = route.snapshot.params;
   }
@@ -85,7 +89,13 @@ export class ScannerComponent implements OnInit {
   public handle(action: any, fn: string): void {
     action[fn]().subscribe(console.log, alert);
   }
+  user = {
+    id: '',
+    fullname:'',
+    email:'',
+    amount:''
 
+}
   ngOnInit(): void {
 
 
@@ -99,16 +109,56 @@ export class ScannerComponent implements OnInit {
   PunchOut()
   {
 
+    this.once=true;
+    this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
+  //display one character of fullname
+    let id=this.user.id
 
     let price=sessionStorage.getItem('price');
     let Destination=sessionStorage.getItem('Destination');
+  
+  var out={
+
+   id:id,
+   input:price
+  }
+
+  var tripdata=
+  {
+    user_id:id,
+    depart_to:Destination,
+    tokens:price
 
 
+  }
+    if(price==null){
+
+      this.toast.warning({detail:"Warning",summary:'No Trip started.', duration:4000})
+      setTimeout(()=> this.router.navigate(['/scanner']),10000)
+      setTimeout(()=> sessionStorage.clear(),5000)
+
+    }else
+    {
+
+          this.passenger.Historytrip(tripdata).subscribe(() => {
+
+          this.passenger.PayRoute(out).subscribe(() => {
+
+          this.toast.success({detail:"Success",summary:price+' tokens is deducted', duration:4000})
+          setTimeout(()=> this.router.navigate(['/wallet']),10000)
+          setTimeout(()=> sessionStorage.clear(),5000)
+
+        })
+ 
+      
+    })
+
+     
+
+    }
+    
 
 
-    this.toast.success({detail:"Success",summary:price+' tokens is deducted', duration:4000})
-    setTimeout(()=> this.router.navigate(['/wallet']),10000)
-    setTimeout(()=> sessionStorage.clear(),5000)
 
   }
 
@@ -121,10 +171,17 @@ export class ScannerComponent implements OnInit {
     let addressToDB='Milpark Bus Station (T3, C4, C5), Empire Road, Cottesloe, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa';
     let selectedAddressToDB='Milpark Bus Station (T3, C4, C5), Empire Road, Cottesloe, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa';
     let priceTrip=15.50
-    let wallet=100.50
+   
  
+
+    this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
+    //display one character of fullname
+      let id=this.user.id
+      let wallet=parseFloat(this.user.amount);
+      let price=sessionStorage.getItem('price');
+      let Destination=sessionStorage.getItem('Destination');
  
-  console.log(wallet.toFixed(2),priceTrip.toFixed(2));
+
     //find my current location
   navigator.geolocation.getCurrentPosition((position) => {
  
