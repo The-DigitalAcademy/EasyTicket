@@ -5,14 +5,14 @@ const handleErr = (err, req, res, next) => {
 }
 
 const getComplains = (request, res) => {
-    pool.query('SELECT fullname,complains FROM public.complains,public.users WHERE public.complains.user_id=public.users.id ', (error, results) => {
+    pool.query('SELECT fullname,complains,times FROM public.complains,public.users WHERE public.complains.user_id=public.users.id ', (error, results) => {
      
       res.status(200).json(results.rows)
     }),handleErr
 }
 
 const getAllComplains = (request, res) => {
-  pool.query('SELECT user_id, complains FROM public.complains ', (error, results) => {
+  pool.query('SELECT user_id, complains,times FROM public.complains ', (error, results) => {
    
     res.status(200).json(results.rows)
   }),handleErr

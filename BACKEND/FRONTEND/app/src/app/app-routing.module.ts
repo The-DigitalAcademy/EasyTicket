@@ -34,6 +34,7 @@ import { ScannerComponent } from './passenger/scanner/scanner.component';
 import { ActiveComponent } from './inspector/active/active.component';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
+import { ViewcomplaintComponent } from './inspector/viewcomplaint/viewcomplaint.component';
 
 
 
@@ -73,8 +74,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'scanner/:address', component: ScannerComponent,canActivate:[AuthService] },
 { path: 'active', component: ActiveComponent,canActivate:[AuthService] },
 { path: 'boarding', component: BoardingComponent,canActivate:[AuthService] },
-{ path: 'passwordrecovery', component: PasswordrecoveryComponent}
-
+{ path: 'passwordrecovery', component: PasswordrecoveryComponent},
+{ path: 'viewcomplaint', component: ViewcomplaintComponent,canActivate:[AuthService]}
 
 ];
 

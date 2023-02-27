@@ -57,6 +57,7 @@ import { PassengercategoryComponent } from './inspector/passengercategory/passen
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
+import { ViewcomplaintComponent } from './inspector/viewcomplaint/viewcomplaint.component';
 
 
 
@@ -107,7 +108,8 @@ import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.c
     ActiveComponent,
     PassengercategoryComponent,
     BoardingComponent,
-    PasswordrecoveryComponent
+    PasswordrecoveryComponent,
+    ViewcomplaintComponent
 
   ],
   imports: [

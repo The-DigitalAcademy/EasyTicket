@@ -10,7 +10,7 @@ const getUsers = (request, res) => {
 
     pool.query('SELECT COUNT(id) FROM public.users GROUP BY status', (error, results) => {
      
-      res.status(200).json(results.rows)
+      // res.status(200).json(results.rows)
     }),handleErr
 }
 
