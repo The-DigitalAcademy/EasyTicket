@@ -72,7 +72,7 @@ busMoves:any;
             }
       
 
-					}, 1200 * index)
+					}, 150 * index)
 
        
 				})

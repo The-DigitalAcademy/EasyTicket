@@ -13,10 +13,10 @@ const getHistory = (request, res) => {
 
   //passenger's trip history
   const createHistory = (req, res) => {  
+    
+    const { user_id,departing_to,amount } = req.body
 
-    const { user_id,departing_to } = req.body
-
-    pool.query('INSERT INTO public.history(user_id, departing_to) VALUES ($1, $2)', [user_id,departing_to ], (error, results) => {
+    pool.query('INSERT INTO public.history(user_id, departing_to,amount) VALUES ($1, $2,$3)', [user_id,departing_to,amount], (error, results) => {
       if (error) {
         throw error
       }
