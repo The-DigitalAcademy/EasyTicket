@@ -20,7 +20,7 @@ const getAllComplains = (request, res) => {
 }
 
 
-//getting the complains for the current month
+//getting the complains for the current month.
 const ComplainsPerMonth = (request, res) => {
   pool.query(`SELECT user_id, complains,date_created FROM public.complains WHERE date_created >= date_trunc('month', now())`, (error, results) => {
    
