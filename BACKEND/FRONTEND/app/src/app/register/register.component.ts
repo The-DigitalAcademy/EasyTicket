@@ -105,7 +105,7 @@ if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPasswo
   }
   
     openSucess(){
-      this.toast.success({detail:"Warning", summary:"Succesfully Registered"})
+      this.toast.success({detail:"Success", summary:"Succesfully Registered"})
     }
 
     openWarning(){

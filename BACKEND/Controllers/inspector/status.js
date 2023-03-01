@@ -26,7 +26,7 @@ const getAllUsers = (request, res) => {
 
     // const {status} = request.body
 
-    pool.query('SELECT fullname,status,amount,created_at FROM public.users', (error, results) => {
+    pool.query('SELECT fullname,status,amount FROM public.users', (error, results) => {
      
       res.status(200).json(results.rows)
     }),handleErr

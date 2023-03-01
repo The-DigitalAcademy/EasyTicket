@@ -13,6 +13,7 @@ export class StarttripComponent implements OnInit {
   init:any
   single:any
   wallet:any
+  storedaddress:any
 
 
   user = {
@@ -25,12 +26,17 @@ export class StarttripComponent implements OnInit {
   constructor(route: ActivatedRoute,private jwtService : JwtService,private Passenger:PassengerService) { 
     
     this.params = route.snapshot.params;
+    sessionStorage.setItem("Destination",this.params.address);
   }
 
   ngOnInit(): void {
     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
     this.init = this.user.fullname.charAt(0).toUpperCase();   //display one character of fullname
     this.single=this.user.fullname.split(' ').at(0);   //find space on fullname
+
+    this.storedaddress=sessionStorage.getItem('Destination');
+
+
     let id=this.user.id
     console.log(this.params)
   }

@@ -127,6 +127,7 @@ router.post('/register', register.registerUser)
   router.get('/viewTokens/:id', getTokens.getToken)
   //paying the trip
   router.put('/payingTrip', tokens.payingTrip)// payingTrip
+  router.post('/historyTrip', tokens.Historytrip)// payingTrip
 
 
    //routes for company information
