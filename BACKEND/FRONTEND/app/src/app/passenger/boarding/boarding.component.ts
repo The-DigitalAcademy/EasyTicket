@@ -110,7 +110,7 @@ var trip;
 			}
 	  
 
-					}, 150 * index)
+					}, 100 * index)
 
 	   
 				})

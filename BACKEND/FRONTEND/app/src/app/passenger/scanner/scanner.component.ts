@@ -58,6 +58,7 @@ export class ScannerComponent implements OnInit {
 
     }
     this.output = e[0].value;
+    console.log(this.output)
   if(this.output=='Your trip has started😀')
   {
 
@@ -209,7 +210,7 @@ export class ScannerComponent implements OnInit {
        sessionStorage.setItem("Destination",selectedAddressToDB);
  
        this.toast.success({detail:"Success",summary:'Trip has started', duration:2000})
-       setTimeout(()=> this.router.navigate(['/boarding']),900)
+       setTimeout(()=> this.router.navigate(['/boarding']),90)
  
      }else if(priceTrip === wallet)
      {

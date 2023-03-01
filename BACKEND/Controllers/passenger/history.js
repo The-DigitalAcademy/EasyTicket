@@ -5,7 +5,7 @@ const handleErr = (err, req, res, next) => {
 }
 
 const getHistory = (request, res) => {
-    pool.query('SELECT * FROM public.history ORDER BY id ASC ', (error, results) => {
+    pool.query('SELECT * FROM public.historytrip ORDER BY id ASC ', (error, results) => {
      
       res.status(200).json(results.rows)
     }),handleErr
@@ -13,10 +13,10 @@ const getHistory = (request, res) => {
 
   //passenger's trip history
   const createHistory = (req, res) => {  
+    
+    const { user_id,depart_to,tokens } = req.body
 
-    const { user_id,departing_to } = req.body
-
-    pool.query('INSERT INTO public.history(user_id, departing_to) VALUES ($1, $2)', [user_id,departing_to ], (error, results) => {
+    pool.query('INSERT INTO public.historytrip(user_id, depart_to,tokens) VALUES ($1, $2,$3)', [user_id,depart_to,tokens], (error, results) => {
       if (error) {
         throw error
       }

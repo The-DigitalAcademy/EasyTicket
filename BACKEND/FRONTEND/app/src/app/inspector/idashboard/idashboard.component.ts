@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { InspectorService } from 'src/app/service/inspector.service';
-import {ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels, ApexStroke,ApexMarkers,ApexYAxis,ApexGrid,ApexTitleSubtitle,ApexLegend,ApexFill, ApexTooltip, ApexPlotOptions} from "ng-apexcharts";
+import { ApexNonAxisChartSeries, ApexResponsive,ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels, ApexStroke,ApexMarkers,ApexYAxis,ApexGrid,ApexTitleSubtitle,ApexLegend,ApexFill, ApexTooltip, ApexPlotOptions} from "ng-apexcharts";
 
 
 export type ChartOptions = {
@@ -23,6 +23,16 @@ export type ChartOptions = {
   tooltip: ApexTooltip;
 };
 
+export type ChartOption = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+  fill: ApexFill;
+  legend: ApexLegend;
+  dataLabels: ApexDataLabels;
+};
+
 @Component({
   selector: 'app-idashboard',
   templateUrl: './idashboard.component.html',
@@ -32,6 +42,8 @@ export class IdashboardComponent implements OnInit {
 
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
+  public chartOption!: Partial<ChartOption> | any;
+
   name=[];
   dates:any;
   temp:any;
@@ -43,6 +55,8 @@ export class IdashboardComponent implements OnInit {
   mydata3 = new Array();
 
   constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) {
+
+    
    
    }
   active:any;
@@ -57,6 +71,7 @@ user = {
   cat:'',
   status:'',
   created_at:'',
+  count:''
 
 }
 
@@ -66,15 +81,19 @@ user = {
    
 
       this.inspectorService.getStatus().subscribe((status:any) => {
+        let result=status;
+
+        console.log(result)
      
-        this.active=status[0];
-        this.suspended=status[1];
+        this.suspended=status[0];
+        this.active=status[1];
+        // console.log('here   ',this.active)
       
       })
       
       this.inspectorService.getStatusDate().subscribe((res:any) => {
           let result=res;
-          console.log(result)
+          console.log('all ',result)
           this.user.cat=result[2].cat;
           this.act=result.filter((res: { cat: string; }) => res.cat===("active"));
           // console.log('ACTIVE ',this.act)
