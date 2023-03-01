@@ -144,6 +144,8 @@ router.post('/register', register.registerUser)
    router.post('/postComplains', complains.postComplains)
    router.get('/getComplains', complains.getComplains)
    router.get('/getAllComplains', complains.getAllComplains)
+   router.get('/ComplainsPerMonth', complains.ComplainsPerMonth)
+  
 
   //  status
   router.get('/getStatus', status.getUsers)
