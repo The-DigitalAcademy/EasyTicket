@@ -10,19 +10,18 @@
                 <app-topnav></app-topnav>
                 <!---------->
                 <div class="container-fluid">
+                      <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0" style="font-size: 15px;color: rgb(255,255,255);">Complaint</h3>
+          <!-----passenger category-->
+          <app-filter></app-filter>
+          <!-------------------------->
+        </div>
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="mb-0" style="font-size: 20px;color: rgb(255,255,255);">Complaints</h3>
-                        <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                            <div class="card-body" style="background: #323230;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
-                                <button onclick="" class="btn shadow-lg" type="submit" style="height: 40px;background: #323230;color: rgb(255,255,255);font-size: 15px;border-radius: 10px;">All </button>&nbsp;
-                                <button onclick="" class="btn shadow-lg " type="submit" style="height: 40px;background: #323230;color: rgb(255,255,255);font-size: 15px;border-radius: 10px;">Weekly</button>
-                                <button onclick="" class="btn  shadow-lg " type="submit" style="height: 40px;background: #323230;color: rgb(255,255,255);font-size: 15px;border-radius: 10px;">Monthly</button>
-                            </div>
-                        </div>
+                        <h3 class="mb-0" style="font-size: 15px;color: rgb(255,255,255);">All</h3> 
+                       
                     </div>
-
                     <div class="row">
-                        <h3 class="mb-0" style="font-size: 20px;color: rgb(255,255,255);">Complaints List</h3>
+                        <h3 class="mb-0" style="font-size: 15px;color: rgb(255,255,255);">Complaint List</h3>
                        
                         <br>
                         <br>
@@ -45,7 +44,7 @@
                                                     <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                                                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
                                                     <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-                                                </svg>&#20;&#20;</i>{{c.times| date:'yyyy-MM-dd  &#20;&#20; hh:ss'}}</span>
+                                                </svg>&#20;&#20;</i>{{c.times| date:'yyyy-MM-dd-EEEE  &#20;&#20; h:mm:ss a'}}</span>
                                             </div>
                                         </div>
                                     </div>

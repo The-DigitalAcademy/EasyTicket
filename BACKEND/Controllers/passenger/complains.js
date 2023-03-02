@@ -17,7 +17,6 @@ const getAllComplains = (request, res) => {
     res.status(200).json(results.rows)
   }),handleErr
 }
-
   
   const postComplains = (req, res) => {  
 
@@ -36,5 +35,6 @@ const getAllComplains = (request, res) => {
 module.exports = {
     getAllComplains,
     getComplains,
-    postComplains
+    postComplains,
+   
   }

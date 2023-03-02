@@ -35,6 +35,9 @@ import { ActiveComponent } from './inspector/active/active.component';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
 import { ViewcomplaintComponent } from './inspector/viewcomplaint/viewcomplaint.component';
+import { WeekComponent } from './inspector/week/week.component';
+import { FilterComponent } from './inspector/filter/filter.component';
+import { MonthComponent } from './inspector/month/month.component';
 
 
 
@@ -75,7 +78,10 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'active', component: ActiveComponent,canActivate:[AuthService] },
 { path: 'boarding', component: BoardingComponent,canActivate:[AuthService] },
 { path: 'passwordrecovery', component: PasswordrecoveryComponent},
-{ path: 'viewcomplaint', component: ViewcomplaintComponent,canActivate:[AuthService]}
+{ path: 'viewcomplaint', component: ViewcomplaintComponent,canActivate:[AuthService]},
+{ path: 'filter', component: FilterComponent,canActivate:[AuthService]},
+{ path: 'week', component: WeekComponent,canActivate:[AuthService]},
+{ path: 'month', component: MonthComponent,canActivate:[AuthService]}
 
 ];
 

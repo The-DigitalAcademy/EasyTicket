@@ -58,6 +58,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
 import { ViewcomplaintComponent } from './inspector/viewcomplaint/viewcomplaint.component';
+import { WeekComponent } from './inspector/week/week.component';
+import { MonthComponent } from './inspector/month/month.component';
+import { FilterComponent } from './inspector/filter/filter.component';
 
 
 
@@ -109,7 +112,10 @@ import { ViewcomplaintComponent } from './inspector/viewcomplaint/viewcomplaint.
     PassengercategoryComponent,
     BoardingComponent,
     PasswordrecoveryComponent,
-    ViewcomplaintComponent
+    ViewcomplaintComponent,
+    WeekComponent,
+    MonthComponent,
+    FilterComponent
 
   ],
   imports: [
