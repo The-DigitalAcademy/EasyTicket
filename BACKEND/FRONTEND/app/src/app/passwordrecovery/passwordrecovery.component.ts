@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 import { Router } from '@angular/router';
 
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { GuardService } from '../service/guard.service';
 import { JwtService } from '../service/jwt.service';
 
@@ -29,7 +30,13 @@ export class PasswordrecoveryComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private http:HttpClient,private formBuilder: FormBuilder,private router:Router, private jwtService : JwtService,private guardservice : GuardService,private toast :NgToastService) { }
+  constructor(private http:HttpClient,
+    private formBuilder: FormBuilder,
+    private router:Router,
+    private jwtService : JwtService,
+    private guardservice : GuardService,
+    private toast :NgToastService,
+    private spinner: NgxSpinnerService) { }
 
 
   ngOnInit(): void {
@@ -49,7 +56,7 @@ export class PasswordrecoveryComponent implements OnInit {
 
   onSubmit(data:any): void {
   this.submitted = true;
-
+  this.spinner.show();
 
   var emailcheck={
     email:data.email
@@ -60,7 +67,7 @@ export class PasswordrecoveryComponent implements OnInit {
       this.http.post('http://localhost:3001/passwordrecover',emailcheck, {responseType:'text'}).subscribe((res)=>
       {
 
-  
+        this.spinner.hide()
         console.log(res)
 
       if(res=='Email Sent!')

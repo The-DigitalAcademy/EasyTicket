@@ -56,6 +56,8 @@ export class PPaymentComponent implements OnInit {
   async postProof(){
 
   this.spinner.show();
+
+  
   const formData = new FormData();    
   formData.append("file",this.file)    
   formData.append("upload_preset","sxnxtyof");     

@@ -7,7 +7,7 @@ import { text } from 'stream/consumers';
 import { FormControl,FormGroup } from '@angular/forms';
 import { JwtService } from 'src/app/service/jwt.service';
 import { PassengerService } from 'src/app/service/passenger.service';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-complaint',
   templateUrl: './complaint.component.html',
@@ -44,6 +44,9 @@ submitted = false;
   {
     this.submitted = true;
 
+   
+   
+    
 
 this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
 let id=this.user.id;
@@ -58,6 +61,7 @@ this.http.post('http://localhost:3001/postComplains',complain_data, {responseTyp
  {
    let result=res;
   console.log(res);
+
   
  });
 
