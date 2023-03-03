@@ -11,13 +11,22 @@ const getComplains = (request, res) => {
     }),handleErr
 }
 
+//getting the complains for the current week
 const getAllComplains = (request, res) => {
-  pool.query('SELECT user_id, complains FROM public.complains ', (error, results) => {
+  pool.query(`SELECT user_id, complains,date_created FROM public.complains WHERE date_created >= date_trunc('week', now())`, (error, results) => {
    
     res.status(200).json(results.rows)
   }),handleErr
 }
 
+
+//getting the complains for the current month.
+const ComplainsPerMonth = (request, res) => {
+  pool.query(`SELECT user_id, complains,date_created FROM public.complains WHERE date_created >= date_trunc('month', now())`, (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
   
   const postComplains = (req, res) => {  
 
@@ -48,5 +57,6 @@ const getUserComplain = (req, res) => {
 module.exports = {
     getAllComplains,
     getComplains,
-    postComplains,getUserComplain
+    postComplains,getUserComplain,
+    ComplainsPerMonth
   }
