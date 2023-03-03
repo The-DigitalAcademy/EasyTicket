@@ -47,7 +47,7 @@ form1: FormGroup = new FormGroup({
 });
 
 submitted = false;
-
+points:any;
 modaldisappear:any;
   ngOnInit(): void {
 
@@ -68,10 +68,16 @@ modaldisappear:any;
 
     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
     this.init = this.user.fullname.charAt(0).toUpperCase();   //display one character of fullname
-  
+    let id=this.user.id
     this.form.setValue({
       fullname: this.user.fullname
     })
+
+    this.Passenger.getUserUsedTokens(id).subscribe((next:any) => {
+
+      this.points=next[0].points;
+    
+  })
    
     
   }

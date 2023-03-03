@@ -22,6 +22,7 @@ export class StarttripComponent implements OnInit {
     email:'',
     amount:''
   }
+  points:any;
  
   constructor(route: ActivatedRoute,private jwtService : JwtService,private Passenger:PassengerService) { 
     
@@ -38,6 +39,13 @@ export class StarttripComponent implements OnInit {
 
 
     let id=this.user.id
+
+
+    this.Passenger.getUserUsedTokens(id).subscribe((next:any) => {
+
+      this.points=next[0].points;
+    
+  })
     console.log(this.params)
   }
 

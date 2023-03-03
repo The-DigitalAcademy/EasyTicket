@@ -58,5 +58,48 @@ export class PassengerService {
 
     return this.http.post(this.baseUrl +"/historyTrip/",data);
   }
+
+  //view tokens used
+
+  getUserUsedTokens(id: any){
+
+    return this.http.get(this.baseUrl +"/getUserToken/"+id);
+
+  }
+
+  //getting trascation history
+
+  getUserTransaction(id: any){
+
+    return this.http.get(this.baseUrl +"/getUserTransaction/"+id);
+
+  }
+
+    //getting trip no history
+
+    getUserUsertrip(id: any){
+
+      return this.http.get(this.baseUrl +"/getUserUsertrip/"+id);
+  
+    }
+
+     //getting uploads
+
+     getUserUploads(id: any){
+
+      return this.http.get(this.baseUrl +"/getUserUploads/"+id);
+  
+    }
+      //getting uploads
+
+      getUserComplain(id: any){
+
+        return this.http.get(this.baseUrl +"/getUserComplain/"+id);
+    
+      }
+    
+
+  
+
   
 }

@@ -31,10 +31,22 @@ const getAllComplains = (request, res) => {
     })
     
   }
+//count no of complains per passenger
+const getUserComplain = (req, res) => {  
 
+  const id=parseInt(req.params.id)
 
+  pool.query('SELECT count(user_id) as complaincount FROM public.complains WHERE user_id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  }),handleErr
+  
+}
+ 
 module.exports = {
     getAllComplains,
     getComplains,
-    postComplains
+    postComplains,getUserComplain
   }

@@ -11,7 +11,7 @@ import { PProfileComponent } from './passenger/p-profile/p-profile.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
 import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
-import { NgForm } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -57,7 +57,7 @@ import { PassengercategoryComponent } from './inspector/passengercategory/passen
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -118,7 +118,7 @@ import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.c
     RouterModule,
     FormsModule,
     NgApexchartsModule,
-    FormsModule
+    FormsModule,NgxSpinnerModule
 
   ],
   // imports: [

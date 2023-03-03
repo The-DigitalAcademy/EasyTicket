@@ -40,7 +40,7 @@
                 <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
                     <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;Points Used</p>
-                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;00.00</p>
+                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;{{points | number:'1.2-2'}}</p>
                     </div>
                 </div>
             </div>
@@ -50,90 +50,32 @@
                 <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
                     <div class="card-body" style="background: rgb(68, 65, 65);border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;height: 400px;overflow: scroll;">
                         <p style="color: rgb(255,255,255);font-size: 13px;position: fixed;"><i class="fas fa-history" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Transaction History</p>
-                        <div class="row" style="margin-top: 38px;">
-                            <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="row" style="margin-top: 38px;" >
+
+
+                            <div class="col-md-6 col-xl-3 mb-4" *ngFor="let t of transactions" >
                                 <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
-                                    <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                                    <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
                                         <div class="row align-items-center no-gutters">
                                             <div class="col me-2">
-                                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="font-size: 12px;color: #f59805;">aukland park</span></div>
-                                                <div class="text-dark fw-bold h5 mb-0" style="margin-top: -6px;"><span style="font-size: 10px;color: rgb(255,255,255);">Token</span><span style="font-size: 10px;margin-left: 12px;color: #ffffff;">15.00</span></div>
+                                                <div class="text-primary fw-bold text-xs mb-1"><span style="font-size: 10px;color: #ffffff;">{{t.depart_to}}</span></div>
+                                            
+                                                <div class="text-dark fw-bold h5 mb-0" style="margin-top: 10px;margin-bottom: 10px;">
+                                                    <span style="font-size: 11px;color:#f59805;"><i class="fas fa-coins"></i></span><span style="font-size: 11px;margin-left: 2px;color: #ffffff;">{{t.tokens|number:'1.2-2'}}</span></div>
                                             </div>
-                                            <div class="col-auto"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;">Retake</button></div>
+                                            <div class="col-auto"><div class="btn shadow-lg" routerLink="/starttrip/{{t.depart_to}}" style="font-size: 11px;color: #f59805;background: #303030;"><i class="la la-refresh" aria-hidden="true"></i></div></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
-                                    <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="font-size: 12px;color: #f59805;">aukland park</span></div>
-                                                <div class="text-dark fw-bold h5 mb-0" style="margin-top: -6px;"><span style="font-size: 10px;color: rgb(255,255,255);">Token</span><span style="font-size: 10px;margin-left: 12px;color: #ffffff;">15.00</span></div>
-                                            </div>
-                                            <div class="col-auto"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;">Retake</button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
-                                    <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="font-size: 12px;color: #f59805;">aukland park</span></div>
-                                                <div class="text-dark fw-bold h5 mb-0" style="margin-top: -6px;"><span style="font-size: 10px;color: rgb(255,255,255);">Token</span><span style="font-size: 10px;margin-left: 12px;color: #ffffff;">15.00</span></div>
-                                            </div>
-                                            <div class="col-auto"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;">Retake</button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
-                                    <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="font-size: 12px;color: #f59805;">aukland park</span></div>
-                                                <div class="text-dark fw-bold h5 mb-0" style="margin-top: -6px;"><span style="font-size: 10px;color: rgb(255,255,255);">Token</span><span style="font-size: 10px;margin-left: 12px;color: #ffffff;">15.00</span></div>
-                                            </div>
-                                            <div class="col-auto"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;">Retake</button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
-                                    <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="font-size: 12px;color: #f59805;">aukland park</span></div>
-                                                <div class="text-dark fw-bold h5 mb-0" style="margin-top: -6px;"><span style="font-size: 10px;color: rgb(255,255,255);">Token</span><span style="font-size: 10px;margin-left: 12px;color: #ffffff;">15.00</span></div>
-                                            </div>
-                                            <div class="col-auto"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;">Retake</button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
-                                    <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="font-size: 12px;color: #f59805;">aukland park</span></div>
-                                                <div class="text-dark fw-bold h5 mb-0" style="margin-top: -6px;"><span style="font-size: 10px;color: rgb(255,255,255);">Token</span><span style="font-size: 10px;margin-left: 12px;color: #ffffff;">15.00</span></div>
-                                            </div>
-                                            <div class="col-auto"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;">Retake</button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                         
+                          
+                       
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  
+
 </body>

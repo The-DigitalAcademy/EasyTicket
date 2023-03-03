@@ -22,7 +22,7 @@ const history = require("../controllers/passenger/history")
 //routes for inspector
 const proof = require("../controllers/inspector/proof")
 const comp_info = require("../controllers/inspector/company")
-const tokens = require("../Controllers/inspector/tokens")
+const tokens = require("../controllers/inspector/tokens")
 const status = require("../controllers/inspector/status")
 const suspend = require("../controllers/inspector/suspended")
 const trip = require("../controllers/inspector/trip")
@@ -125,6 +125,8 @@ router.post('/register', register.registerUser)
   router.get('/viewTokens', getTokens.getToken)
   // router.put('/updateTokens/:user_id', getTokens.updateTokens)
   router.get('/viewTokens/:id', getTokens.getToken)
+  router.get('/getUserToken/:id', getTokens.getUserUsedTokens)
+  router.get('/getUserTransaction/:id', getTokens.getUseTrasactions)
   //paying the trip
   router.put('/payingTrip', tokens.payingTrip)// payingTrip
   router.post('/historyTrip', tokens.Historytrip)// payingTrip
@@ -139,12 +141,15 @@ router.post('/register', register.registerUser)
    //routes for trip history
    router.get('/getHistory', history.getHistory)
    router.post('/createHistory', history.createHistory)
-   
+   router.get('/getUserUsertrip/:id', history.getUserUsertrip)
+   router.get('/getUserUploads/:id', history.getUserUploads)
+
    //routes for complains
    router.post('/postComplains', complains.postComplains)
    router.get('/getComplains', complains.getComplains)
    router.get('/getAllComplains', complains.getAllComplains)
-
+   router.get('/getUserComplain/:id', complains.getUserComplain)
+   
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)
