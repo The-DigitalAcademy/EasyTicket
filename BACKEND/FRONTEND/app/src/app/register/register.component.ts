@@ -74,7 +74,7 @@ if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPasswo
     }else{
     this.http.post('http://localhost:3001/register',data, {responseType:'text'}).subscribe((results)=>{
       
-    console.log(results);
+    
 
       if(results == 'Account created succesfully!')
       {

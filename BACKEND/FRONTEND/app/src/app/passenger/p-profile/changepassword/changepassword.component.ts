@@ -65,7 +65,7 @@ export class ChangepasswordComponent implements OnInit {
     let id=this.user.id
 
     this.submitted = true;
-   console.log(value.newp)
+
 
     if(value.newp!='' && value.cpass!='')
     {

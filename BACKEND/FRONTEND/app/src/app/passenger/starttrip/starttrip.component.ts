@@ -46,7 +46,7 @@ export class StarttripComponent implements OnInit {
       this.points=next[0].points;
     
   })
-    console.log(this.params)
+   
   }
 
 }

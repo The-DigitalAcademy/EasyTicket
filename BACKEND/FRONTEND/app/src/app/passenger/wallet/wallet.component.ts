@@ -45,7 +45,7 @@ export class WalletComponent implements OnInit {
   this.Passenger. getUserTransaction(id).subscribe((next:any) => {
 
          this.transactions=next;
-  console.log(this.transactions)
+ 
 })
 
 
