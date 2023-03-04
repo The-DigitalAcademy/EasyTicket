@@ -7,9 +7,6 @@ export class GuardService{
     this.loggedIn = true
   }
 
-  // logout(){
-  //   this.loggedIn = false
-  // }
 
   IsAuthenticated(){
 
@@ -21,6 +18,6 @@ export class GuardService{
       return false;
 
     }
-   //return this.loggedIn ;
+
   }
 }

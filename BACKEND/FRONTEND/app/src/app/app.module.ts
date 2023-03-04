@@ -44,6 +44,9 @@ import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.c
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ReadComponent } from './passenger/complains/read/read.component';
 import { ChangepasswordComponent } from './passenger/p-profile/changepassword/changepassword.component';
+import { OtpComponent } from './passwordrecovery/otp/otp.component';
+import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
+import { ErrorComponent } from './login/error/error.component';
 
 
 
@@ -92,7 +95,10 @@ import { ChangepasswordComponent } from './passenger/p-profile/changepassword/ch
     BoardingComponent,
     PasswordrecoveryComponent,
     ReadComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    OtpComponent,
+    UpdatepasswordComponent,
+    ErrorComponent
 
   ],
   imports: [

@@ -114,8 +114,8 @@ if(this.users.id > '6')
 
 }
 }else{
-  this.toast.error({detail:"error",summary:'Your Account has been suspended', duration:2000})
-  setTimeout(()=> this.router.navigate(['/']),900)
+
+  setTimeout(()=> this.router.navigate(['/error']),900)
 }
 
 

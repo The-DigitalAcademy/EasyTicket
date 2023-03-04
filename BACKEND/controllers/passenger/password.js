@@ -1,6 +1,7 @@
 const pool = require("../../Data Access/connection");
 const nodemailer = require("nodemailer");
 const  md5  =  require("md5");
+const { password } = require("pg/lib/defaults");
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
 }
@@ -45,7 +46,7 @@ const updatePassword = (request, res) => {
       if (results.rowCount > 0) {
 
         const msg = {
-          from: '"The Exapress App" <theExpressApp@example.com>', // sender address
+          from: '"The Easy Ticket App" <EasyTicketApp@easyticket.co.za>', // sender address
           to: `${email}`, // list of receivers
           subject: "Forgot your password,OTP code", // Subject line
           text: "your OTP Code is "+ OTP, // plain text body
@@ -68,10 +69,43 @@ const updatePassword = (request, res) => {
       }
     )
   }
+  //confirm email and otp
+  const checkOtp = (req, res) => {  
+
+   
+    const { email,otp } = req.body
   
+    pool.query('SELECT * FROM public.users WHERE email = $1 AND otp=$2', [email,otp], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(200).json(results.rows)
+    }),handleErr
+    
+  }
+ //update password with email
+ const upadteEpassword = (req, res) => {  
+
+   
+  const { password,email } = req.body
+  const hashed_password = md5(password)
+
+  pool.query('UPDATE public.users SET password=$1 WHERE email=$2', [hashed_password,email], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(201).send({message:"password has been successfully updated"})
+  }),handleErr
+  
+}
+
+
+
+
   module.exports = {
     updatePassword,
-    passwordrecover
+    passwordrecover,checkOtp,
+    upadteEpassword
   }
 
   

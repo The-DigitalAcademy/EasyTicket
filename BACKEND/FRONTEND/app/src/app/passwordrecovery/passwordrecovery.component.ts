@@ -68,12 +68,15 @@ export class PasswordrecoveryComponent implements OnInit {
       {
 
         this.spinner.hide()
-        console.log(res)
+      
 
       if(res=='Email Sent!')
       {
+
+        
         this.toast.success({detail:"Success",summary:'Email confirmed.', duration:2000})
-        setTimeout(()=> this.router.navigate(['/passwordrecover']),1600)
+        sessionStorage.setItem("recovermail",data.email);
+        setTimeout(()=> this.router.navigate(['/otp']),1600)
 
       }else
       {
@@ -83,7 +86,6 @@ export class PasswordrecoveryComponent implements OnInit {
  
       });
 
-      console.log(data.email)
 
     }
  

@@ -30,6 +30,9 @@ import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
 import { ReadComponent } from './passenger/complains/read/read.component';
 import { ChangepasswordComponent } from './passenger/p-profile/changepassword/changepassword.component';
+import { OtpComponent } from './passwordrecovery/otp/otp.component';
+import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
+import { ErrorComponent } from './login/error/error.component';
 
 
 
@@ -66,9 +69,11 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'lodgecomplains', component: LodgecomplainsComponent,canActivate:[AuthService] },
 { path: 'scanner', component: ScannerComponent,canActivate:[AuthService] },
 { path: 'active', component: ActiveComponent,canActivate:[AuthService] },
-{ path: 'boarding', component: BoardingComponent,canActivate:[AuthService] },
-{ path: 'passwordrecovery', component: PasswordrecoveryComponent}
-
+{ path: 'boarding', component: BoardingComponent,canActivate:[AuthService]},
+{ path: 'passwordrecovery', component: PasswordrecoveryComponent},
+{ path: 'otp', component: OtpComponent},
+{ path: 'updatepassword', component: UpdatepasswordComponent},
+{ path: 'error', component: ErrorComponent}
 
 ];
 
