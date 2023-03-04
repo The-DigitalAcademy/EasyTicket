@@ -6,7 +6,6 @@ import { IdashboardComponent } from './inspector/idashboard/idashboard.component
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { LoginComponent } from './login/login.component';
-
 import { DestinationComponent } from './passenger/destination/destination.component';
 import { PDashboardComponent } from './passenger/p-dashboard/p-dashboard.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
@@ -15,18 +14,13 @@ import { TripComponent } from './passenger/trip/trip.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
-
-
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
-
 import { PassengersComponent } from './inspector/passengers/passengers.component';
 import { SuspendedComponent } from './inspector/suspended/suspended.component';
-
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
 import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
