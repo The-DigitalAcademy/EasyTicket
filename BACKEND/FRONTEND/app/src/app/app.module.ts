@@ -58,6 +58,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ReadComponent } from './passenger/complains/read/read.component';
+import { ChangepasswordComponent } from './passenger/p-profile/changepassword/changepassword.component';
 
 
 
@@ -107,7 +109,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ActiveComponent,
     PassengercategoryComponent,
     BoardingComponent,
-    PasswordrecoveryComponent
+    PasswordrecoveryComponent,
+    ReadComponent,
+    ChangepasswordComponent
 
   ],
   imports: [

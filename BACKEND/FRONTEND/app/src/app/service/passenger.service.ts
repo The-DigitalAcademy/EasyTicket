@@ -98,8 +98,36 @@ export class PassengerService {
     
       }
     
+      //getting passenger complains
 
-  
+      getUserComplainByUserid(id: any){
 
+        return this.http.get(this.baseUrl +"/getUserComplainByUserid/"+id);
+
+      }
+
+
+      //getting passenger complains
+
+      readComplain(id: any){
+
+        return this.http.get(this.baseUrl +"/readComplain/"+id);
+
+      }
+      //delete complain
+      deleteComplain(id: any){
+
+        return this.http.delete(this.baseUrl +"/deleteComplain/"+id);
+
+      }
+       //update password
+       updatePassword(data:any){
+
+        return this.http.put(this.baseUrl +"/updatePassword",data);
+
+      }
+      
+      
+      
   
 }

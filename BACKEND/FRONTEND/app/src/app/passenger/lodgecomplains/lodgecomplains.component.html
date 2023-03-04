@@ -31,8 +31,13 @@
                             <form class="text-center" method="post" style="width: 300px;"  [formGroup]="form" #complaintform="ngForm" (ngSubmit)="onComplaintCreate(complaintform.value)">
                                 <div class="card" style="margin-bottom: 22px;background: rgb(48,48,48);border: 3px none rgb(247,150,10) ;">
                                     
-                                    <textarea class="form-control" formControlName="complain" id="complain" name="complain" style="height: 200px;font-size: 13px;" placeholder="Your message here"></textarea>
-                                
+                                    <textarea class="form-control" formControlName="complain" id="complain" [ngClass]="{ 'is-invalid': submitted && f['complain'].errors }" name="complain" style="height: 200px;font-size: 13px;" placeholder="Your message here"></textarea>
+                                       <!-----validate email----->
+                                       <div style="text-align: left;" *ngIf="submitted && f['complain'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['complain'].errors['required']">Field is required</div>
+                                     
+                                      </div>
+                                      <!--------------------->
                                 </div>
                                 <div class="mb-3" style="padding-top: 10px;"><button class="btn text-uppercase shadow-lg d-block w-100" type="submit" style="height: 60px;background: #F7970A;color: rgb(255,255,255);font-size: 20px;border-radius: 10px;">Submit</button></div>
                             </form>

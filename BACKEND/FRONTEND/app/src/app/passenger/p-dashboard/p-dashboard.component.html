@@ -1,6 +1,7 @@
 <body style="background: #303030;">
-    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" routerLink="/p-profile"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="border-radius: 16px;background: rgb(247,152,9);"><span>{{init}}</span></span><span style="font-size: 14px;">{{single}}</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: linear-gradient(145deg, #fdfdfd, #f8f4f4);">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" routerLink="/p-profile"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="border-radius: 16px;background: rgb(247,152,9);
+   box-shadow: inset 5px 5px 8px 1px rgb(247,152,9);"><span>{{init}}</span></span><span style="font-size: 14px;">{{single}}</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" routerLink="/complains"><i class="fas fa-comment" style="color: rgb(247,152,9);font-size: 20px;"></i></a></li>
@@ -13,7 +14,7 @@
 <app-bottom-menu></app-bottom-menu>
    <!-------------------->
 
-    <div class="col-12" style="margin-top: 100px;"><a class="btn btn-sm shadow float-end" role="button" style="background: #f79809;color: rgb(255,255,255);border-radius: 8px;margin-right: 12px;position: static;margin-top: 28px;" routerLink="/p-payment"><i class="fas fa-coins"></i>&nbsp;Recharge</a></div>
+    <div class="col-12" style="margin-top: 100px;"><a class="btn btn-md shadow float-end" role="button" style="background: #f79809;color: rgb(255,255,255);border-radius: 8px;margin-right: 12px;position: static;margin-top: 28px;" routerLink="/p-payment"><i class="fas fa-coins"></i>&nbsp;Recharge</a></div>
     <div class="col">
         <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 0px;">
             
@@ -22,11 +23,12 @@
                 
 
                 <div class="col">
-                    <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65)">
-                        <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                    <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;">
+                        <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                             <p style="color:#f79809;"><strong>Overall Tokens</strong> </p>
 
-
+                         
+                            
                            
 <div class="container">
     <div class="row">
@@ -60,8 +62,8 @@
         </div>
         <div class="row p-2">
             <div class="col">
-                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65)">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         
                         <p style="color:#f79809;"><strong>Used Tokens</strong> </p>
                         <h4 class="" style="color:#ffffff"><strong>{{points |number:'1.2-2'}}</strong></h4>
@@ -78,8 +80,8 @@
 
             <div class="col">
               
-                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65)"> 
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;"> 
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color:#f79809;"><strong>Trip taken</strong> </p>
                            <h4 class="" style="color:#ffffff"><strong>{{trips}}</strong></h4>
                         <!------------>
@@ -95,8 +97,8 @@
         </div>
         <div class="row p-2">
             <div class="col">
-                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65)">   
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;">   
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         
                         <p style="color:#f79809;"><strong>Number of recharge</strong> </p>
                         <h4 class="" style="color:#ffffff"><strong>{{uploads}}</strong></h4>
@@ -107,8 +109,8 @@
             </div>
 
             <div class="col">
-                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65)">    
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;">    
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color:#f79809;"><strong>Number of complains</strong> </p>
                         
                            <h4 class="" style="color:#ffffff"><strong>{{complains}}</strong></h4>

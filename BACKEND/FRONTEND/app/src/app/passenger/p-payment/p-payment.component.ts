@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JwtService } from 'src/app/service/jwt.service';
 import { PassengerService } from 'src/app/service/passenger.service';
 // import { Upload } from 'src/app/upload';
+
 import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
@@ -26,7 +27,7 @@ export class PPaymentComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private jwtService : JwtService,private Passenger:PassengerService, private http:HttpClient,private toast :NgToastService,private router:Router,private spinner: NgxSpinnerService) { }
+  constructor(private formBuilder: FormBuilder,private jwtService : JwtService,private Passenger:PassengerService, private http:HttpClient,private toast :NgToastService,private router:Router,private spinner: NgxSpinnerService) { }
 
   user = {
     id: '',
@@ -41,6 +42,19 @@ export class PPaymentComponent implements OnInit {
     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
     
 
+    this.UploadForm = this.formBuilder.group(
+      {
+        proof: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern('^[a-zA-Z0-9]+\.pdf$')
+          ]
+        ],
+      
+      },
+  
+    );
   }
 
   onFileChange(event :any)
@@ -52,37 +66,40 @@ export class PPaymentComponent implements OnInit {
     }
   
   }
-
+  get f(): { [key: string]: AbstractControl } {
+    return this.UploadForm.controls;
+  }
   async postProof(){
+    this.submitted = true
 
-  this.spinner.show();
+    if(this.UploadForm.value.proof !='')
+    {
 
-  
-  const formData = new FormData();    
-  formData.append("file",this.file)    
-  formData.append("upload_preset","sxnxtyof");     
-  this.http.post('https://api.cloudinary.com/v1_1/dhtppljex/image/upload',formData).subscribe(async (res:any)=>{     
+      this.spinner.show();
+      const formData = new FormData();    
+      formData.append("file",this.file)    
+      formData.append("upload_preset","sxnxtyof");     
+      this.http.post('https://api.cloudinary.com/v1_1/dhtppljex/image/upload',formData).subscribe(async (res:any)=>{     
+        
     
-
-  this.imgUrl =  await res.url;
-
-   var uploading={
-    user_id:this.user.id,
-    proof:this.imgUrl
+      this.imgUrl =  await res.url;
+    
+       var uploading={
+        user_id:this.user.id,
+        proof:this.imgUrl
+        }
+        this.Passenger.postProof(uploading).subscribe((next:any) => {
+        
+      this.toast.success({detail:"Success",summary:'File Uploaded', duration:2000})
+      setTimeout(()=> this.router.navigate(['p-dashboard']),900)
+ ;
+        
+          this.spinner.hide();
+        })
+        
+    }) 
     }
-    this.Passenger.postProof(uploading).subscribe((next:any) => {
-    
-
-
-
-  this.toast.success({detail:"Success",summary:'File Uploaded', duration:2000})
-  setTimeout(()=> this.router.navigate(['p-dashboard']),900)
-
-      this.submitted = false;
-      this.spinner.hide();
-    })
-    
-})  
+  
 
   }
   

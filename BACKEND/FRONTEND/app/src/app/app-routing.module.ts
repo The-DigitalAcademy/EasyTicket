@@ -34,6 +34,8 @@ import { ScannerComponent } from './passenger/scanner/scanner.component';
 import { ActiveComponent } from './inspector/active/active.component';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
+import { ReadComponent } from './passenger/complains/read/read.component';
+import { ChangepasswordComponent } from './passenger/p-profile/changepassword/changepassword.component';
 
 
 
@@ -60,10 +62,10 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
 { path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
-
+{ path: 'changepassword', component: ChangepasswordComponent,canActivate:[AuthService] },
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
 { path: 'passengers', component: PassengersComponent,canActivate:[AuthService] },
-
+{ path: 'read/:id', component: ReadComponent,canActivate:[AuthService] },
 { path: 'suspended', component: SuspendedComponent,canActivate:[AuthService]},
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
 { path: 'navigate', component: NavigateComponent,canActivate:[AuthService] },

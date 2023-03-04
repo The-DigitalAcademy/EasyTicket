@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
 declare const L: any;
 @Component({
@@ -15,7 +16,7 @@ export class NavigateComponent implements OnInit {
   test!:any;
 
 
-  constructor(route: ActivatedRoute,private http: HttpClient) {
+  constructor(route: ActivatedRoute,private http: HttpClient,private spinner: NgxSpinnerService) {
 
     this.params = route.snapshot.params;
    }
@@ -29,7 +30,7 @@ export class NavigateComponent implements OnInit {
   ngOnInit(): void {
 
     this.storedaddress=sessionStorage.getItem('Destination');
-
+    this.spinner.show();
 //find my current location
  navigator.geolocation.getCurrentPosition((position) => {
 
@@ -45,7 +46,9 @@ export class NavigateComponent implements OnInit {
         'https://api.opencagedata.com/geocode/v1/json?q='+this.storedaddress+'&key=a2580d3bbb4940d9bfa47c349d3cac3a'
       )
       .subscribe((data: any) => {
-   
+        
+
+        this.spinner.hide();
   
         this.latD=data.results[0].geometry.lat;
         this.lngD=data.results[0].geometry.lng;

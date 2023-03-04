@@ -25,7 +25,7 @@ export class StarttripComponent implements OnInit {
   points:any;
  
   constructor(route: ActivatedRoute,private jwtService : JwtService,private Passenger:PassengerService) { 
-    
+   
     this.params = route.snapshot.params;
     sessionStorage.setItem("Destination",this.params.address);
   }

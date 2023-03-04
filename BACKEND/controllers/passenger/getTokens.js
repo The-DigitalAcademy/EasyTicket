@@ -40,7 +40,7 @@ const getUseTrasactions = (req, res) => {
 
   const id=parseInt(req.params.id)
 
-  pool.query('SELECT * FROM public.historytrip WHERE user_id = $1 LIMIT 5', [id], (error, results) => {
+  pool.query('SELECT * FROM public.historytrip WHERE user_id = $1 LIMIT 5 ', [id], (error, results) => {
     if (error) {
       throw error
     }

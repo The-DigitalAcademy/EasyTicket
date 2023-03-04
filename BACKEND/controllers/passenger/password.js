@@ -1,15 +1,21 @@
 const pool = require("../../Data Access/connection");
 const nodemailer = require("nodemailer");
+const  md5  =  require("md5");
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
 }
 
 //update password
 const updatePassword = (request, res) => {
-    const id = parseInt(request.params.id);
-    const { password } = request.body
   
-    pool.query('UPDATE public.users SET password = $1 WHERE id=$2',[password, id], (error, results) => {
+    const { id,password } = request.body
+    const hashed_password = md5(password)
+    var newpassword={
+      id:id,       
+      password:hashed_password
+  }
+
+    pool.query('UPDATE public.users SET password = $1 WHERE id=$2',[hashed_password,id], (error, results) => {
         if (error) {
           throw error
         }

@@ -109,7 +109,7 @@ router.post('/register', register.registerUser)
   router.put('/updateProfile/:id', profile.updateProfile)
 
   //update password
-  router.put('/updatePassword/:id', password.updatePassword)
+  router.put('/updatePassword', password.updatePassword)
   router.post('/passwordrecover', password.passwordrecover)
   //payment routes
   router.post('/postProof', invoice.postInvoice)
@@ -149,10 +149,11 @@ router.post('/register', register.registerUser)
    router.get('/getComplains', complains.getComplains)
    router.get('/getAllComplains', complains.getAllComplains)
    router.get('/getUserComplain/:id', complains.getUserComplain)
-   
+   router.get('/getUserComplainByUserid/:id', complains.getUserComplainByUserid)
+   router.get('/readComplain/:id', complains.readComplain)
    router.get('/ComplainsPerMonth', complains.ComplainsPerMonth)
-  
-
+   
+   router.delete('/deleteComplain/:id', complains.deleteComplain)
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)

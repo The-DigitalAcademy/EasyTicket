@@ -21,7 +21,7 @@
 <app-bottom-menu></app-bottom-menu>
 
 
-    <div class="col-12" style="margin-top: 100px;"><a class="btn btn-sm shadow float-end" role="button" style="background: #f79809;color: rgb(255,255,255);border-radius: 8px;margin-right: 12px;position: static;margin-top: 28px;" routerLink="/lodgecomplains"><i class="fas fa-comment"></i>&nbsp;Lodge complain</a></div>
+    <div class="col-12" style="margin-top: 100px;"><a class="btn btn-md shadow float-end" role="button" style="background: #f79809;color: rgb(255,255,255);border-radius: 8px;margin-right: 12px;position: static;margin-top: 28px;" routerLink="/lodgecomplains"><i class="fas fa-comment"></i>&nbsp;Lodge complain</a></div>
     <div class="col">
         <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 0px;position: static;">
             <div class="row p-2">
@@ -32,16 +32,20 @@
                             <div class="row" style="margin-top: 40px;">
 
 
-                                <div class="col-md-6 col-xl-3 mb-4" style="display: none;">
+                                <div class="col-md-6 col-xl-3 mb-4" *ngFor="let c of complaints">
                                     <div class="card shadow-lg border-start-primary py-2" style="background: rgb(67,65,65);border-style: none;">
-                                        <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                                        <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;" routerLink="/read/{{c.id}}">
                                             <div class="row align-items-center no-gutters">
                                                 <div class="col me-2">
                                                     <div class="text-uppercase text-primary fw-bold text-xs mb-1">
-                                                        <p class="text-capitalize" style="font-size: 10px;margin-top: 14px;"><span style="color: rgb(245, 151, 6);">Carlton Center, 150 Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</span><br></p>
+                                                        <p class="text-capitalize" style="font-size: 10px;margin-top: 14px;"><span style="color: rgb(255, 255, 255);">{{c.complains |slice:0:150}}.....</span></p>
+                                                       <hr style="color: #303030;">
+                                                    <p  style="font-size: 10px;margin-top: 14px;color:#ffffff"><span class="float-start"><i class="fa fa-calendar" aria-hidden="true" style="color: rgb(246,152,4)"></i> : {{c.created_at|date:'Y-MM-dd'}}</span>
+                                                        <span class="float-end"><i class="fa fa-clock" aria-hidden="true" style="color: rgb(246,152,4)"></i> : {{c.date_created|date:'shortTime'}}</span>
+                                                    </p>
                                                     </div>
                                                 </div>
-                                                <div class="col-auto"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;" data-bs-target="#myModal" data-bs-toggle="modal"><i class="la la-save"></i></button></div>
+                                                
                                             </div>
                                         </div>
                                     </div>
