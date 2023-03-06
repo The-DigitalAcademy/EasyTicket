@@ -25,7 +25,7 @@ const getUserUsedTokens = (req, res) => {
 
   const id=parseInt(req.params.id)
 
-  pool.query('SELECT sum(tokens) as points FROM public.historytrip WHERE user_id = $1', [id], (error, results) => {
+  pool.query('SELECT SUM(tokens) as points FROM public.historytrip WHERE user_id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }

@@ -21,7 +21,7 @@
 <app-bottom-menu></app-bottom-menu>
 
 
-    <div class="col-12" style="margin-top: 100px;"><a class="btn btn-md shadow float-end" role="button" style="background: #f79809;color: rgb(255,255,255);border-radius: 8px;margin-right: 12px;position: static;margin-top: 28px;" routerLink="/lodgecomplains"><i class="fas fa-comment"></i>&nbsp;Lodge complain</a></div>
+    <div class="col-12" style="margin-top: 100px;"><a class="btn btn-sm shadow float-end" role="button" style="background: #f79809;color: rgb(255,255,255);border-radius: 8px;margin-right: 12px;position: static;margin-top: 28px;" routerLink="/lodgecomplains"><i class="fas fa-comment"></i>&nbsp;Lodge complain</a></div>
     <div class="col">
         <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 0px;position: static;">
             <div class="row p-2">
@@ -40,7 +40,7 @@
                                                     <div class="text-uppercase text-primary fw-bold text-xs mb-1">
                                                         <p class="text-capitalize" style="font-size: 10px;margin-top: 14px;"><span style="color: rgb(255, 255, 255);">{{c.complains |slice:0:150}}.....</span></p>
                                                        <hr style="color: #303030;">
-                                                    <p  style="font-size: 10px;margin-top: 14px;color:#ffffff"><span class="float-start"><i class="fa fa-calendar" aria-hidden="true" style="color: rgb(246,152,4)"></i> : {{c.created_at|date:'Y-MM-dd'}}</span>
+                                                    <p  style="font-size: 10px;margin-top: 14px;color:#ffffff"><span class="float-start"><i class="fa fa-calendar" aria-hidden="true" style="color: rgb(246,152,4)"></i> : {{c.date_created|date:'Y-MM-dd'}}</span>
                                                         <span class="float-end"><i class="fa fa-clock" aria-hidden="true" style="color: rgb(246,152,4)"></i> : {{c.date_created|date:'shortTime'}}</span>
                                                     </p>
                                                     </div>

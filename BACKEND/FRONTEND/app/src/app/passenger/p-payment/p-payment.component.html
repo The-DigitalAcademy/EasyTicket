@@ -45,9 +45,7 @@
                                        <!-------validation password-->
                                    <div style="text-align: left;" *ngIf="submitted && f['proof'].errors" class="invalid-feedback">
                                     <div *ngIf="f['proof'].errors['required']">File is required</div>
-                                    <div *ngIf="f['proof'].errors['pattern']">
-                                        Only pdf files allowed.
-                                    </div>
+                                   
                                 </div>
                                 <!----------------->
                                     

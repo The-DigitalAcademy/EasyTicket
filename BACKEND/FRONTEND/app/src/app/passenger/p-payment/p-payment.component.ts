@@ -47,8 +47,7 @@ export class PPaymentComponent implements OnInit {
         proof: [
           '',
           [
-            Validators.required,
-            Validators.pattern('^[a-zA-Z0-9]+\.pdf$')
+            Validators.required
           ]
         ],
       
@@ -74,8 +73,8 @@ export class PPaymentComponent implements OnInit {
 
     if(this.UploadForm.value.proof !='')
     {
-
-      this.spinner.show();
+      setTimeout(()=>     this.spinner.show(),900)
+  
       const formData = new FormData();    
       formData.append("file",this.file)    
       formData.append("upload_preset","sxnxtyof");     
