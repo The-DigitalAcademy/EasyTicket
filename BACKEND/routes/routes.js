@@ -22,7 +22,7 @@ const history = require("../controllers/passenger/history")
 //routes for inspector
 const proof = require("../controllers/inspector/proof")
 const comp_info = require("../controllers/inspector/company")
-const tokens = require("../Controllers/inspector/tokens")
+const tokens = require("../controllers/inspector/tokens")
 const status = require("../controllers/inspector/status")
 const suspend = require("../controllers/inspector/suspended")
 const trip = require("../controllers/inspector/trip")
@@ -108,9 +108,13 @@ router.post('/register', register.registerUser)
   router.get('/viewProfile', profile.getProfile)
   router.put('/updateProfile/:id', profile.updateProfile)
 
+
   //update password
-  router.put('/updatePassword/:id', password.updatePassword)
+  router.put('/updatePassword', password.updatePassword)
   router.post('/passwordrecover', password.passwordrecover)
+  router.post('/checkOtp', password.checkOtp)
+  router.put('/upadteEpassword', password.upadteEpassword)
+  
   //payment routes
   router.post('/postProof', invoice.postInvoice)
   router.get('/getProof/:id', invoice.getInvoice)
@@ -126,6 +130,8 @@ router.post('/register', register.registerUser)
   router.get('/viewTokens', getTokens.getToken)
   // router.put('/updateTokens/:user_id', getTokens.updateTokens)
   router.get('/viewTokens/:id', getTokens.getToken)
+  router.get('/getUserToken/:id', getTokens.getUserUsedTokens)
+  router.get('/getUserTransaction/:id', getTokens.getUseTrasactions)
   //paying the trip
   router.put('/payingTrip', tokens.payingTrip)// payingTrip
   router.post('/historyTrip', tokens.Historytrip)// payingTrip
@@ -143,13 +149,19 @@ router.post('/register', register.registerUser)
    router.get('/history/:user_id', history.rechargeHistory) //getting recharge history using user id
 
    
+   router.get('/getUserUsertrip/:id', history.getUserUsertrip)
+   router.get('/getUserUploads/:id', history.getUserUploads)
+
    //routes for complains
    router.post('/postComplains', complains.postComplains)
    router.get('/getComplains', complains.getComplains)
    router.get('/getAllComplains', complains.getAllComplains)
+   router.get('/getUserComplain/:id', complains.getUserComplain)
+   router.get('/getUserComplainByUserid/:id', complains.getUserComplainByUserid)
+   router.get('/readComplain/:id', complains.readComplain)
    router.get('/ComplainsPerMonth', complains.ComplainsPerMonth)
-  
-
+   
+   router.delete('/deleteComplain/:id', complains.deleteComplain)
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)

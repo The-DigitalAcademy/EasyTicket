@@ -74,29 +74,21 @@ if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPasswo
     }else{
     this.http.post('http://localhost:3001/register',data, {responseType:'text'}).subscribe((results)=>{
       
-    console.log(results);
+    
 
       if(results == 'Account created succesfully!')
       {
         this.openSucess();
         this.router.navigate(['/login'])
       }
-      else
+      else if(results=='Email exists already')
       {
         this.openWarning()
         this.router.navigate(['/register'])
       }
-    
-      if (this.isVisible) { 
-     
-        return;
-      } 
-   
-
-
       }
       ,(err)=>{
-        this.openWarning();
+        this.openError();
       }
       )
       
@@ -110,6 +102,9 @@ if(data.fullname=='' || data.email=='' || data.password=='' ||data.confirmPasswo
 
     openWarning(){
       this.toast.warning({detail:"Warning",summary:'Email already exist', duration:2000})
+    }
+    openError(){
+      this.toast.error({detail:"Error",summary:'something went wrong', duration:2000})
     }
 
 

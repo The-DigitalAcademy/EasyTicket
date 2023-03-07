@@ -40,7 +40,16 @@
                                 <div class="card" style="border: 3px dashed rgb(247,150,10);margin-bottom: 22px;background: rgb(48,48,48);">
                                     <div class="card-body" style="margin-top: 40px;margin-bottom: 40px;">
                                         <p><i class="fas fa-cloud-upload-alt" style="font-size: 40px;color: rgb(247,153,3);"></i></p>
-                                        <input class="form-control form-control-sm" formControlName="proof" type="file" (change)="onFileChange($event)" style="color: rgb(247,153,3);background: rgb(48,48,48);border-style: none;border-radius: 0px;" value="Choose file">
+                                        <input class="form-control form-control-sm" id="inputfile" accept="application/pdf" formControlName="proof" type="file" [ngClass]="{ 'is-invalid': submitted && f['proof'].errors }" (change)="onFileChange($event)" style="color: rgb(247,153,3);background: rgb(48,48,48);border-style: none;border-radius: 0px;" value="Choose file">
+                                    
+                                       <!-------validation password-->
+                                   <div style="text-align: left;" *ngIf="submitted && f['proof'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['proof'].errors['required']">File is required</div>
+                                   
+                                </div>
+                                <!----------------->
+                                    
+                                    
                                     </div>
                                 </div>
                                 <div class="mb-3" style="padding-top: 10px;">
@@ -80,4 +89,18 @@
         </div>
     </section>
 
+
+
+
+
+
+    <ngx-spinner
+    bdColor="rgba(51,51,51,0.9)"
+    size="medium"
+    color="#fff"
+    
+    >
+    <p class="loading" style="font-size: 15px; color: white"><img src="assets/img/loader.gif" style="height: 100px;"></p>
+    <p class="loading" style="font-size: 15px; color: white;text-align: center;">Uploading...</p>
+    </ngx-spinner>
 </body>

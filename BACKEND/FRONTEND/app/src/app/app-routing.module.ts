@@ -6,7 +6,6 @@ import { IdashboardComponent } from './inspector/idashboard/idashboard.component
 import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { LoginComponent } from './login/login.component';
-import { ComplaintComponent } from './passenger/complaint/complaint.component';
 import { DestinationComponent } from './passenger/destination/destination.component';
 import { PDashboardComponent } from './passenger/p-dashboard/p-dashboard.component';
 import { PPaymentComponent } from './passenger/p-payment/p-payment.component';
@@ -15,18 +14,13 @@ import { TripComponent } from './passenger/trip/trip.component';
 import { WalletComponent } from './passenger/wallet/wallet.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
-
-import { ModalComponent } from './modal/modal.component';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
-
 import { PassengersComponent } from './inspector/passengers/passengers.component';
 import { SuspendedComponent } from './inspector/suspended/suspended.component';
-
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
 import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
@@ -34,7 +28,11 @@ import { ScannerComponent } from './passenger/scanner/scanner.component';
 import { ActiveComponent } from './inspector/active/active.component';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
-import { GraphComponent } from './inspector/graph/graph.component';
+import { ReadComponent } from './passenger/complains/read/read.component';
+import { ChangepasswordComponent } from './passenger/p-profile/changepassword/changepassword.component';
+import { OtpComponent } from './passwordrecovery/otp/otp.component';
+import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
+import { ErrorComponent } from './login/error/error.component';
 
 
 
@@ -43,7 +41,6 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 
 {path: 'homepage', component: HomepageComponent},
 { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-{ path: 'complaint', component: ComplaintComponent,canActivate:[AuthService] },
 {path: 'company-infor' , component: CompanyInforComponent,canActivate:[AuthService]},
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
 { path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
@@ -52,7 +49,6 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
 { path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
-{ path: 'modal', component: ModalComponent,canActivate:[AuthService]},
 { path: 'destination', component: DestinationComponent,canActivate:[AuthService] },
 { path: 'p-dashboard', component: PDashboardComponent,canActivate:[AuthService] },
 { path: 'wallet', component: WalletComponent,canActivate:[AuthService] },
@@ -61,10 +57,10 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'idashboard', component: IdashboardComponent,canActivate:[AuthService] },
 { path: 'payment', component: PaymentComponent,canActivate:[AuthService] },
 { path: 'loadtoken', component: LoadtokenComponent,canActivate:[AuthService] },
-
+{ path: 'changepassword', component: ChangepasswordComponent,canActivate:[AuthService] },
 { path: 'searchplace', component: SearchplaceComponent,canActivate:[AuthService] },
 { path: 'passengers', component: PassengersComponent,canActivate:[AuthService] },
-
+{ path: 'read/:id', component: ReadComponent,canActivate:[AuthService] },
 { path: 'suspended', component: SuspendedComponent,canActivate:[AuthService]},
 { path: 'starttrip/:address', component: StarttripComponent,canActivate:[AuthService] },
 { path: 'navigate', component: NavigateComponent,canActivate:[AuthService] },
@@ -75,8 +71,11 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'active', component: ActiveComponent,canActivate:[AuthService] },
 { path: 'boarding', component: BoardingComponent,canActivate:[AuthService] },
 { path: 'passwordrecovery', component: PasswordrecoveryComponent},
-{ path: 'graph', component: GraphComponent,canActivate:[AuthService] },
-
+{ path: 'boarding', component: BoardingComponent,canActivate:[AuthService]},
+{ path: 'passwordrecovery', component: PasswordrecoveryComponent},
+{ path: 'otp', component: OtpComponent},
+{ path: 'updatepassword', component: UpdatepasswordComponent},
+{ path: 'error', component: ErrorComponent}
 
 ];
 

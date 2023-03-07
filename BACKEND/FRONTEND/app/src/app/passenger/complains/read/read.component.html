@@ -1,0 +1,72 @@
+<body style="background: #303030;">
+    <nav class="navbar navbar-light navbar-expand fixed-top py-3" style="background: #ffffff;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-3">
+                <ul class="navbar-nav flex-shrink-0 flex-fill justify-content-between" style="height: 43px;">
+                    <li class="nav-item"><a class="nav-link active float-start" routerLink="/complains"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-left" style="color: rgb(47,47,47);font-size: 30px;">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <polyline points="15 6 9 12 15 18"></polyline>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link active float-start" href="#" style="margin-right: 48px;">
+                            <p>View Complain</p>
+                        </a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+
+
+<app-bottom-menu></app-bottom-menu>
+
+
+   
+    <div class="col">
+        <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 0px;position: static;">
+            <div class="row p-2">
+                <div class="col">
+                    <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                        <div class="card-body" style="background: rgb(68, 65, 65);border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;height: 450px;overflow: scroll;">
+                            <p style="color: rgb(255,255,255);font-size: 13px;position: fixed;margin-top: 4px;"><i class="fas fa-comments" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Reading complain #{{params.id}}</p>
+                            <div class="row" style="margin-top: 40px;">
+                                
+
+                                <div class="col-md-6 col-xl-3 mb-4">
+                                    <hr style="color: #303030;">
+                                    <p class="text-capitalize" style="font-size: 10px;margin-top: 14px;"><span style="color: rgb(255, 255, 255);">{{message}}</span></p>
+                                    
+                                </div>
+                                <div class="modal fade" role="dialog" tabindex="-1" id="myModal" style="margin-top: 300px;">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body" style="background: rgb(68, 65, 65);border-radius: 6px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;height: 106.5px;">
+                                                <p style="font-size: 11px;text-align: center;color: rgb(246,152,4);"><i class="fa fa-warning"></i>&nbsp;Warning</p>
+                                                <p style="font-size: 11px;text-align: center;margin-top: -11px;color: rgb(255,255,255);">Are you sure ,you wanna delete the complain?.</p>
+                                                <p style="font-size: 13px;text-align: center;margin-top: -14px;"><button class="btn btn-sm" type="button" style="font-size: 11px;background: rgb(246,152,4);color: #ffffff;" (click)="remove()"  data-bs-dismiss="modal">Yes</button>&nbsp;&nbsp;<button class="btn btn-sm" type="button" data-bs-dismiss="modal" style="font-size: 11px;background: #303030;color: rgb(246,152,4);">&nbsp;No&nbsp;</button>&nbsp;&nbsp;</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="color: #303030;">
+                                <p class="delete"><button class="btn shadow-lg" type="button" style="font-size: 11px;color: #f59805;background: #303030;" data-bs-target="#myModal" data-bs-toggle="modal"><i class="la la-trash"></i></button></p>
+                                <hr style="color: #303030;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+
+<ngx-spinner
+bdColor="rgba(51,51,51,0.9)"
+size="medium"
+color="#fff"
+
+>
+<p class="loading" style="font-size: 15px; color: white"><img src="assets/img/loader.gif" style="height: 100px;"></p>
+<p class="loading" style="font-size: 15px; color: white;text-align: center;">Removing...</p>
+</ngx-spinner>
