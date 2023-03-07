@@ -99,9 +99,10 @@ const registerUser = (req, res) => {
             "password":hashed_password,
             "amount":points,
             "status":active
+
          
         }
-         pool.query('INSERT INTO public.users(fullname, email, password,amount,status) VALUES ($1,$2,$3,$4,$5);', [user.fullname, user.email, user.password,user.amount,user.amount,user.status], function (error, results, fields) 
+         pool.query('INSERT INTO public.users(fullname, email, password,amount,status) VALUES ($1,$2,$3,$4,$5);', [user.fullname, user.email, user.password,user.amount,user.status], function (error, results, fields) 
           {
                if(error){
                 res.send('data not sent')
