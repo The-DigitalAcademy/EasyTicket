@@ -51,7 +51,7 @@ const getHistory = (request, res) => {
   module.exports = {
     getHistory,
     createHistory,
-    rechargeHistory
+    rechargeHistory// recgarge history
   }
 
   
