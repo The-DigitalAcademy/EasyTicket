@@ -16,4 +16,12 @@ export class RecoverpasswordService {
   passwordrecover(data: any){
     return this.http.post(this.baseUrl +"/passwordrecover", data);
   }
+  checkOtp(data: any){
+    return this.http.post(this.baseUrl +"/checkOtp", data);
+  }
+
+  upadteEpassword(data: any){
+    return this.http.put(this.baseUrl +"/upadteEpassword", data);
+  }
+  
 }

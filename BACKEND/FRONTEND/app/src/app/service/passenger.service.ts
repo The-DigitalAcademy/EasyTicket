@@ -58,5 +58,76 @@ export class PassengerService {
 
     return this.http.post(this.baseUrl +"/historyTrip/",data);
   }
+
+  //view tokens used
+
+  getUserUsedTokens(id: any){
+
+    return this.http.get(this.baseUrl +"/getUserToken/"+id);
+
+  }
+
+  //getting trascation history
+
+  getUserTransaction(id: any){
+
+    return this.http.get(this.baseUrl +"/getUserTransaction/"+id);
+
+  }
+
+    //getting trip no history
+
+    getUserUsertrip(id: any){
+
+      return this.http.get(this.baseUrl +"/getUserUsertrip/"+id);
+  
+    }
+
+     //getting uploads
+
+     getUserUploads(id: any){
+
+      return this.http.get(this.baseUrl +"/getUserUploads/"+id);
+  
+    }
+      //getting uploads
+
+      getUserComplain(id: any){
+
+        return this.http.get(this.baseUrl +"/getUserComplain/"+id);
+    
+      }
+    
+      //getting passenger complains
+
+      getUserComplainByUserid(id: any){
+
+        return this.http.get(this.baseUrl +"/getUserComplainByUserid/"+id);
+
+      }
+
+
+      //getting passenger complains
+
+      readComplain(id: any){
+
+        return this.http.get(this.baseUrl +"/readComplain/"+id);
+
+      }
+      //delete complain
+      deleteComplain(id: any){
+
+        return this.http.delete(this.baseUrl +"/deleteComplain/"+id);
+
+      }
+       //update password
+       updatePassword(data:any){
+
+        return this.http.put(this.baseUrl +"/updatePassword",data);
+
+      }
+      
+      
+      
   
 }

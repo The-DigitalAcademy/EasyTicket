@@ -37,7 +37,7 @@ inf=[];
    this.passenger.getUserPlaces(id).subscribe(res=>{
     this.info=res;
     this.inf=this.info.data;
-    console.log(res);
+   
     
   })
   }
@@ -88,7 +88,7 @@ if(this.searchText!='')
    this.passenger.getUserPlaces(id).subscribe(res=>{
     this.info=res;
     this.inf=this.info.data;
-    console.log(res);
+   
 
       })
 })

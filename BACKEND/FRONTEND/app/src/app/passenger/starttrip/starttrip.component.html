@@ -23,26 +23,26 @@
     <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 34px;position: static;">
         <div class="row p-2">
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card " style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;My balance</p>
                         <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;{{ user.amount | number:'1.2-2'}}</p>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card " style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;Points Used</p>
-                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;00.00</p>
+                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;{{points | number:'1.2-2'}}</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row p-2">
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card " style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;"><i class="fas fa-map-marker-alt" style="color: rgb(246,152,4);"></i>&nbsp;{{storedaddress}}</p>
                     </div>
                 </div>
@@ -51,8 +51,8 @@
         <div class="row p-2">
           <a routerLink="/navigate" style="text-decoration:none;">
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card " style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 14px;font-weight: bold;"><i class="fas fa-map-marked-alt" style="color: rgb(246,152,4);"></i>&nbsp;Navigate to station</p>
                         <p style="color: rgb(255,255,255);font-size: 11px;margin-top: -10px;">Let us help you with the directions to the selected bus station.</p>
                     </div>
@@ -65,8 +65,8 @@
             <a routerLink="/scanner" style="text-decoration:none;">
                 
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 14px;font-weight: bold;"><i class="fas fa-bus-alt" style="color: rgb(246,152,4);"></i>&nbsp;Start your trip</p>
                         <p style="color: rgb(255,255,255);font-size: 11px;margin-top: -10px;">Start you trip now !.</p>
                     </div>

@@ -29,8 +29,8 @@
     <div class="container" style="padding-top: 84px;padding-bottom: 11px;margin-top: 34px;position: static;">
         <div class="row p-2">
             <div class="col">
-                <div class="card shadow-lg" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card shadow-lg" style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 11px;font-size: 13px;"></p>
                         <div class="row">
                             <div class="col-2"><span class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="border-radius: 23px;background: rgb(247,152,9);font-size: 28px;"><span style="font-weight: bold;">{{init}}</span></span></div>
@@ -53,31 +53,31 @@
         </div>
         <div class="row p-2">
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card " style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;My balance</p>
                         <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;{{user.amount|number:'1.2-2'}}</p>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
-                    <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                <div class="card " style="border-radius: 15px;border-style: none;border-left-style: none;">
+                    <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
                         <p style="color: rgb(255,255,255);margin-top: 10px;font-size: 11px;">&nbsp; &nbsp;Points Used</p>
-                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;00.00</p>
+                        <p style="color: rgb(255,255,255);margin-top: -16px;font-size: 12px;"><i class="fas fa-wallet" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;{{points|number:'1.2-2'}}</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row p-2">
             <div class="col">
-                <div class="card shadow" style="border-radius: 15px;border-style: none;border-left-style: none;background: rgb(67,65,65);">
+                <div class="card" style="border-radius: 15px;border-style: none;border-left-style: none;">
                   
 
-                    <a class="cpass" data-bs-target="#myModal1" data-bs-toggle="modal" style="text-decoration:none;">
+                    <a class="cpass" routerLink="/changepassword" data-bs-toggle="modal" style="text-decoration:none;">
 
-                        <div class="card-body" style="background: #444141;border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;height: 52.5px;">
-                            <p style="color: rgb(255,255,255);margin-top: 0px;font-size: 13px;"><i class="fas fa-user-lock" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Password</p>
+                        <div class="card-body" style="border-radius: 15px;border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;opacity: 1;">
+                            <p style="color: rgb(255,255,255);margin-top: 0px;font-size: 13px;margin-top: 10px;"><i class="fas fa-user-lock" style="color: rgb(246,152,4);"></i>&nbsp; &nbsp;Password</p>
                         </div>
                     </a>
                 </div>

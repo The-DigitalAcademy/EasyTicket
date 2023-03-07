@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { JwtService } from 'src/app/service/jwt.service';
 import { PassengerService } from 'src/app/service/passenger.service';
@@ -9,7 +10,7 @@ import { PassengerService } from 'src/app/service/passenger.service';
 })
 export class WalletComponent implements OnInit {
 
-  constructor(private jwtService : JwtService,private Passenger:PassengerService) { }
+  constructor(private jwtService : JwtService,private Passenger:PassengerService,private http:HttpClient) { }
 
   init:any
   single:any
@@ -22,6 +23,9 @@ export class WalletComponent implements OnInit {
     email:'',
     amount:''
   }
+  points:any;
+  transactions:any;
+
 
   ngOnInit(): void {
 
@@ -29,7 +33,23 @@ export class WalletComponent implements OnInit {
     this.init = this.user.fullname.charAt(0).toUpperCase();   //display one character of fullname
     this.single=this.user.fullname.split(' ').at(0);   //find space on fullname
     let id=this.user.id
+
+
+    this.Passenger.getUserUsedTokens(id).subscribe((next:any) => {
+
+      this.points=next[0].points;
     
-  }
+  })
+
+
+  this.Passenger. getUserTransaction(id).subscribe((next:any) => {
+
+         this.transactions=next;
+ 
+})
+
+
+ 
+}
 
 }
