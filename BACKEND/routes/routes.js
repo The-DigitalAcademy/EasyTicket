@@ -115,6 +115,7 @@ router.post('/register', register.registerUser)
   router.post('/postProof', invoice.postInvoice)
   router.get('/getProof/:id', invoice.getInvoice)
   router.get('/getProofuser', proof.getProofuser)
+  // router.get('/rechargeHistory/:id', invoice.rechargeHistory)
 
   //route for getting proof of payment
   router.get('/proofOfPayment', proof.getProof)
@@ -139,6 +140,8 @@ router.post('/register', register.registerUser)
    //routes for trip history
    router.get('/getHistory', history.getHistory)
    router.post('/createHistory', history.createHistory)
+   router.get('/history/:user_id', history.rechargeHistory) //getting recharge history using user id
+
    
    //routes for complains
    router.post('/postComplains', complains.postComplains)
