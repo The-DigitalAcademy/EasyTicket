@@ -84,47 +84,45 @@ export class LoginComponent implements OnInit {
 this.http.post('http://localhost:3001/login',data)
 .subscribe((results:any)=>{
  
-
-  localStorage.setItem('token',results.token);
-  
-
- 
-if(localStorage.getItem('token')!=null){
-
-
-this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
-let id=this.users.id
-
-if(this.users.status=='active'){
-
-  
-
-if(this.users.id > '6')
+if(results=='Email not found')
 {
 
-  this.toast.success({detail:"Success",summary:'Logged in Succesfully as Passenger', duration:2000})
-  setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
+  this.toast.warning({detail:"Warning",summary:'Email does not exist'})
+
 
 }else
 {
-
-  this.toast.success({detail:"Success",summary:'Logged in Succesfully as Inspector', duration:2000})
-  setTimeout(()=> this.router.navigate(['/idashboard']),900)
-
-
-}
-}else{
-
-  setTimeout(()=> this.router.navigate(['/error']),900)
-}
+    localStorage.setItem('token',results.token);
+    if(localStorage.getItem('token')!=null){
 
 
- 
-
-
-   
-  }
-  else{
+      this.users= this.jwtService.getDetails(localStorage.getItem('token')).data.rows[0];
+      let id=this.users.id
+      
+      if(this.users.status=='active'){
+      
+        
+      
+      if(this.users.id > '6')
+      {
+      
+        this.toast.success({detail:"Success",summary:'Logged in Succesfully as Passenger', duration:2000})
+        setTimeout(()=> this.router.navigate(['/p-dashboard']),900)
+      
+      }else
+      {
+      
+        this.toast.success({detail:"Success",summary:'Logged in Succesfully as Inspector', duration:2000})
+        setTimeout(()=> this.router.navigate(['/idashboard']),900)
+      
+      
+      }
+      }else{
+      
+        setTimeout(()=> this.router.navigate(['/error']),900)
+      }
+         
+        }  else{
    
 
    
@@ -134,6 +132,14 @@ if(this.users.id > '6')
    this.toast.warning({detail:"Warning",summary:'Email does not exist'})
 
   }
+
+}
+
+  
+
+ 
+
+
   
 },(err)=>{
  this.openWarning();

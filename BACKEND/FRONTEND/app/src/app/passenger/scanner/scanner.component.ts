@@ -70,7 +70,14 @@ export class ScannerComponent implements OnInit {
     console.log(this.output);
 
     if (this.output == 'Your trip has started😀') {
-      this.PunchIn();
+
+      this.track++
+      if (this.track == 1) {
+
+        this.PunchIn();
+      }
+
+     
     } else if (
       this.output == 'Your trip has ended...Thank you for using our ticket😀'
     ) {
