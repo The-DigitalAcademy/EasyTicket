@@ -56,15 +56,6 @@ var trip;
 
 
 		var marker = L.marker([-26.186106, 28.0189964], { icon: taxiIcon }).addTo(map);
-
-
-
-
-		//map.on('click', function (e:any) to reslove the this implictly
-		//map.on('click',  (e:any) => {
-		// console.log(e)
-	       //-26.18322,28.02021
-			//var newMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);
 	 
 			this.http
 			.get(
@@ -73,21 +64,13 @@ var trip;
 			.subscribe((data: any) => {
 
 				this.latD=data.results[0].geometry.lat;
-				this.lngD=data.results[0].geometry.lng; 
-			
-		 
-		
-			console.log('here    utioriuoeroor',this.latD,this.lngD)
-
+				this.lngD=data.results[0].geometry.lng;
 
 			L.Routing.control({
 				waypoints: [
 					L.latLng(this.latCurrent, this.lngCurrent),
 					L.latLng(this.latD,this.lngD)
 				]
-		
-
-		
 		
 			}).on('routesfound',  (e:any) => {
 				var routes = e.routes;
@@ -108,34 +91,20 @@ var trip;
 			trip= this.open(kilotravelled)
 			 
 			}
-	  
-
 					}, 100 * index)
-
-	   
 				})
 		
-		
-
 			}).addTo(map);
-
 		})
 
 		});
-
-   //return trip;
-
-  
- // })
-
-
-
 
   }
   open(kilos:any)
   {
 	this.toast.success({detail:"Success",summary:'Thanks for using Our ticket ('+kilos+' KM).', duration:2000})
-	setTimeout(()=> this.router.navigate(['/scanner']),9000)
+	setTimeout(()=> this.router.navigate(['/scanner']),900)
+
 
   }
 }

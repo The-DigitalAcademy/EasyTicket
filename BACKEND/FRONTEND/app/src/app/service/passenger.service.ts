@@ -127,7 +127,12 @@ export class PassengerService {
 
       }
       
-      
+        //search prices in db
+        searchStation(info:any){
+
+          return this.http.get(this.baseUrl +"/searchStation",info);
+  
+        }
       
   
 }

@@ -27,7 +27,7 @@ export class ScannerComponent implements OnInit {
   public lng: any;
   storedaddress: any;
   once = false;
-
+allsearch:any
   constructor(
     route: ActivatedRoute,
     private qrcode: NgxScannerQrcodeService,
@@ -61,22 +61,18 @@ export class ScannerComponent implements OnInit {
 
   public onEvent(e: ScannerQRCodeResult[]): void {
    
-    if (e[0].value == 'Your trip has started😀') {
-      
-      setTimeout(() => this.router.navigate(['/boarding']), 900);
-
-    }
     this.output = e[0].value;
     console.log(this.output);
 
     if (this.output == 'Your trip has started😀') {
+
 
       this.track++
       if (this.track == 1) {
 
         this.PunchIn();
       }
-
+     
      
     } else if (
       this.output == 'Your trip has ended...Thank you for using our ticket😀'
@@ -158,85 +154,180 @@ export class ScannerComponent implements OnInit {
   }
 
   PunchIn() {
-    this.spinner.show();
 
-    let addressCurrentDB =
-      'Owl Street, Cottesloe, Johannesburg, 2001, South Africa';
-    let addressToDB =
-      'Milpark Bus Station (T3, C4, C5), Empire Road, Cottesloe, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa';
-    let selectedAddressToDB =
-      'Milpark Bus Station (T3, C4, C5), Empire Road, Cottesloe, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa';
-    let priceTrip = 15.5;
 
-    this.user = this.jwtService.getDetails(
-      localStorage.getItem('token')
-    ).data.rows[0];
-    //display one character of fullname
-    let id = this.user.id;
-    let wallet = parseFloat(this.user.amount);
-    let price = sessionStorage.getItem('price');
-    let Destination = sessionStorage.getItem('Destination');
+ this.spinner.show();
+//get my location
+navigator.geolocation.getCurrentPosition((position) => {
 
-    //find my current location
-    navigator.geolocation.getCurrentPosition((position) => {
+
       if (position) {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-
-        let currentLat = this.lat;
-        let currentLng = this.lng;
-
-        let currentCod = currentLat + ',' + currentLng;
-
-        this.getAddress(currentCod).subscribe((data: any) => {
-          this.spinner.hide();
-          if (
-            data.results[0].formatted == addressCurrentDB &&
-            selectedAddressToDB == addressToDB
-          ) {
-            if (priceTrip < wallet) {
-              sessionStorage.setItem('CordinatesCurrent', currentCod);
-              sessionStorage.setItem('price', priceTrip.toFixed(2));
-              sessionStorage.setItem('wallet', wallet.toFixed(2));
-              sessionStorage.setItem('Destination', selectedAddressToDB);
-
-              this.toast.success({
-                detail: 'Success',
-                summary: 'Trip has started',
-                duration: 2000,
-              });
-              setTimeout(() => this.router.navigate(['/boarding']), 90);
-            } else if (priceTrip === wallet) {
-              sessionStorage.setItem('CordinatesCurrent', currentCod);
-              sessionStorage.setItem('price', priceTrip.toFixed(2));
-              sessionStorage.setItem('wallet', wallet.toFixed(2));
-              sessionStorage.setItem('Destination', selectedAddressToDB);
-
-              this.toast.success({
-                detail: 'Success',
-                summary: 'Trip has started',
-                duration: 2000,
-              });
-              setTimeout(() => this.router.navigate(['/boarding']), 900);
-            } else {
-              this.toast.warning({
-                detail: 'Warning',
-                summary: 'Please recharge your balance is low.',
-                duration: 2000,
-              });
-              setTimeout(() => this.router.navigate(['/scanner']), 900);
-            }
-          } else {
-            this.toast.warning({
-              detail: 'Warning',
-              summary: 'No match of address found.',
-              duration: 3000,
-            });
-            setTimeout(() => this.router.navigate(['/travel']), 900);
-          }
-        });
       }
-    });
+
+      let currentCod = this.lat + ',' + this.lng;
+      this.getAddress(currentCod).subscribe((data: any) => {
+
+
+       console.log(data.results[0].formatted)
+
+        this.user = this.jwtService.getDetails(
+            localStorage.getItem('token')
+          ).data.rows[0];
+          //display one character of fullname
+          let id = this.user.id;
+          let wallet = this.user.amount;
+        
+
+        let search={
+
+          departing_from:data.results[0].formatted,
+          departing_to:sessionStorage.getItem('Destination')
+        }
+  
+        this.passenger.searchStation(search).subscribe(data => {
+          this.allsearch=data;
+
+          console.log(data);
+
+          
+          if(this.allsearch[0].departing_from==search.departing_from && this.allsearch[0].departing_to==search.departing_to)
+          {
+           
+           let priceTrip=this.allsearch[0].price;
+
+        //  console.log(this.allsearch[0].price)
+        
+           if (priceTrip <= wallet) 
+           {
+            sessionStorage.setItem('price', priceTrip);
+            sessionStorage.setItem('wallet', wallet);
+         
+
+            this.toast.success({
+              detail: 'Success',
+              summary: 'Trip has started',
+              duration: 2000,
+            });
+            setTimeout(() => this.router.navigate(['/boarding']), 900);
+            this.spinner.hide();
+           }else
+           {
+
+            this.toast.warning({
+            detail: 'Warning',
+            summary: 'Please recharge your balance is low.',
+            duration: 2000,
+          });
+          setTimeout(() => this.router.navigate(['/scanner']), 900);
+          this.spinner.hide();
+
+          }
+          }else
+          {
+            this.toast.error({
+            detail: 'Warning',
+            summary: 'No match of address found.',
+            duration: 3000,
+          });
+          setTimeout(() => this.router.navigate(['/travel']), 900);
+          this.spinner.hide();
+      
+          }
+           
+      
+      
+          })
+
+      })
+    
+      
+      })
+
+ 
+  
+  
+
+   
+
+    // let addressCurrentDB =
+    //   'Owl Street, Cottesloe, Johannesburg, 2001, South Africa';
+    // let addressToDB =
+    //   'Milpark Bus Station (T3, C4, C5), Empire Road, Cottesloe, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa';
+    // let selectedAddressToDB =
+    //   'Milpark Bus Station (T3, C4, C5), Empire Road, Cottesloe, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa';
+    // let priceTrip = 15.5;
+
+    // this.user = this.jwtService.getDetails(
+    //   localStorage.getItem('token')
+    // ).data.rows[0];
+    // //display one character of fullname
+    // let id = this.user.id;
+    // let wallet = parseFloat(this.user.amount);
+    // let price = sessionStorage.getItem('price');
+    // let Destination = sessionStorage.getItem('Destination');
+
+    // //find my current location
+    // navigator.geolocation.getCurrentPosition((position) => {
+    //   if (position) {
+    //     this.lat = position.coords.latitude;
+    //     this.lng = position.coords.longitude;
+
+    //     let currentLat = this.lat;
+    //     let currentLng = this.lng;
+
+    //     let currentCod = currentLat + ',' + currentLng;
+
+    //     this.getAddress(currentCod).subscribe((data: any) => {
+    //       this.spinner.hide();
+    //       if (
+    //         data.results[0].formatted == addressCurrentDB &&
+    //         selectedAddressToDB == addressToDB
+    //       ) {
+    //         if (priceTrip < wallet) {
+    //           sessionStorage.setItem('CordinatesCurrent', currentCod);
+    //           sessionStorage.setItem('price', priceTrip.toFixed(2));
+    //           sessionStorage.setItem('wallet', wallet.toFixed(2));
+    //           sessionStorage.setItem('Destination', selectedAddressToDB);
+
+    //           this.toast.success({
+    //             detail: 'Success',
+    //             summary: 'Trip has started',
+    //             duration: 2000,
+    //           });
+    //           setTimeout(() => this.router.navigate(['/boarding']), 90);
+    //         } else if (priceTrip === wallet) {
+    //           sessionStorage.setItem('CordinatesCurrent', currentCod);
+    //           sessionStorage.setItem('price', priceTrip.toFixed(2));
+    //           sessionStorage.setItem('wallet', wallet.toFixed(2));
+    //           sessionStorage.setItem('Destination', selectedAddressToDB);
+
+    //           this.toast.success({
+    //             detail: 'Success',
+    //             summary: 'Trip has started',
+    //             duration: 2000,
+    //           });
+    //           setTimeout(() => this.router.navigate(['/boarding']), 900);
+    //         } else {
+    //           this.toast.warning({
+    //             detail: 'Warning',
+    //             summary: 'Please recharge your balance is low.',
+    //             duration: 2000,
+    //           });
+    //           setTimeout(() => this.router.navigate(['/scanner']), 900);
+    //         }
+    //       } else {
+    //         this.toast.warning({
+    //           detail: 'Warning',
+    //           summary: 'No match of address found.',
+    //           duration: 3000,
+    //         });
+    //         setTimeout(() => this.router.navigate(['/travel']), 900);
+    //       }
+    //     });
+    //   }
+    // });
   }
 
   getAddress(coord: any) {
