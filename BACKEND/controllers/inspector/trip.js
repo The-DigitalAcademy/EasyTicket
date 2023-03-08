@@ -29,7 +29,14 @@ const getTrip = (request, res) => {
 
     const { departing_from,departing_to } = req.body
 
-    pool.query('SELECT departing_from,departing_to FROM public.trip WHERE departing_from=$1 AND departing_to=$2', [departing_from,departing_to], (error, results) => {
+    var search={
+  
+      "departing_from":departing_from,
+      "departing_to":departing_to
+
+  }
+
+    pool.query('SELECT departing_from,departing_to,price FROM public.trip WHERE departing_from LIKE $1 AND departing_to LIKE $2', [`%${departing_from}%`,`%${departing_to}%`], (error, results) => {
       if (error) {
         throw error
       }
