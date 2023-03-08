@@ -33,6 +33,7 @@ import { ChangepasswordComponent } from './passenger/p-profile/changepassword/ch
 import { OtpComponent } from './passwordrecovery/otp/otp.component';
 import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
 import { ErrorComponent } from './login/error/error.component';
+import { ReportComponent } from './inspector/idashboard/report/report.component';
 
 
 
@@ -75,7 +76,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'passwordrecovery', component: PasswordrecoveryComponent},
 { path: 'otp', component: OtpComponent},
 { path: 'updatepassword', component: UpdatepasswordComponent},
-{ path: 'error', component: ErrorComponent}
+{ path: 'error', component: ErrorComponent},
+{ path: 'report', component: ReportComponent,canActivate:[AuthService]},
 
 ];
 

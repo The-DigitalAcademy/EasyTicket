@@ -1,0 +1,21 @@
+<div class="container">
+<div class="row" >
+    <div class="col-md-8" id="htmlData" >
+        <table class="table table-bordered"  style="border-radius: 15px;border-style: none;border-left-style: none;">
+            <tr class="table-primary" class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;">
+                <th>FULLNAME</th>
+                <th>STATUS</th>
+                <th>AMOUNT</th>
+            </tr>
+            <tr *ngFor="let n of name">
+                <th style="color: rgb(255,255,255);font-size: 13px;">{{n.fullname}}</th>
+                <td style="color: rgb(255,255,255);font-size: 13px;">{{n.status}}</td>
+                <td style="color: rgb(255,255,255);font-size: 13px;">{{n.amount}}</td>
+              </tr>
+        </table>
+    </div>
+    <div class="col-md-4 text-right">
+        <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+      </div>
+</div>
+</div>
