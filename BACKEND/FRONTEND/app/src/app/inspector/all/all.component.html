@@ -26,7 +26,83 @@
         <h3 class="mb-0" style="font-size: 15px;color: rgb(255,255,255);">Complaint List</h3>
         <br><br>
 
-        <div   class="col-md-6 col-xl-3 mb-4" *ngFor="let c of complains">
+
+
+<div class="container" >
+    <div class="row"  >
+        <div class="col-md-12" >
+            <div class="grid email" style="background-color: #303030;">
+              
+                    <div class="row">
+                        <!-- end of index menu -->
+                        <div class="col-md-9" >
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="btn-group">
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Mark as read</a></li>
+                                            <li><a href="#">Mark as unread</a></li>
+                                            <li><a href="#">Mark as important</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Report spam</a></li>
+                                            <li><a href="#">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 search-form">
+                                </div>
+                            </div>
+                            <div class="table-responsive" *ngFor="let c of complains">
+                                <table class="table">
+                                    <tbody><tr>
+                                        <td class="action"><input type="checkbox" /></td>
+									<td class="action"><i class="fa fa-bookmark-o"></i></td>
+									<td class="name" ><a href="#" style="font-size: 15px;color: rgb(255,255,255);">{{c.fullname}}</a></td>
+									<td class="subject" style="font-size: 15px;color: rgb(255,255,255);"><a href="#">{{c.complains}}</a></td>
+									<td class="time">{{c.date_created| date:'yyyy-MM-dd-EEEE  &#20;&#20; h:mm:ss a'}}</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul class="pagination">
+                                <li class="disabled"><a href="#">«</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                        <!-- end inbox context -->
+                    </div>
+
+          
+
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <!-- <div   class="col-md-6 col-xl-3 mb-4" *ngFor="let c of complains">
             <div   class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none; " >
                 <div   class="card-body">
                     <div  class="row align-items-center no-gutters">
@@ -48,7 +124,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div> 
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

@@ -1,6 +1,6 @@
 body{
     margin-top:20px;
-    background:#eee;
+    background: #303030;;
 }
 /* EMAIL */
 .email {
@@ -8,22 +8,7 @@ body{
 	font-size: 1em;
 }
 
-.email .btn.search {
-	font-size: 0.9em;
-}
 
-.email h2 {
-	margin-top: 0;
-	padding-bottom: 8px;
-}
-
-.email .nav.nav-pills > li > a {
-	border-top: 3px solid transparent;
-}
-
-.email .nav.nav-pills > li > a > .fa {
-	margin-right: 5px;
-}
 
 .email .nav.nav-pills > li.active > a,
 .email .nav.nav-pills > li.active > a:hover {
