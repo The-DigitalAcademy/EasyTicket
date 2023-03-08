@@ -98,7 +98,7 @@ router.post('/register', register.registerUser)
   router.post('/createTrip', trip.postTrip)
   router.put('/updateTrip/:id', trip.updateTrip)
   router.delete('/deleteTrip/:id', trip.deleteTrip)
-  router.get('/searchStation', trip.searchStation)// searchStation
+  router.post('/searchStation', trip.searchStation)// searchStation
 
 
   //routes for searching the destination
