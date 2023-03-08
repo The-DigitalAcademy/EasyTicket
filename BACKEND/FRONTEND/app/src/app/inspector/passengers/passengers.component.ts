@@ -13,7 +13,7 @@ export class PassengersComponent implements OnInit {
   constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) { }
   name:any;
   status:any;
-
+  q:any;
 
   ngOnInit(): void {
 

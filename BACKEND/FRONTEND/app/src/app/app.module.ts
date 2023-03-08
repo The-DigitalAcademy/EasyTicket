@@ -47,7 +47,8 @@ import { ChangepasswordComponent } from './passenger/p-profile/changepassword/ch
 import { OtpComponent } from './passwordrecovery/otp/otp.component';
 import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
 import { ErrorComponent } from './login/error/error.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { TransactionComponent } from './inspector/passengers/transaction/transaction.component';
 
 
 
@@ -98,7 +99,8 @@ import { ErrorComponent } from './login/error/error.component';
     ChangepasswordComponent,
     OtpComponent,
     UpdatepasswordComponent,
-    ErrorComponent
+    ErrorComponent,
+    TransactionComponent
 
   ],
   imports: [
@@ -109,7 +111,7 @@ import { ErrorComponent } from './login/error/error.component';
     RouterModule,
     FormsModule,
     NgApexchartsModule,
-    FormsModule,NgxSpinnerModule
+    FormsModule,NgxSpinnerModule,NgxPaginationModule
 
   ],
   // imports: [

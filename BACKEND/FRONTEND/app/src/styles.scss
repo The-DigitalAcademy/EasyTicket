@@ -14,5 +14,11 @@ body{
 
     font-family: 'Poppins', sans-serif;
 }
-
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #f59706 !important;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 5px;
+  }
 
