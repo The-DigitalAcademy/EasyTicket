@@ -1,21 +1,34 @@
 <div class="container">
+  
 <div class="row" >
     <div class="col-md-8" id="htmlData" >
-        <table class="table table-bordered"  style="border-radius: 15px;border-style: none;border-left-style: none;">
+        <table class="table table-striped "  style="border-radius: 15px;border-style: none;border-left-style: none;">
+           
+            <thead class="thead-dark">
             <tr class="table-primary" class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;">
-                <th>FULLNAME</th>
-                <th>STATUS</th>
-                <th>AMOUNT</th>
+                
+                <th scope="col">#</th>
+                <th scope="col">FULLNAME</th>
+                <th scope="col">DESTINATION</th>
+                <th scope="col">DATE</th>
+                <th scope="col">TOKENS USED</th>
             </tr>
-            <tr *ngFor="let n of name">
-                <th style="color: rgb(255,255,255);font-size: 13px;">{{n.fullname}}</th>
-                <td style="color: rgb(255,255,255);font-size: 13px;">{{n.status}}</td>
-                <td style="color: rgb(255,255,255);font-size: 13px;">{{n.amount}}</td>
-              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let n of name;let i=index;">
+                <th style="color: rgb(8, 8, 7);font-size: 13px;">{{i+1}}</th>
+                <th style="color: rgb(8, 8, 7);font-size: 13px;">{{n.fullname}}</th>
+                <td style="color: rgb(8, 8, 7);font-size: 13px;">{{n.depart_to}}</td>
+                <td style="color: rgb(8, 8, 7);font-size: 13px;">{{n.created_at|date:'Y-MM-dd'}}</td>
+                <td style="color: rgb(8, 8, 7);font-size: 13px;">{{n.tokens}}</td>
+            </tr>
+
+        </tbody>
+           
         </table>
     </div>
-    <div class="col-md-4 text-right">
-        <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+    <div class="col-md-4 text-right" style="color: rgb(6, 6, 6);">
+        <button class="btn btn-success btn-block"  (click)="openPDF()">Download PDF</button>
       </div>
 </div>
 </div>

@@ -18,7 +18,7 @@ export class ReportComponent implements OnInit {
   status:any;
 
   ngOnInit(): void {
-    this.inspectorService.getAllUsers().subscribe((res:any) => {
+    this.inspectorService.getReport().subscribe((res:any) => {
       let result=res;
       this.name=res;
       console.log('result ',result)
@@ -35,7 +35,7 @@ export class ReportComponent implements OnInit {
       let PDF = new jsPDF('p', 'mm', 'a4');
       let position = 0;
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-      PDF.save('Report.pdf');
+      PDF.save('Passengers_Report.pdf');
     });
   }
 

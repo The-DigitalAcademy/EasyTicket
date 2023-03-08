@@ -26,6 +26,7 @@ const tokens = require("../controllers/inspector/tokens")
 const status = require("../controllers/inspector/status")
 const suspend = require("../controllers/inspector/suspended")
 const trip = require("../controllers/inspector/trip")
+const report = require("../controllers/inspector/report")
 
 //code for uploading files
 const cloudinary = require("cloudinary").v2;
@@ -147,8 +148,10 @@ router.post('/register', register.registerUser)
    router.get('/getHistory', history.getHistory)
    router.post('/createHistory', history.createHistory)
    router.get('/history/:user_id', history.rechargeHistory) //getting recharge history using user id
+   router.get('/userTravelHistory/:user_id', history.userTravelHistory) //getting a specific passenge's travel history
 
-   
+
+   //history routes
    router.get('/getUserUsertrip/:id', history.getUserUsertrip)
    router.get('/getUserUploads/:id', history.getUserUploads)
 
@@ -160,14 +163,15 @@ router.post('/register', register.registerUser)
    router.get('/getUserComplainByUserid/:id', complains.getUserComplainByUserid)
    router.get('/readComplain/:id', complains.readComplain)
    router.get('/ComplainsPerMonth', complains.ComplainsPerMonth)
-   
    router.delete('/deleteComplain/:id', complains.deleteComplain)
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)
   router.get('/getDates', status.getDates)
   router.get('/getStatusDate', status.getStatusDate)
-  // getStatusDate
+ 
+  // report for the inspector
+  router.get('/getReport', report.report)
 
   //routes for suspending a passenger
   router.put('/updateStatus/:id', suspend.updateStatus)
