@@ -33,6 +33,10 @@ import { ChangepasswordComponent } from './passenger/p-profile/changepassword/ch
 import { OtpComponent } from './passwordrecovery/otp/otp.component';
 import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
 import { ErrorComponent } from './login/error/error.component';
+import { ButtonsComponent } from './inspector/buttons/buttons.component';
+import { AllComponent } from './inspector/all/all.component';
+import { WeeklyComponent } from './inspector/weekly/weekly.component';
+import { MonthlyComponent } from './inspector/monthly/monthly.component';
 
 
 
@@ -75,7 +79,11 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'passwordrecovery', component: PasswordrecoveryComponent},
 { path: 'otp', component: OtpComponent},
 { path: 'updatepassword', component: UpdatepasswordComponent},
-{ path: 'error', component: ErrorComponent}
+{ path: 'error', component: ErrorComponent},
+{ path: 'buttons', component: ButtonsComponent,canActivate:[AuthService]},
+{ path: 'all', component: AllComponent,canActivate:[AuthService]},
+{ path: 'weekly', component: WeeklyComponent,canActivate:[AuthService]},
+{ path: 'monthly', component: MonthlyComponent,canActivate:[AuthService]}
 
 ];
 

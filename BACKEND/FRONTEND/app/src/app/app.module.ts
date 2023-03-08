@@ -47,6 +47,10 @@ import { ChangepasswordComponent } from './passenger/p-profile/changepassword/ch
 import { OtpComponent } from './passwordrecovery/otp/otp.component';
 import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
 import { ErrorComponent } from './login/error/error.component';
+import { ButtonsComponent } from './inspector/buttons/buttons.component';
+import { AllComponent } from './inspector/all/all.component';
+import { WeeklyComponent } from './inspector/weekly/weekly.component';
+import { MonthlyComponent } from './inspector/monthly/monthly.component';
 
 
 
@@ -98,7 +102,11 @@ import { ErrorComponent } from './login/error/error.component';
     ChangepasswordComponent,
     OtpComponent,
     UpdatepasswordComponent,
-    ErrorComponent
+    ErrorComponent,
+    ButtonsComponent,
+    AllComponent,
+    WeeklyComponent,
+    MonthlyComponent
 
   ],
   imports: [

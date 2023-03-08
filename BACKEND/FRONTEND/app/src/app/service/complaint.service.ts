@@ -18,9 +18,18 @@ export class ComplaintService {
     };
     return this.http.post('http://localhost:3001/postcomplains',data);
   }
-
+//weekly
+  getAllComplains(data:any){
+    return this.http.get(this.baseUrl +"/getAllComplains");
+  }
+  //all
   getComplaint(data:any){
     return this.http.get(this.baseUrl +"/getComplains");
+  }
+
+  //monthly
+  ComplainsPerMonth(data:any){
+    return this.http.get(this.baseUrl +"/ComplainsPerMonth");
   }
 
  
