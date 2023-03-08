@@ -73,6 +73,30 @@ const getUserUploads = (req, res) => {
   }),handleErr
   
 }
+
+  //travel history
+  const travelHistory = (req, res) => {  
+
+    const id=parseInt(req.params.id)
+  
+    pool.query('SELECT count(user_id) as paymentcount FROM public.payment WHERE user_id = $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(200).json(results.rows)
+    }),handleErr
+    
+  }
+
+  const userTravelHistory = (request, res) => {
+    const user_id=parseInt(request.params.user_id)
+
+    pool.query('SELECT u.fullname,h.depart_to,h.created_at,h.tokens FROM public.users u,public.historytrip h WHERE u.id=h.user_id AND h.user_id=$1',[user_id], (error, results) => {
+     
+      res.status(200).json(results.rows)
+    }),handleErr
+}
+
   
   
   module.exports = {
@@ -80,7 +104,9 @@ const getUserUploads = (req, res) => {
     createHistory,
     rechargeHistory,// recharge history
     getUserUsertrip,
-    getUserUploads
+    getUserUploads,
+    travelHistory,
+    userTravelHistory
   }
 
   

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { InspectorService } from 'src/app/service/inspector.service';
 
+
 @Component({
   selector: 'app-passengers',
   templateUrl: './passengers.component.html',
@@ -20,9 +21,10 @@ export class PassengersComponent implements OnInit {
     this.inspectorService.getAllUsers().subscribe((res:any) => {
       let result=res;
       this.name=res;
-      console.log(result)
+      console.log('result ',result)
 
     })
   }
+ 
 
 }

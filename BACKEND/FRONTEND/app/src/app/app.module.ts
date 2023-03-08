@@ -49,6 +49,8 @@ import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updat
 import { ErrorComponent } from './login/error/error.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { TransactionComponent } from './inspector/passengers/transaction/transaction.component';
+import { ReportComponent } from './inspector/idashboard/report/report.component';
+
 
 
 
@@ -100,7 +102,8 @@ import { TransactionComponent } from './inspector/passengers/transaction/transac
     OtpComponent,
     UpdatepasswordComponent,
     ErrorComponent,
-    TransactionComponent
+    TransactionComponent,
+    ReportComponent
 
   ],
   imports: [
