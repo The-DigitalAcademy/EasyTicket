@@ -46,12 +46,41 @@ const getHistory = (request, res) => {
   });
   //  ,handleErr
   }}
+
+  const getUserUsertrip = (req, res) => {  
+
+    const id=parseInt(req.params.id)
+  
+    pool.query('SELECT count(user_id) as notrip FROM public.historytrip WHERE user_id = $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(200).json(results.rows)
+    }),handleErr
+    
+  }
+
+  //uploads made
+const getUserUploads = (req, res) => {  
+
+  const id=parseInt(req.params.id)
+
+  pool.query('SELECT count(user_id) as paymentcount FROM public.payment WHERE user_id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  }),handleErr
+  
+}
   
   
   module.exports = {
     getHistory,
     createHistory,
-    rechargeHistory// recharge history
+    rechargeHistory,// recharge history
+    getUserUsertrip,
+    getUserUploads
   }
 
   
