@@ -25,23 +25,42 @@ const getHistory = (request, res) => {
     
   }
 
-  //trips take by passenger
-
+  const rechargeHistory = (req, res) => {
+    
+    const user_id=parseInt(req.params.user_id)
+    // const { user_id } = req.body
   
-const getUserUsertrip = (req, res) => {  
+    try{
+      pool.query('SELECT user_id,date FROM public.payment WHERE user_id = $1 ORDER BY user_id ASC', [user_id], (error, results) => {
+      
+        if (error) {
+          throw error
+        }
+         return res.status(200).json(results.rows[0])
+       })
 
-  const id=parseInt(req.params.id)
+    }catch (error) {
+      console.log(error);
+      res.status(500).json({
+      error: "Database error occurred while updating!", //Database connection error
+  });
+  //  ,handleErr
+  }}
 
-  pool.query('SELECT count(user_id) as notrip FROM public.historytrip WHERE user_id = $1', [id], (error, results) => {
-    if (error) {
-      throw error
-    }
-    res.status(200).json(results.rows)
-  }),handleErr
+  const getUserUsertrip = (req, res) => {  
+
+    const id=parseInt(req.params.id)
   
-}
+    pool.query('SELECT count(user_id) as notrip FROM public.historytrip WHERE user_id = $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(200).json(results.rows)
+    }),handleErr
+    
+  }
 
-//uploads made
+  //uploads made
 const getUserUploads = (req, res) => {  
 
   const id=parseInt(req.params.id)
@@ -55,9 +74,13 @@ const getUserUploads = (req, res) => {
   
 }
   
+  
   module.exports = {
     getHistory,
-    createHistory,getUserUsertrip,getUserUploads
+    createHistory,
+    rechargeHistory,// recharge history
+    getUserUsertrip,
+    getUserUploads
   }
 
   

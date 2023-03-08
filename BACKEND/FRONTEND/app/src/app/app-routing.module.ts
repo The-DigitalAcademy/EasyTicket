@@ -69,6 +69,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'lodgecomplains', component: LodgecomplainsComponent,canActivate:[AuthService] },
 { path: 'scanner', component: ScannerComponent,canActivate:[AuthService] },
 { path: 'active', component: ActiveComponent,canActivate:[AuthService] },
+{ path: 'boarding', component: BoardingComponent,canActivate:[AuthService] },
+{ path: 'passwordrecovery', component: PasswordrecoveryComponent},
 { path: 'boarding', component: BoardingComponent,canActivate:[AuthService]},
 { path: 'passwordrecovery', component: PasswordrecoveryComponent},
 { path: 'otp', component: OtpComponent},

@@ -14,6 +14,11 @@ const handleErr = (err, req, res, next) => {
       res.status(200).json(results.rows)
     }),handleErr
   }
+
+  // SELECT user_id,date
+	// FROM public.payment;
+
+
   
   
   const postInvoice = (req, res) => {  
