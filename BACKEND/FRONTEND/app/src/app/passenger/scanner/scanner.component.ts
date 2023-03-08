@@ -134,8 +134,9 @@ allsearch:any
         summary: 'No Trip started.',
         duration: 4000,
       });
-      setTimeout(() => this.router.navigate(['/scanner']), 10000);
-      setTimeout(() => sessionStorage.clear(), 5000);
+      setTimeout(() => this.router.navigate(['/scanner']), 1000);
+      setTimeout(() => sessionStorage.clear(), 500);
+      setTimeout(() => this.spinner.hide(), 600);
     } else {
       this.passenger.Historytrip(tripdata).subscribe(() => {
         this.passenger.PayRoute(out).subscribe(() => {
@@ -180,17 +181,15 @@ navigator.geolocation.getCurrentPosition((position) => {
           let wallet = this.user.amount;
         
 
-        let search={
+        var search={
 
           departing_from:data.results[0].formatted,
           departing_to:sessionStorage.getItem('Destination')
         }
+        console.log(search)
   
         this.passenger.searchStation(search).subscribe(data => {
           this.allsearch=data;
-
-          console.log(data);
-
           
           if(this.allsearch[0].departing_from==search.departing_from && this.allsearch[0].departing_to==search.departing_to)
           {

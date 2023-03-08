@@ -34,5 +34,9 @@ getStatusDate(){
   return this.http.get(this.baseUrl +"/getStatusDate");
 }
 
+getReport(){
+  return this.http.get(this.baseUrl +"/getReport");
+}
+
  
 }
