@@ -21,7 +21,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
-import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
+import { LoadtokenComponent } from './inspector/payment/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CompanyInforComponent } from './company-infor/company-infor.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
@@ -29,14 +29,14 @@ import { SafePipe } from './safe.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { PassengersComponent } from './inspector/passengers/passengers.component';
-import { SuspendedComponent } from './inspector/suspended/suspended.component';
+import { SuspendedComponent } from './inspector/passengers/suspended/suspended.component';
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
 import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
 import { ScannerComponent } from './passenger/scanner/scanner.component';
-import { ActiveComponent } from './inspector/active/active.component';
+import { ActiveComponent } from './inspector/passengers/active/active.component';
 import { PassengercategoryComponent } from './inspector/passengercategory/passengercategory.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
@@ -50,7 +50,9 @@ import { ErrorComponent } from './login/error/error.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { TransactionComponent } from './inspector/passengers/transaction/transaction.component';
 import { ReportComponent } from './inspector/idashboard/report/report.component';
-
+import { PassengercomplainComponent } from './inspector/complainlist/passengercomplain/passengercomplain.component';
+import { CatComponent } from './inspector/complainlist/passengercomplain/cat/cat.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -103,7 +105,9 @@ import { ReportComponent } from './inspector/idashboard/report/report.component'
     UpdatepasswordComponent,
     ErrorComponent,
     TransactionComponent,
-    ReportComponent
+    ReportComponent,
+    PassengercomplainComponent,
+    CatComponent
 
   ],
   imports: [
@@ -114,7 +118,7 @@ import { ReportComponent } from './inspector/idashboard/report/report.component'
     RouterModule,
     FormsModule,
     NgApexchartsModule,
-    FormsModule,NgxSpinnerModule,NgxPaginationModule
+    FormsModule,NgxSpinnerModule,NgxPaginationModule,NgChartsModule
 
   ],
   // imports: [

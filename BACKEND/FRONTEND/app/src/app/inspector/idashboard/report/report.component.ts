@@ -10,6 +10,8 @@ import { InspectorService } from 'src/app/service/inspector.service';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss']
 })
+
+
 export class ReportComponent implements OnInit {
   @ViewChild('htmlData') htmlData!: ElementRef;
 

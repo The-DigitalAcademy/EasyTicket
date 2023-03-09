@@ -3,35 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { InspectorService } from 'src/app/service/inspector.service';
-import { ApexNonAxisChartSeries, ApexResponsive,ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels, ApexStroke,ApexMarkers,ApexYAxis,ApexGrid,ApexTitleSubtitle,ApexLegend,ApexFill, ApexTooltip, ApexPlotOptions} from "ng-apexcharts";
 
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  stroke: ApexStroke;
-  dataLabels: ApexDataLabels;
-  markers: ApexMarkers;
-  colors: string[];
-  yaxis: ApexYAxis;
-  grid: ApexGrid;
-  legend: ApexLegend;
-  title: ApexTitleSubtitle;
-  plotOptions: ApexPlotOptions;
-  fill: ApexFill;
-  tooltip: ApexTooltip;
-};
-
-export type ChartOption = {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  responsive: ApexResponsive[];
-  labels: any;
-  fill: ApexFill;
-  legend: ApexLegend;
-  dataLabels: ApexDataLabels;
-};
 
 @Component({
   selector: 'app-idashboard',
@@ -40,19 +12,54 @@ export type ChartOption = {
 })
 export class IdashboardComponent implements OnInit {
 
-  @ViewChild("chart") chart!: ChartComponent;
-  public chartOptions!: Partial<ChartOptions> | any;
-  public chartOption!: Partial<ChartOption> | any;
+  name = 'Angular 6';
+  view: any[] = [500, 500];
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = "Country";
+  showYAxisLabel = true;
+  yAxisLabel = "Population";
 
-  name=[];
-  dates:any;
-  temp:any;
-  temp2:any;
-  temp3:any;
-  
-  mydata = new Array();
-  mydata2 = new Array();
-  mydata3 = new Array();
+  colorScheme = {
+    domain: ["#5AA454"]
+  };
+
+    single: any[] = [
+    {
+      name: "Germany",
+      value: 8940000
+    },
+    {
+      name: "USA",
+      value: 5000000
+    },
+    {
+      name: "France",
+      value: 7200000
+    }
+  ];
+    public doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData: number[] = [350, 450, 100];
+  chartOptions = {
+    responsive: true
+  };
+
+  onSelect(event: any) {
+    console.log(event);
+  }
+
+
+
+
+  //new
+
+  // events
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
 
   constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) {
 
@@ -99,128 +106,14 @@ user = {
           this.act=result.filter((res: { cat: string; }) => res.cat===("active"));
           // console.log('ACTIVE ',this.act)
           this.susp=result.filter((res: { cat: string; }) => res.cat===("suspended"));
-          // console.log('SUSPENDED ',this.susp)
-
-
-
-        //   this.susp=result[3].cat;
-        //  console.log('this',this.user.cat)
-        //  console.log('check',this.susp)
-  
-           if(this.user.cat=='active'){
-
-            result.forEach((element: { to_char: any; }) => {
-              let temp2 = (element.to_char)
-              
-              this.mydata2.push(temp2)
-             
-            });
-          }
-
-          //  suspended number
-            this.susp.forEach((element: { count: any; }) => {
-              let temp = (element.count)
-              
-              this.mydata.push(temp)
-             
-            });
-
-            this.act.forEach((element: { count: any; }) => {
-              let temp3 = (element.count)
-              
-              this.mydata3.push(temp3)
-             
-            });
-       
-        })
-        //dates
-        this.temp2 = this.mydata2
-        console.log('dates ',this.temp2 )
-     
-
-
-      //counting the number of users suspended
-      this.temp = this.mydata
-      console.log('susp ',this.temp )
-
-      //counting the number of users active
-      this.temp3 = this.mydata3
-      console.log('act ',this.temp3 )
-
-      this.chartOptions = {
-        series: [
-          {
-            name: "Suspended",
-            data: this.temp
-          },
-          {
-            name: "Active",
-            data: this.temp3
-          }
-        ],
-        chart: {
-          height: 350,
-          type: "line",
-          dropShadow: {
-            enabled: true,
-            color: "#000",
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
-          },
-          toolbar: {
-            show: false
-          }
-        },
-        colors: ["#", "#545454"],
-        dataLabels: {
-          enabled: true
-        },
-        stroke: {
-          curve: "smooth"
-        },
-        title: {
-          text: "Active and Suspended passengers",
-          align: "left",
           
-        },
-        grid: {
-          borderColor: "#FFFFFF",
-          row: {
-            colors: [ "transparent"], // takes an array which will be repeated on columns
-            opacity: 0.5
-          }
-        },
-        markers: {
-          size: 1
-        },
-        xaxis: 
-        {
-          categories: this.mydata2,
-          title: {
-            text: "Monthly"
-          }
-        },
-        yaxis: {
-          title: {
-            text: "the number of passengers"
-          },
-          min: 5,
-          max: 40
-        },
-        legend: {
-          position: "top",
-          horizontalAlign: "right",
-          floating: true,
-          offsetY: -25,
-          offsetX: -5
-        }
-      };
     
   
-  }
+  })
 
   
+
+  }
+
 
 }

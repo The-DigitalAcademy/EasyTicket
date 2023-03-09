@@ -23,14 +23,14 @@
             <div class="card shadow-lg" style="background: rgb(42,42,42);border-style: none;">
                 <div class="card-body">
                     <h4 class="card-title" style="color: #f59706;">Transactions</h4>
-                    <h1 class="display-1 card-subtitle mb-2" style="font-size: 10px;--bs-body-font-weight: 100;color: var(--bs-card-border-color);">Welcome to your transactions</h1>
+                    <h1 class="display-1 card-subtitle mb-2" style="font-size: 10px;--bs-body-font-weight: 100;color: var(--bs-card-border-color);">Welcome to transactions</h1>
                     <div class="col">
-                        <div class="float-end"><button class="btn btn-sm" type="button" style="border-style: solid;border-color: #f59706;color: rgb(245,151,6);"><i class="fas fa-cloud-download-alt" style="font-size: 13px;"></i> Download</button></div>
+                        <div class="float-end"><button  class="btn btn-sm" type="button" style="display:none;border-style: solid;border-color: #f59706;color: rgb(245,151,6);"><i class="fas fa-cloud-download-alt" style="font-size: 13px;"></i> Download</button></div>
                     </div>
-                    <div class="col" style="margin-top: 12px;color: var(--bs-card-border-color);font-size: 11px;"><i class="fas fa-coins" style="color: rgb(245,151,6);"></i><span> Total</span><span> 456.50</span></div>
+                    <div class="col" style="margin-top: 12px;color: var(--bs-card-border-color);font-size: 11px;"><i class="fas fa-coins" style="color: rgb(245,151,6);"></i><span> Total</span><span> {{wallet|number:'1.2-2'}}</span></div>
                     <div class="table-responsive" style="font-size: 10px;color: var(--bs-table-border-color);margin-top: 40px;">
                         <table class="table table-sm table-borderless">
-                            <caption style="font-size: 10px;color: #f59706;">Transaction history of kabelo </caption>
+                            <caption style="font-size: 10px;color: #f59706;">Total Transaction history => {{len}} </caption>
                             <thead style="background: #f59706;border-radius: 10px;">
                                 <tr style="border-radius: 10px;">
                                     <th style="color: var(--bs-card-bg);">Destination(s)</th>
@@ -39,53 +39,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="border-bottom-style: solid;border-bottom-color: rgb(255,255,255);">
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
+                                <tr style="border-bottom-style: solid;border-bottom-color: rgb(255,255,255);" *ngFor="let i of trans|paginate: { itemsPerPage: 12,currentPage: q }">
+                                    <td style="color: var(--bs-card-cap-bg);">{{i.depart_to}}</td>
+                                    <td style="color: var(--bs-card-cap-bg);">{{i.createdate|date:'Y-MM-dd'}}</td>
+                                    <td style="color: var(--bs-card-bg);">-{{i.tokens|number:'1.2-2'}}</td>
                                 </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: var(--bs-card-cap-bg);">Library Gardens Bus Station (Westbound: C1, C3, T1), Commissioner Street, Johannesburg Ward 124, Johannesburg, 2001, South Africa</td>
-                                    <td style="color: var(--bs-card-cap-bg);">12-01-2021</td>
-                                    <td style="color: var(--bs-card-bg);">-15.50</td>
-                                </tr>
+                              
+                           
+                                
                             </tbody>
+                            <p style="text-align: center;font-size: 18px;"><pagination-controls (pageChange)="q = $event" class=""></pagination-controls></p>
                         </table>
+
+
                     </div>
                     <div></div>
                 </div>

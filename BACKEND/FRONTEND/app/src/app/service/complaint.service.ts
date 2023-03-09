@@ -22,7 +22,9 @@ export class ComplaintService {
   getComplaint(data:any){
     return this.http.get(this.baseUrl +"/getComplains");
   }
-
- 
+  
+  getComplains(){
+    return this.http.get(this.baseUrl +"/getComplains");
+  }
 
 }

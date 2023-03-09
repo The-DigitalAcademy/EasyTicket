@@ -25,11 +25,39 @@ const getStatusDate = (request, res) => {
 const getAllUsers = (request, res) => {
 
     // const {status} = request.body
-
-    pool.query('SELECT fullname,status,amount FROM public.users', (error, results) => {
+let idvalue=6;
+    pool.query('SELECT * FROM public.users WHERE id > $1',[idvalue], (error, results) => {
      
       res.status(200).json(results.rows)
     }),handleErr
+}
+
+
+const getAllUsersActive = (request, res) => {
+
+  // const {status} = request.body
+
+  let active='active';
+  let idvalue=6;
+
+  pool.query('SELECT * FROM public.users WHERE status=$1 and id > $2',[active,idvalue], (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+
+
+const getAllUsersInActive = (request, res) => {
+
+  // const {status} = request.body
+
+  let active='suspended';
+  let idvalue=6;
+
+  pool.query('SELECT * FROM public.users WHERE status=$1 and id > $2',[active,idvalue], (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
 }
 
 const getDates = (request, res) => {
@@ -46,6 +74,8 @@ module.exports = {
     getUsers,
     getAllUsers,
     getDates,
-    getStatusDate
+    getStatusDate,
+    getAllUsersActive,
+    getAllUsersInActive
   }
 

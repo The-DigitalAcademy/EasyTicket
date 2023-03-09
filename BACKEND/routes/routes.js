@@ -167,6 +167,10 @@ router.post('/register', register.registerUser)
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)
+  router.get('/getAllUsersActive', status.getAllUsersActive)
+  router.get('/getAllUsersInActive', status.getAllUsersInActive)
+  
+
   router.get('/getDates', status.getDates)
   router.get('/getStatusDate', status.getStatusDate)
  
@@ -175,7 +179,10 @@ router.post('/register', register.registerUser)
 
   //routes for suspending a passenger
   router.put('/updateStatus/:id', suspend.updateStatus)
-
+  router.put('/activatePassenger/:id', suspend.activatePassenger)
+  //transactions for passenger
+  router.get('/getTransactionbyId/:id', history.getTransactionbyId)
+ 
 
 
 router.listen(port, () => {

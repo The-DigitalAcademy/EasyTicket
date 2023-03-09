@@ -96,6 +96,19 @@ const getUserUploads = (req, res) => {
       res.status(200).json(results.rows)
     }),handleErr
 }
+//get transaction of passenger
+const getTransactionbyId = (req, res) => {  
+
+  const id=parseInt(req.params.id);
+
+  pool.query('SELECT * FROM public.historytrip WHERE user_id = $1 ORDER BY createdate DESC', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  }),handleErr
+  
+}
 
   
   
@@ -106,7 +119,8 @@ const getUserUploads = (req, res) => {
     getUserUsertrip,
     getUserUploads,
     travelHistory,
-    userTravelHistory
+    userTravelHistory,
+    getTransactionbyId
   }
 
   

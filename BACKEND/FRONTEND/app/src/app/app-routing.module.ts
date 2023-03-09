@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompanyInforComponent } from './company-infor/company-infor.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
-import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
+import { LoadtokenComponent } from './inspector/payment/loadtoken/loadtoken.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { LoginComponent } from './login/login.component';
 import { DestinationComponent } from './passenger/destination/destination.component';
@@ -16,7 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { PassengersComponent } from './inspector/passengers/passengers.component';
-import { SuspendedComponent } from './inspector/suspended/suspended.component';
+import { SuspendedComponent } from './inspector/passengers/suspended/suspended.component';
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +25,7 @@ import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
 import { ScannerComponent } from './passenger/scanner/scanner.component';
-import { ActiveComponent } from './inspector/active/active.component';
+import { ActiveComponent } from './inspector/passengers/active/active.component';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
 import { PasswordrecoveryComponent } from './passwordrecovery/passwordrecovery.component';
 import { ReadComponent } from './passenger/complains/read/read.component';
@@ -35,6 +35,7 @@ import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updat
 import { ErrorComponent } from './login/error/error.component';
 import { TransactionComponent } from './inspector/passengers/transaction/transaction.component';
 import { ReportComponent } from './inspector/idashboard/report/report.component';
+import { PassengercomplainComponent } from './inspector/complainlist/passengercomplain/passengercomplain.component';
 
 
 
@@ -80,6 +81,7 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'updatepassword', component: UpdatepasswordComponent},
 { path: 'error', component: ErrorComponent},
 { path: 'report', component: ReportComponent,canActivate:[AuthService]},
+{ path: 'passengercomplain', component: PassengercomplainComponent,canActivate:[AuthService]},
 
 ];
 
