@@ -48,6 +48,7 @@ form1: FormGroup = new FormGroup({
 
 submitted = false;
 points:any;
+positives:any;
 modaldisappear:any;
   ngOnInit(): void {
 
@@ -76,6 +77,20 @@ modaldisappear:any;
     this.Passenger.getUserUsedTokens(id).subscribe((next:any) => {
 
       this.points=next[0].points;
+      if(this.points==null)
+      {
+        
+        this.positives='0.00';
+        
+
+      }else
+      {
+
+        this.positives=this.points;
+
+      }
+
+      
     
   })
    
