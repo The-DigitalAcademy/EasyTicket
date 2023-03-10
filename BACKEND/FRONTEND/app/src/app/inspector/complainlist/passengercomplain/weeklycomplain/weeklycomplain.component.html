@@ -1,0 +1,58 @@
+
+
+
+    <div id="wrapper">
+        <!--navbar side-->
+        <app-sidemenu></app-sidemenu>
+              <!---side bar -->
+                <div class="d-flex flex-column" id="content-wrapper">
+                    <div id="content" style="background-color: #303030;">
+        <app-topnav></app-topnav>
+        
+        
+           
+                <div class="container">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="mb-0" style="font-size: 15px;color: rgb(255,255,255);">Complains</h3>
+                        
+                        <!-- <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="font-size: 20px;color: rgb(255,255,255);">All</a>
+                       
+                     <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="font-size: 20px;color: rgb(255,255,255);">Active</a> -->
+                    
+                     
+                     <!-----passenger category-->
+                     <app-cat></app-cat>
+                     <!-------------------------->
+                       
+                    </div>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="mb-0" style="font-size: 15px;color: rgb(255,255,255);">Weekly</h3> 
+                       
+                    </div>
+                    <div class="card shadow-lg" style="border-style: none;border-bottom-style: none;background: rgb(48,48,48);">
+                        <h5 class="card-header" style="font-size: 14px;background: rgb(48,48,48);color: rgb(245,151,6);border-bottom-style: none;"><i class="fas fa-comments" style="color: rgb(245,151,6);font-size: 14px;"></i> Complains</h5>
+                        <div class="card-body" style="background: #444141;border-top-style: none;border-bottom-style: solid;border-bottom-color: #444141;" *ngFor="let i of complains|paginate: { itemsPerPage: 3,currentPage: q }">
+                            <p class="text-white"><i class="fa fa-user" style="color: rgb(245,151,6);font-size: 14px;"></i> {{i.fullname}}</p>
+                           
+                            <p class="text-white card-text" style="font-size: 14px;">{{i.complains}}</p>
+                           
+                            <p class="card-text" style="font-size: 14px;"><span class="fw-light text-white"><i class="far fa-calendar-alt" style="color: rgb(245,151,6);"></i> {{i.date_created|date:'Y-MM-dd'}}</span></p>
+                            <hr style="color:rgb(245,151,6) ;" />
+                        </div>
+        
+                        <p style="text-align: center;font-size: 18px;"><pagination-controls (pageChange)="q = $event" class=""></pagination-controls></p>
+                    </div>
+             
+                </div>
+        
+        
+            </div>
+        </div>
+        
+        
+        </div>
+           
+        
+        
+        
+

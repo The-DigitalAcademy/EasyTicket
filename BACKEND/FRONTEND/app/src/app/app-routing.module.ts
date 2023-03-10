@@ -36,6 +36,12 @@ import { ErrorComponent } from './login/error/error.component';
 import { TransactionComponent } from './inspector/passengers/transaction/transaction.component';
 import { ReportComponent } from './inspector/idashboard/report/report.component';
 import { PassengercomplainComponent } from './inspector/complainlist/passengercomplain/passengercomplain.component';
+import { DailyComponent } from './inspector/idashboard/report/daily/daily.component';
+import { WeeklyComponent } from './inspector/idashboard/report/weekly/weekly.component';
+import { MonthlyComponent } from './inspector/idashboard/report/monthly/monthly.component';
+import { MonthlycomplainComponent } from './inspector/complainlist/passengercomplain/monthlycomplain/monthlycomplain.component';
+import { WeeklycomplainComponent } from './inspector/complainlist/passengercomplain/weeklycomplain/weeklycomplain.component';
+import { DailycomplainComponent } from './inspector/complainlist/passengercomplain/dailycomplain/dailycomplain.component';
 
 
 
@@ -82,6 +88,12 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'error', component: ErrorComponent},
 { path: 'report', component: ReportComponent,canActivate:[AuthService]},
 { path: 'passengercomplain', component: PassengercomplainComponent,canActivate:[AuthService]},
+{ path: 'daily', component: DailyComponent,canActivate:[AuthService]},
+{ path: 'weekly', component: WeeklyComponent,canActivate:[AuthService]},
+{ path: 'monthly', component: MonthlyComponent,canActivate:[AuthService]},
+{ path: 'dailycomplain', component: DailycomplainComponent,canActivate:[AuthService]},
+{ path: 'weeklycomplain', component: WeeklycomplainComponent,canActivate:[AuthService]},
+{ path: 'monthlycomplain', component: MonthlycomplainComponent,canActivate:[AuthService]},
 
 ];
 

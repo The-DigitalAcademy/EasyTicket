@@ -14,7 +14,7 @@ export class StarttripComponent implements OnInit {
   single:any
   wallet:any
   storedaddress:any
-
+  positives:any
 
   user = {
     id: '',
@@ -44,6 +44,20 @@ export class StarttripComponent implements OnInit {
     this.Passenger.getUserUsedTokens(id).subscribe((next:any) => {
 
       this.points=next[0].points;
+      if(this.points==null)
+      {
+        
+        this.positives='0.00';
+        
+
+      }else
+      {
+
+        this.positives=this.points;
+
+      }
+
+      
     
   })
    

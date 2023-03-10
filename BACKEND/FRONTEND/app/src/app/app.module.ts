@@ -53,8 +53,14 @@ import { ReportComponent } from './inspector/idashboard/report/report.component'
 import { PassengercomplainComponent } from './inspector/complainlist/passengercomplain/passengercomplain.component';
 import { CatComponent } from './inspector/complainlist/passengercomplain/cat/cat.component';
 import { NgChartsModule } from 'ng2-charts';
-
-
+import { DailyComponent } from './inspector/idashboard/report/daily/daily.component';
+import { WeeklyComponent } from './inspector/idashboard/report/weekly/weekly.component';
+import { MonthlyComponent } from './inspector/idashboard/report/monthly/monthly.component';
+import { ReportcatComponent } from './inspector/idashboard/report/reportcat/reportcat.component';
+import { DailycomplainComponent } from './inspector/complainlist/passengercomplain/dailycomplain/dailycomplain.component';
+import { WeeklycomplainComponent } from './inspector/complainlist/passengercomplain/weeklycomplain/weeklycomplain.component';
+import { MonthlycomplainComponent } from './inspector/complainlist/passengercomplain/monthlycomplain/monthlycomplain.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -107,7 +113,14 @@ import { NgChartsModule } from 'ng2-charts';
     TransactionComponent,
     ReportComponent,
     PassengercomplainComponent,
-    CatComponent
+    CatComponent,
+    DailyComponent,
+    WeeklyComponent,
+    MonthlyComponent,
+    ReportcatComponent,
+    DailycomplainComponent,
+    WeeklycomplainComponent,
+    MonthlycomplainComponent
 
   ],
   imports: [
@@ -118,7 +131,7 @@ import { NgChartsModule } from 'ng2-charts';
     RouterModule,
     FormsModule,
     NgApexchartsModule,
-    FormsModule,NgxSpinnerModule,NgxPaginationModule,NgChartsModule
+    FormsModule,NgxSpinnerModule,NgxPaginationModule,NgChartsModule,Ng2SearchPipeModule
 
   ],
   // imports: [

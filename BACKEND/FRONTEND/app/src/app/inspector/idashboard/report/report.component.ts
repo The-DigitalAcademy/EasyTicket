@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { InspectorService } from 'src/app/service/inspector.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-report',
@@ -18,14 +19,25 @@ export class ReportComponent implements OnInit {
   constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) { }
   name:any;
   status:any;
-
+  q:any
+  today:any
+  day:any
+  mon:any
+  year:any
+  searchText:any
   ngOnInit(): void {
     this.inspectorService.getReport().subscribe((res:any) => {
       let result=res;
       this.name=res;
-      console.log('result ',result)
+
 
     })
+
+    this.day=new Date().getDay();
+    this.mon=new Date().getMonth();
+    this.year=new Date().getFullYear();
+
+    this.today=formatDate(Date.now(),'yyyy-MM-dd','en-US');
   }
 
   public openPDF(): void {

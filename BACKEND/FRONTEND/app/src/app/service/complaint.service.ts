@@ -26,5 +26,13 @@ export class ComplaintService {
   getComplains(){
     return this.http.get(this.baseUrl +"/getComplains");
   }
-
+  getDailyComplains(){
+    return this.http.get(this.baseUrl +"/getDailyComplains");
+  }
+  getMonthlyComplains(){
+    return this.http.get(this.baseUrl +"/getMonthlyComplains");
+  }
+  getWeeklyComplains(){
+    return this.http.get(this.baseUrl +"/getWeeklyComplains");
+  }
 }

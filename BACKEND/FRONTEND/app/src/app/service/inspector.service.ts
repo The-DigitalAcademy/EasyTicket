@@ -39,6 +39,19 @@ getReport(){
   return this.http.get(this.baseUrl +"/getReport");
 }
 
+getdailyReport(){
+  return this.http.get(this.baseUrl +"/dailyreport");
+}
+
+
+getWeeklyReport(){
+  return this.http.get(this.baseUrl +"/weeklyreport");
+}
+
+getMonthlyReport(){
+  return this.http.get(this.baseUrl +"/monthlyreport");
+}
+
 getAllUsersActive(){
   return this.http.get(this.baseUrl +"/getAllUsersActive");
 }

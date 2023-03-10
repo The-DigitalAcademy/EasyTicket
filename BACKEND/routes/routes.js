@@ -164,6 +164,10 @@ router.post('/register', register.registerUser)
    router.get('/readComplain/:id', complains.readComplain)
    router.get('/ComplainsPerMonth', complains.ComplainsPerMonth)
    router.delete('/deleteComplain/:id', complains.deleteComplain)
+   router.get('/getDailyComplains', complains.getDailyComplains)
+   router.get('/getMonthlyComplains', complains.getMonthlyComplains)
+   router.get('/getWeeklyComplains', complains.getWeeklyComplains)
+
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)
@@ -176,7 +180,9 @@ router.post('/register', register.registerUser)
  
   // report for the inspector
   router.get('/getReport', report.report)
-
+  router.get('/dailyreport', report.dailyreport)
+  router.get('/monthlyreport', report.monthlyreport)
+  router.get('/weeklyreport', report.weeklyreport)
   //routes for suspending a passenger
   router.put('/updateStatus/:id', suspend.updateStatus)
   router.put('/activatePassenger/:id', suspend.activatePassenger)
