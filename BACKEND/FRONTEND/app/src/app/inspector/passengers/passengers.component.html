@@ -8,8 +8,14 @@
 <app-topnav></app-topnav>
 
 <div class="container-fluid">
+     
     <div class="d-sm-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0" style="font-size: 15px;color: rgb(255,255,255);">Passengers</h3>
+
+            <div class="input-group  w-25 p-3"><span class="input-group-text" style="height: 50px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;background: rgb(255,255,255);border-right-style: none;"><i class="fas fa-search" style="color: rgb(246,152,4);"></i></span>
+            <input class="form-control w-25 p-2" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder="Search here">
+          </div>
+
         
         <!-- <a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="font-size: 20px;color: rgb(255,255,255);">All</a>
        
@@ -28,7 +34,7 @@
 
     <div class="row" >
 
-        <div class="col-md-6 col-xl-3 mb-4" *ngFor="let n of name |paginate: { itemsPerPage: 12,currentPage: q }">
+        <div class="col-md-6 col-xl-3 mb-4" *ngFor="let n of name |filter:searchText|paginate: { itemsPerPage: 12,currentPage: q }">
             <div class="card shadow-lg border-start-primary py-2" style="border-style: none;" style="background: url('assets/img/busssss.png') left / cover no-repeat, #444141;border-style: none;filter: contrast(100%);">
                 <div class="card-body ">
                     <div >

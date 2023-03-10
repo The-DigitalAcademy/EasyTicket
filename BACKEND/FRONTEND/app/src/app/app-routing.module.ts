@@ -42,6 +42,9 @@ import { MonthlyComponent } from './inspector/idashboard/report/monthly/monthly.
 import { MonthlycomplainComponent } from './inspector/complainlist/passengercomplain/monthlycomplain/monthlycomplain.component';
 import { WeeklycomplainComponent } from './inspector/complainlist/passengercomplain/weeklycomplain/weeklycomplain.component';
 import { DailycomplainComponent } from './inspector/complainlist/passengercomplain/dailycomplain/dailycomplain.component';
+import { DailypaymentsComponent } from './inspector/payment/dailypayments/dailypayments.component';
+import { WeeklypaymentsComponent } from './inspector/payment/weeklypayments/weeklypayments.component';
+import { MonthlypaymentsComponent } from './inspector/payment/monthlypayments/monthlypayments.component';
 
 
 
@@ -94,7 +97,9 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'dailycomplain', component: DailycomplainComponent,canActivate:[AuthService]},
 { path: 'weeklycomplain', component: WeeklycomplainComponent,canActivate:[AuthService]},
 { path: 'monthlycomplain', component: MonthlycomplainComponent,canActivate:[AuthService]},
-
+{ path: 'dailypayments', component: DailypaymentsComponent,canActivate:[AuthService]},
+{ path: 'weeklypayments', component: WeeklypaymentsComponent,canActivate:[AuthService]},
+{ path: 'monthlypayments', component: MonthlypaymentsComponent,canActivate:[AuthService]},
 ];
 
 @NgModule({

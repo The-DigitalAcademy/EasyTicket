@@ -61,6 +61,10 @@ import { DailycomplainComponent } from './inspector/complainlist/passengercompla
 import { WeeklycomplainComponent } from './inspector/complainlist/passengercomplain/weeklycomplain/weeklycomplain.component';
 import { MonthlycomplainComponent } from './inspector/complainlist/passengercomplain/monthlycomplain/monthlycomplain.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PaycatComponent } from './inspector/payment/paycat/paycat.component';
+import { DailypaymentsComponent } from './inspector/payment/dailypayments/dailypayments.component';
+import { MonthlypaymentsComponent } from './inspector/payment/monthlypayments/monthlypayments.component';
+import { WeeklypaymentsComponent } from './inspector/payment/weeklypayments/weeklypayments.component';
 
 
 
@@ -120,7 +124,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReportcatComponent,
     DailycomplainComponent,
     WeeklycomplainComponent,
-    MonthlycomplainComponent
+    MonthlycomplainComponent,
+    PaycatComponent,
+    DailypaymentsComponent,
+    MonthlypaymentsComponent,
+    WeeklypaymentsComponent
 
   ],
   imports: [

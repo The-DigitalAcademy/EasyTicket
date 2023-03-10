@@ -78,6 +78,22 @@ activateAccount(id:any){
 getTransactionbyId(id:any){
   return this.http.get(this.baseUrl +"/getTransactionbyId/"+id);
 }
-
+//payement
+getDailyProof(){
+  return this.http.get(this.baseUrl +"/getDailyProof");
 }
+
+
+getWeeklyProof(){
+  return this.http.get(this.baseUrl +"/getWeeklyProof");
+}
+
+
+getMonthlyProof(){
+  return this.http.get(this.baseUrl +"/getMonthlyProof");
+}
+}
+
+
+
 

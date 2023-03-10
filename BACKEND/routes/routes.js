@@ -167,7 +167,10 @@ router.post('/register', register.registerUser)
    router.get('/getDailyComplains', complains.getDailyComplains)
    router.get('/getMonthlyComplains', complains.getMonthlyComplains)
    router.get('/getWeeklyComplains', complains.getWeeklyComplains)
-
+//  payments
+  router.get('/getDailyProof', proof.getDailyProof)
+  router.get('/getWeeklyProof', proof.getweeklyProof)
+  router.get('/getMonthlyProof', proof.getMonthlyProof)
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)

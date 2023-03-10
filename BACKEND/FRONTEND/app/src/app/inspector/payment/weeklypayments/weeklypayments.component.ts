@@ -6,11 +6,11 @@ import { NgToastService } from 'ng-angular-popup';
 import { InspectorService } from 'src/app/service/inspector.service';
 
 @Component({
-  selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss']
+  selector: 'app-weeklypayments',
+  templateUrl: './weeklypayments.component.html',
+  styleUrls: ['./weeklypayments.component.scss']
 })
-export class PaymentComponent implements OnInit {
+export class WeeklypaymentsComponent implements OnInit {
  
   constructor( private inspectorService:InspectorService,private router:Router, private formBuilder: FormBuilder,private toast : NgToastService,private http:HttpClient) { }
   info:any;
@@ -20,7 +20,7 @@ export class PaymentComponent implements OnInit {
   
   ngOnInit(): void {
 
-this.inspectorService.getAllproof().subscribe(res=>{
+this.inspectorService.getMonthlyProof().subscribe(res=>{
 this.info=res;
 this.inf=this.info.data;
 console.log(res);
@@ -46,3 +46,5 @@ view(items:any)
 }
 
   
+
+

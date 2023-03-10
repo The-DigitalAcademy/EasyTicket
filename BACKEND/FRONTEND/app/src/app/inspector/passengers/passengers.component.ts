@@ -16,6 +16,7 @@ export class PassengersComponent implements OnInit {
   name:any;
   status:any;
   q:any;
+  searchText:any
 
   ngOnInit(): void {
 
