@@ -78,7 +78,6 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{path: 'regis
 { path: 'updatepassword', component: UpdatepasswordComponent},
 { path: 'error', component: ErrorComponent},
 { path: 'report', component: ReportComponent,canActivate:[AuthService]},
-
 ];
 
 @NgModule({

@@ -48,7 +48,8 @@ import { OtpComponent } from './passwordrecovery/otp/otp.component';
 import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
 import { ErrorComponent } from './login/error/error.component';
 import { ReportComponent } from './inspector/idashboard/report/report.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -100,7 +101,7 @@ import { ReportComponent } from './inspector/idashboard/report/report.component'
     OtpComponent,
     UpdatepasswordComponent,
     ErrorComponent,
-    ReportComponent
+    ReportComponent,
 
   ],
   imports: [
@@ -111,7 +112,10 @@ import { ReportComponent } from './inspector/idashboard/report/report.component'
     RouterModule,
     FormsModule,
     NgApexchartsModule,
-    FormsModule,NgxSpinnerModule
+    FormsModule,
+    NgxSpinnerModule,
+    Ng2SearchPipeModule,
+    NgChartsModule
 
   ],
   // imports: [

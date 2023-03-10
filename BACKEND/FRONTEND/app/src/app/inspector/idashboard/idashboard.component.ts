@@ -3,35 +3,28 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { InspectorService } from 'src/app/service/inspector.service';
-import { ApexNonAxisChartSeries, ApexResponsive,ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels, ApexStroke,ApexMarkers,ApexYAxis,ApexGrid,ApexTitleSubtitle,ApexLegend,ApexFill, ApexTooltip, ApexPlotOptions} from "ng-apexcharts";
+
+// import { ApexNonAxisChartSeries, ApexResponsive,ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels, ApexStroke,ApexMarkers,ApexYAxis,ApexGrid,ApexTitleSubtitle,ApexLegend,ApexFill, ApexTooltip, ApexPlotOptions} from "ng-apexcharts";
 
 
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  stroke: ApexStroke;
-  dataLabels: ApexDataLabels;
-  markers: ApexMarkers;
-  colors: string[];
-  yaxis: ApexYAxis;
-  grid: ApexGrid;
-  legend: ApexLegend;
-  title: ApexTitleSubtitle;
-  plotOptions: ApexPlotOptions;
-  fill: ApexFill;
-  tooltip: ApexTooltip;
-};
+// export type ChartOptions = {
+//   series: ApexAxisChartSeries;
+//   chart: ApexChart;
+//   xaxis: ApexXAxis;
+//   stroke: ApexStroke;
+//   dataLabels: ApexDataLabels;
+//   markers: ApexMarkers;
+//   colors: string[];
+//   yaxis: ApexYAxis;
+//   grid: ApexGrid;
+//   legend: ApexLegend;
+//   title: ApexTitleSubtitle;
+//   plotOptions: ApexPlotOptions;
+//   fill: ApexFill;
+//   tooltip: ApexTooltip;
+// };
 
-export type ChartOption = {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  responsive: ApexResponsive[];
-  labels: any;
-  fill: ApexFill;
-  legend: ApexLegend;
-  dataLabels: ApexDataLabels;
-};
+
 
 @Component({
   selector: 'app-idashboard',
@@ -40,9 +33,9 @@ export type ChartOption = {
 })
 export class IdashboardComponent implements OnInit {
 
-  @ViewChild("chart") chart!: ChartComponent;
-  public chartOptions!: Partial<ChartOptions> | any;
-  public chartOption!: Partial<ChartOption> | any;
+  // @ViewChild("chart") chart!: ChartComponent;
+  // public chartOptions!: Partial<ChartOptions> | any;
+
 
   name=[];
   dates:any;
@@ -147,80 +140,78 @@ user = {
       this.temp3 = this.mydata3
       console.log('act ',this.temp3 )
 
-      this.chartOptions = {
-        series: [
-          {
-            name: "Suspended",
-            data: this.temp
-          },
-          {
-            name: "Active",
-            data: this.temp3
-          }
-        ],
-        chart: {
-          height: 350,
-          type: "line",
-          dropShadow: {
-            enabled: true,
-            color: "#000",
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
-          },
-          toolbar: {
-            show: false
-          }
-        },
-        colors: ["#", "#545454"],
-        dataLabels: {
-          enabled: true
-        },
-        stroke: {
-          curve: "smooth"
-        },
-        title: {
-          text: "Active and Suspended passengers",
-          align: "left",
+      // this.chartOptions = {
+      //   series: [
+      //     {
+      //       name: "Suspended",
+      //       data: this.temp
+      //     },
+      //     {
+      //       name: "Active",
+      //       data: this.temp3
+      //     }
+      //   ],
+      //   chart: {
+      //     height: 350,
+      //     type: "line",
+      //     dropShadow: {
+      //       enabled: true,
+      //       color: "#000",
+      //       top: 18,
+      //       left: 7,
+      //       blur: 10,
+      //       opacity: 0.2
+      //     },
+      //     toolbar: {
+      //       show: false
+      //     }
+      //   },
+      //   colors: ["#", "#545454"],
+      //   dataLabels: {
+      //     enabled: true
+      //   },
+       
+      //   title: {
+      //     text: "Active and Suspended passengers",
+      //     align: "left",
           
-        },
-        grid: {
-          borderColor: "#FFFFFF",
-          row: {
-            colors: [ "transparent"], // takes an array which will be repeated on columns
-            opacity: 0.5
-          }
-        },
-        markers: {
-          size: 1
-        },
-        xaxis: 
-        {
-          categories: this.mydata2,
-          title: {
-            text: "Monthly"
-          }
-        },
-        yaxis: {
-          title: {
-            text: "the number of passengers"
-          },
-          min: 5,
-          max: 40
-        },
-        legend: {
-          position: "top",
-          horizontalAlign: "right",
-          floating: true,
-          offsetY: -25,
-          offsetX: -5
-        }
-      };
+      //   },
+      //   grid: {
+      //     borderColor: "#FFFFFF",
+      //     row: {
+      //       colors: [ "transparent"], // takes an array which will be repeated on columns
+      //       opacity: 0.5
+      //     }
+      //   },
+      //   markers: {
+      //     size: 1
+      //   },
+      //   xaxis: 
+      //   {
+      //     categories: this.temp2,
+      //     title: {
+      //       text: "Monthly"
+      //     }
+      //   },
+      //   yaxis: {
+      //     title: {
+      //       text: "the number of passengers"
+      //     },
+      //     min: 5,
+      //     max: 40
+      //   },
+      //   legend: {
+      //     position: "top",
+      //     horizontalAlign: "right",
+      //     floating: true,
+      //     offsetY: -25,
+      //     offsetX: -5
+      //   }
+      // };
     
   
   }
 
-  
+
 
 }

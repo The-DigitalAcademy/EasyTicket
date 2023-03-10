@@ -1,7 +1,11 @@
 <div class="container">
   
 <div class="row" >
+   
     <div class="col-md-8" id="htmlData" >
+        <div class="search-hero">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search here">
+          </div>
         <table class="table table-striped "  style="border-radius: 15px;border-style: none;border-left-style: none;">
            
             <thead class="thead-dark">
@@ -15,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let n of name;let i=index;">
+            <tr *ngFor="let n of name | filter:searchText;let i=index ;">
                 <th style="color: rgb(8, 8, 7);font-size: 13px;">{{i+1}}</th>
                 <th style="color: rgb(8, 8, 7);font-size: 13px;">{{n.fullname}}</th>
                 <td style="color: rgb(8, 8, 7);font-size: 13px;">{{n.depart_to}}</td>

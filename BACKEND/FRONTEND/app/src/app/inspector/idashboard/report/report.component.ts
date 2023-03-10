@@ -16,7 +16,8 @@ export class ReportComponent implements OnInit {
   constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) { }
   name:any;
   status:any;
-
+  searchText: any;
+  
   ngOnInit(): void {
     this.inspectorService.getReport().subscribe((res:any) => {
       let result=res;
