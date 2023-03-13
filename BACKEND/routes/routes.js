@@ -191,7 +191,9 @@ router.post('/register', register.registerUser)
   router.put('/activatePassenger/:id', suspend.activatePassenger)
   //transactions for passenger
   router.get('/getTransactionbyId/:id', history.getTransactionbyId)
- 
+ //passenger  count
+ router.get('/getNopassenger', status.getNopassenger)
+
 
 
 router.listen(port, () => {

@@ -16,7 +16,7 @@ const getUsers = (request, res) => {
 
 const getStatusDate = (request, res) => {
 
-  pool.query(`SELECT COUNT(status),TO_CHAR(created_at,'yyyy-mm-dd'),status as cat FROM public.users GROUP BY created_at,cat ORDER BY created_at ASC`, (error, results) => {
+  pool.query(`SELECT COUNT(status),TO_CHAR(created_at,'yyyy-mm-dd'),status as cat FROM public.users WHERE  id > 6  GROUP BY created_at,cat ORDER BY created_at ASC`, (error, results) => {
    
     res.status(200).json(results.rows)
   }),handleErr
@@ -70,12 +70,22 @@ const getDates = (request, res) => {
   }),handleErr
 }
 
+//count all passegers
+const getNopassenger = (request, res) => {
+
+  pool.query('SELECT count(id) as passengertot FROM public.users WHERE id > 6', (error, results) => {
+
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
 module.exports = {
     getUsers,
     getAllUsers,
     getDates,
     getStatusDate,
     getAllUsersActive,
-    getAllUsersInActive
+    getAllUsersInActive,
+    getNopassenger
   }
 

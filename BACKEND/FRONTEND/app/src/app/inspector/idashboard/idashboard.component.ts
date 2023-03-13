@@ -312,7 +312,8 @@ export class IdashboardComponent implements OnInit {
 
   act:any;
   susp:any;
-
+  passengers:any
+  allpassengers:any
 user = {
   cat:'',
   status:'',
@@ -329,7 +330,7 @@ user = {
       this.inspectorService.getStatus().subscribe((status:any) => {
         let result=status;
 
-        console.log('here',result)
+
      
         this.suspended=status[0];
         this.active=status[1];
@@ -376,17 +377,18 @@ let suspend= parseInt(this.suspended.count);
         ]
       };
 
-
-
-
-
-
-
-
-
       })
 
-      console.log('stolendata',)
+      //get the no of passengers
+      this.inspectorService.getNopassenger().subscribe((res:any) => {
+
+
+        this.passengers=res;
+
+        this.allpassengers=this.passengers[0].passengertot
+        console.log(this.passengers[0].passengertot)
+
+      });
       
       this.inspectorService.getStatusDate().subscribe((res:any) => {
           let result=res;

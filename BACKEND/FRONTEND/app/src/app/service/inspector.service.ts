@@ -92,6 +92,9 @@ getWeeklyProof(){
 getMonthlyProof(){
   return this.http.get(this.baseUrl +"/getMonthlyProof");
 }
+getNopassenger(){
+  return this.http.get(this.baseUrl +"/getNopassenger");
+}
 }
 
 
