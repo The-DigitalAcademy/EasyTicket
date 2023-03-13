@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
-import { NgToastService } from 'ng-angular-popup';
-import { InspectorService } from 'src/app/service/inspector.service';
+// import { Component, OnInit, ViewChild } from '@angular/core';
+// import { Router } from '@angular/router';
+// import { FormBuilder } from '@angular/forms';
+// import { NgToastService } from 'ng-angular-popup';
+// import { InspectorService } from 'src/app/service/inspector.service';
 
 // import { ApexNonAxisChartSeries, ApexResponsive,ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels, ApexStroke,ApexMarkers,ApexYAxis,ApexGrid,ApexTitleSubtitle,ApexLegend,ApexFill, ApexTooltip, ApexPlotOptions} from "ng-apexcharts";
 
@@ -26,6 +26,253 @@ import { InspectorService } from 'src/app/service/inspector.service';
 
 
 
+// @Component({
+//   selector: 'app-idashboard',
+//   templateUrl: './idashboard.component.html',
+//   styleUrls: ['./idashboard.component.scss']
+// })
+// export class IdashboardComponent implements OnInit {
+//   dates:any;
+//   temp:any;
+//   temp2:any;
+//   temp3:any;
+  
+  
+//   mydata = new Array();
+//   mydata2 = new Array();
+//   mydata3 = new Array();
+
+//   @ViewChild("chart") chart!: ChartComponent;
+//   public chartOptions!: Partial<ChartOptions> | any;
+
+//   constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) {
+
+    
+//    }
+//   active:any;
+//   suspended:any;
+//   inf=[];
+//   cat:any;
+
+//   act:any;
+//   susp:any;
+
+// user = {
+//   cat:'',
+//   status:'',
+//   created_at:'',
+//   count:''
+
+// }
+
+
+
+//   ngOnInit(): void {
+
+   
+
+//       this.inspectorService.getStatus().subscribe((status:any) => {
+//         let result=status;
+
+//         // console.log(result)
+     
+//         this.suspended=status[0];
+//         this.active=status[1];
+//         // console.log('here   ',this.active)
+      
+//       })
+    
+      
+//       this.inspectorService.getStatusDate().subscribe((res:any) => {
+//           let result=res;
+//           console.log('all ',result)
+//           this.user.cat=result[2].cat;
+//           this.act=result.filter((res: { cat: string; }) => res.cat===("active"));
+//           // console.log('ACTIVE ',this.act)
+//           this.susp=result.filter((res: { cat: string; }) => res.cat===("suspended"));
+          
+
+//           //active
+//           this.act.forEach((element: { count: string; }) => {
+//             let temp = parseInt(element.count)
+//             this.mydata.push(temp)
+            
+            
+//           });
+
+//           //for date
+//       result.forEach((element: { to_char: string; })=> {
+//         let temp3 = String(element.to_char)
+//         this.mydata3.push(temp3)
+        
+//       });
+
+//       //suspended
+//       this.susp.forEach((element: { cat: string; }) => {
+//         let temp2 = parseInt(element.cat)
+//         this.mydata2.push(temp2)
+        
+//       });
+  
+//   })
+
+  
+
+//   }
+
+
+
+//        //dates
+//        this.temp3=this.mydata;
+//       //  console.log('dates ',this.temp2 )
+    
+
+
+//      //counting the number of users suspended
+//      this.temp = this.mydata
+//     //  console.log('susp ',this.temp )
+
+//      //counting the number of users active
+//      this.temp3 = this.mydata3
+//     //  console.log('act ',this.temp3 )
+
+//       this.chartOptions = {
+//         series: [
+//           {
+//             name: "Suspended",
+//             data: this.temp
+//           },
+//           {
+//             name: "Active",
+//             data: this.temp3
+//           }
+//         ],
+//         chart: {
+//           height: 350,
+//           type: "line",
+//           dropShadow: {
+//             enabled: true,
+//             color: "#000",
+//             top: 18,
+//             left: 7,
+//             blur: 10,
+//             opacity: 0.2
+//           },
+//           toolbar: {
+//             show: false
+//           }
+//         },
+//         colors: ["#", "#545454"],
+//         dataLabels: {
+//           enabled: true
+//         },
+       
+//         title: {
+//           text: "Active and Suspended passengers",
+//           align: "left",
+          
+//         },
+//         grid: {
+//           borderColor: "#FFFFFF",
+//           row: {
+//             colors: [ "transparent"], // takes an array which will be repeated on columns
+//             opacity: 0.5
+//           }
+//         },
+//         markers: {
+//           size: 1
+//         },
+//         xaxis: 
+//         {
+//           categories: this.temp2,
+//           title: {
+//             text: "Monthly"
+//           }
+//         },
+//         yaxis: {
+//           title: {
+//             text: "the number of passengers"
+//           },
+//           min: 5,
+//           max: 40
+//         },
+//         legend: {
+//           position: "top",
+//           horizontalAlign: "right",
+//           floating: true,
+//           offsetY: -25,
+//           offsetX: -5
+//         }
+//       };
+    
+  
+
+
+
+// }
+
+
+
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { NgToastService } from 'ng-angular-popup';
+import { InspectorService } from 'src/app/service/inspector.service';
+import {   ApexTheme,ApexForecastDataPoints,ApexNonAxisChartSeries, ApexResponsive,ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels, ApexStroke,ApexMarkers,ApexYAxis,ApexGrid,ApexTitleSubtitle,ApexLegend,ApexFill, ApexTooltip, ApexPlotOptions} from "ng-apexcharts";
+
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  markers: ApexMarkers;
+  colors: string[];
+  yaxis: ApexYAxis;
+  grid: ApexGrid;
+  legend: ApexLegend;
+  title: ApexTitleSubtitle;
+  plotOptions: ApexPlotOptions;
+  fill: ApexFill;
+  tooltip: ApexTooltip;
+};
+
+// export type ChartOption = {
+//   series: ApexNonAxisChartSeries;
+//   chart: ApexChart;
+//   responsive: ApexResponsive[];
+//   labels: any;
+//   fill: ApexFill;
+//   legend: ApexLegend;
+//   dataLabels: ApexDataLabels;
+// };
+export type ChartOption = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+  theme: ApexTheme;
+  title: ApexTitleSubtitle;
+};
+
+
+// export type ChartOptio = {
+//   series: ApexAxisChartSeries;
+//   chart: ApexChart;
+//   dataLabels: ApexDataLabels;
+//   stroke: ApexStroke;
+//   xaxis: ApexXAxis;
+//   yaxis: ApexYAxis;
+//   title: ApexTitleSubtitle;
+//   markers: ApexMarkers;
+//   colors: string[];
+//   fill: ApexFill;
+//   forecastDataPoints: ApexForecastDataPoints;
+//   legend: ApexLegend;
+// };
+
+
 @Component({
   selector: 'app-idashboard',
   templateUrl: './idashboard.component.html',
@@ -33,9 +280,10 @@ import { InspectorService } from 'src/app/service/inspector.service';
 })
 export class IdashboardComponent implements OnInit {
 
-  // @ViewChild("chart") chart!: ChartComponent;
-  // public chartOptions!: Partial<ChartOptions> | any;
-
+  @ViewChild("chart") chart!: ChartComponent;
+  public chartOptions!: Partial<ChartOptions> | any;
+  public chartOption!: Partial<ChartOption> | any;
+  // public chartOptio!: Partial<ChartOption> | any;
 
   name=[];
   dates:any;
@@ -48,13 +296,19 @@ export class IdashboardComponent implements OnInit {
   mydata3 = new Array();
 
   constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) {
-
+   
     
+   
    }
   active:any;
   suspended:any;
   inf=[];
   cat:any;
+
+  temp4:any;
+  temp5:any;
+  mydata4 = new Array();
+  mydata5 = new Array();
 
   act:any;
   susp:any;
@@ -68,7 +322,6 @@ user = {
 }
 
 
-
   ngOnInit(): void {
 
    
@@ -76,18 +329,68 @@ user = {
       this.inspectorService.getStatus().subscribe((status:any) => {
         let result=status;
 
-        console.log(result)
+        console.log('here',result)
      
         this.suspended=status[0];
         this.active=status[1];
         // console.log('here   ',this.active)
-      
+console.log('suspended ',this.suspended.count)
+
+        
+      //pie chart
+
+let active= parseInt(this.active.count);
+let suspend= parseInt(this.suspended.count);
+
+      this.chartOption = {
+        series: [active,suspend],
+        chart: {
+          width: "100%",
+          height:"900",
+          type: "pie"
+        },
+        labels: [
+          "Active",
+          "Suspended"
+        ],
+        theme: {
+          monochrome: {
+            enabled: true
+          }
+        },
+        title: {
+          text: "Propotion of Active And Suspended Passengers"
+        },
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200
+              },
+              legend: {
+                position: "bottom"
+              }
+            }
+          }
+        ]
+      };
+
+
+
+
+
+
+
+
+
       })
-    
+
+      console.log('stolendata',)
       
       this.inspectorService.getStatusDate().subscribe((res:any) => {
           let result=res;
-          console.log('all ',result)
+          // console.log('all ',result)
           this.user.cat=result[2].cat;
           this.act=result.filter((res: { cat: string; }) => res.cat===("active"));
           // console.log('ACTIVE ',this.act)
@@ -128,90 +431,94 @@ user = {
         })
         //dates
         this.temp2 = this.mydata2
-        console.log('dates ',this.temp2 )
+        // console.log('dates ',this.temp2 )
      
 
 
       //counting the number of users suspended
       this.temp = this.mydata
-      console.log('susp ',this.temp )
+      // console.log('susp ',this.temp )
 
       //counting the number of users active
       this.temp3 = this.mydata3
-      console.log('act ',this.temp3 )
+      // console.log('act ',this.temp3 )
 
-      // this.chartOptions = {
-      //   series: [
-      //     {
-      //       name: "Suspended",
-      //       data: this.temp
-      //     },
-      //     {
-      //       name: "Active",
-      //       data: this.temp3
-      //     }
-      //   ],
-      //   chart: {
-      //     height: 350,
-      //     type: "line",
-      //     dropShadow: {
-      //       enabled: true,
-      //       color: "#000",
-      //       top: 18,
-      //       left: 7,
-      //       blur: 10,
-      //       opacity: 0.2
-      //     },
-      //     toolbar: {
-      //       show: false
-      //     }
-      //   },
-      //   colors: ["#", "#545454"],
-      //   dataLabels: {
-      //     enabled: true
-      //   },
-       
-      //   title: {
-      //     text: "Active and Suspended passengers",
-      //     align: "left",
+      this.chartOptions = {
+        series: [
+          {
+            name: "Suspended",
+            data: this.temp3
+          },
+          {
+            name: "Active",
+            data: this.temp
+          }
+        ],
+        chart: {
+          height: 350,
+          type: "bar",
+          dropShadow: {
+            enabled: true,
+            color: "#000",
+            top: 18,
+            left: 7,
+            blur: 10,
+            opacity: 0.2
+          },
+          toolbar: {
+            show: false
+          }
+        },
+        colors: ["#", "#"],
+        dataLabels: {
+          enabled: true
+        },
+        stroke: {
+          curve: "smooth"
+        },
+        title: {
+          text: "Active and Suspended passengers",
+          align: "left",
           
-      //   },
-      //   grid: {
-      //     borderColor: "#FFFFFF",
-      //     row: {
-      //       colors: [ "transparent"], // takes an array which will be repeated on columns
-      //       opacity: 0.5
-      //     }
-      //   },
-      //   markers: {
-      //     size: 1
-      //   },
-      //   xaxis: 
-      //   {
-      //     categories: this.temp2,
-      //     title: {
-      //       text: "Monthly"
-      //     }
-      //   },
-      //   yaxis: {
-      //     title: {
-      //       text: "the number of passengers"
-      //     },
-      //     min: 5,
-      //     max: 40
-      //   },
-      //   legend: {
-      //     position: "top",
-      //     horizontalAlign: "right",
-      //     floating: true,
-      //     offsetY: -25,
-      //     offsetX: -5
-      //   }
-      // };
+        },
+        grid: {
+          borderColor: "",
+          row: {
+            colors: [ "transparent"], // takes an array which will be repeated on columns
+            opacity: 0.5
+          }
+        },
+        markers: {
+          size: 4
+        },
+        xaxis: 
+        {
+          categories: this.mydata2,
+          title: {
+            text: "Month(s)"
+          }
+        },
+        yaxis: {
+          title: {
+            text: "the number of passengers"
+          },
+          min: 5,
+          max: 40
+        },
+        legend: {
+          position: "top",
+          horizontalAlign: "right",
+          floating: true,
+          offsetY: -25,
+          offsetX: -5
+        }
+      };
+
+
     
   
   }
 
-
+  
 
 }

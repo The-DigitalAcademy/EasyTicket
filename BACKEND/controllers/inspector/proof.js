@@ -20,13 +20,51 @@ const getProofuser = (req, res) => {
   
                                                                                    
 
-  pool.query('SELECT payment.id as id,user_id,proof,fullname,date FROM public.payment,public.users WHERE public.users.id =public.payment.user_id', [], (error, results) => {
+  pool.query('SELECT payment.id as id,user_id,proof,fullname,datecreated FROM public.payment,public.users WHERE public.users.id =public.payment.user_id', [], (error, results) => {
+  
+      res.status(200).json(results.rows)
+  }),handleErr
+
+}
+//daily
+const getDailyProof = (request, res) => {
+
+                                                                                   
+
+  pool.query(`SELECT payment.id as id,user_id,proof,fullname,datecreated FROM public.payment,public.users WHERE datecreated >= date_trunc('day', now()) AND public.users.id =public.payment.user_id`, (error, results) => {
+  
+      res.status(200).json(results.rows)
+  }),handleErr
+
+}
+//monthly
+const getMonthlyProof = (request, res) => {
+
+                                                                                   
+
+  pool.query(`SELECT payment.id as id,user_id,proof,fullname,datecreated FROM public.payment,public.users WHERE datecreated >= date_trunc('month', now()) AND public.users.id =public.payment.user_id`, (error, results) => {
+  
+      res.status(200).json(results.rows)
+  }),handleErr
+
+}
+//weekly
+const getweeklyProof = (request, res) => {
+
+                                                                                   
+
+  pool.query(`SELECT payment.id as id,user_id,proof,fullname,datecreated FROM public.payment,public.users WHERE datecreated >= date_trunc('week', now()) AND public.users.id =public.payment.user_id`, (error, results) => {
   
       res.status(200).json(results.rows)
   }),handleErr
 
 }
 
+
+
   module.exports = {
-    getProof,getProofuser
+    getProof,getProofuser,
+    getMonthlyProof,
+    getweeklyProof,
+    getDailyProof
   }

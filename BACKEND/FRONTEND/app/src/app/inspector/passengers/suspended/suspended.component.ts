@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { InspectorService } from 'src/app/service/inspector.service';
+import { NgToastService } from 'ng-angular-popup';
 
 
 @Component({
@@ -11,10 +12,11 @@ import { InspectorService } from 'src/app/service/inspector.service';
 })
 export class SuspendedComponent implements OnInit {
 
-  constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder) { }
+  constructor(private route: Router,private inspectorService:InspectorService,private formBuilder: FormBuilder,private toast :NgToastService) { }
   name:any;
   persons=[];
   per:any
+  q:any
   suspended:any;
 
    users = {
@@ -38,19 +40,28 @@ export class SuspendedComponent implements OnInit {
      })
 
 
-    this.inspectorService.getAllUsers().subscribe((res:any) => {
+    this.inspectorService.getAllUsersInActive().subscribe((res:any) => {
      
-
-
-      this.persons=res;
-      // this.users.fullname=result.fullname;
-      // console.log( this.users.fullname);
-      //console.log(this.persons)
-      
-
-   
-
+      this.name=res;
     })
+  }
+
+  active(id:any)
+  {
+
+    this.inspectorService.activateAccount(id).subscribe((res:any) => {
+
+
+      this.toast.success({detail:"Success",summary:'Passenger activated successfully.', duration:2000})
+      
+      
+    this.inspectorService.getAllUsersInActive().subscribe((res:any) => {
+     
+      this.name=res;
+    })
+    });
+
+
   }
 
 }

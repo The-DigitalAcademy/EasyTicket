@@ -164,18 +164,34 @@ router.post('/register', register.registerUser)
    router.get('/readComplain/:id', complains.readComplain)
    router.get('/ComplainsPerMonth', complains.ComplainsPerMonth)
    router.delete('/deleteComplain/:id', complains.deleteComplain)
+   router.get('/getDailyComplains', complains.getDailyComplains)
+   router.get('/getMonthlyComplains', complains.getMonthlyComplains)
+   router.get('/getWeeklyComplains', complains.getWeeklyComplains)
+//  payments
+  router.get('/getDailyProof', proof.getDailyProof)
+  router.get('/getWeeklyProof', proof.getweeklyProof)
+  router.get('/getMonthlyProof', proof.getMonthlyProof)
   //  status
   router.get('/getStatus', status.getUsers)
   router.get('/getAllUsers', status.getAllUsers)
+  router.get('/getAllUsersActive', status.getAllUsersActive)
+  router.get('/getAllUsersInActive', status.getAllUsersInActive)
+  
+
   router.get('/getDates', status.getDates)
   router.get('/getStatusDate', status.getStatusDate)
  
   // report for the inspector
   router.get('/getReport', report.report)
-
+  router.get('/dailyreport', report.dailyreport)
+  router.get('/monthlyreport', report.monthlyreport)
+  router.get('/weeklyreport', report.weeklyreport)
   //routes for suspending a passenger
   router.put('/updateStatus/:id', suspend.updateStatus)
-
+  router.put('/activatePassenger/:id', suspend.activatePassenger)
+  //transactions for passenger
+  router.get('/getTransactionbyId/:id', history.getTransactionbyId)
+ 
 
 
 router.listen(port, () => {

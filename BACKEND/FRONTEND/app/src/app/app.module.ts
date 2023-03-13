@@ -21,7 +21,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IdashboardComponent } from './inspector/idashboard/idashboard.component';
 import { PaymentComponent } from './inspector/payment/payment.component';
 import { TopnavComponent } from './inspector/topnav/topnav.component';
-import { LoadtokenComponent } from './inspector/loadtoken/loadtoken.component';
+import { LoadtokenComponent } from './inspector/payment/loadtoken/loadtoken.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CompanyInforComponent } from './company-infor/company-infor.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
@@ -29,14 +29,14 @@ import { SafePipe } from './safe.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchplaceComponent } from './passenger/searchplace/searchplace.component';
 import { PassengersComponent } from './inspector/passengers/passengers.component';
-import { SuspendedComponent } from './inspector/suspended/suspended.component';
+import { SuspendedComponent } from './inspector/passengers/suspended/suspended.component';
 import { StarttripComponent } from './passenger/starttrip/starttrip.component';
 import { NavigateComponent } from './passenger/navigate/navigate.component';
 import { TravelComponent } from './passenger/travel/travel.component';
 import { ComplainsComponent } from './passenger/complains/complains.component';
 import { LodgecomplainsComponent } from './passenger/lodgecomplains/lodgecomplains.component';
 import { ScannerComponent } from './passenger/scanner/scanner.component';
-import { ActiveComponent } from './inspector/active/active.component';
+import { ActiveComponent } from './inspector/passengers/active/active.component';
 import { PassengercategoryComponent } from './inspector/passengercategory/passengercategory.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { BoardingComponent } from './passenger/boarding/boarding.component';
@@ -47,11 +47,24 @@ import { ChangepasswordComponent } from './passenger/p-profile/changepassword/ch
 import { OtpComponent } from './passwordrecovery/otp/otp.component';
 import { UpdatepasswordComponent } from './passwordrecovery/updatepassword/updatepassword.component';
 import { ErrorComponent } from './login/error/error.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { TransactionComponent } from './inspector/passengers/transaction/transaction.component';
 import { ReportComponent } from './inspector/idashboard/report/report.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PassengercomplainComponent } from './inspector/complainlist/passengercomplain/passengercomplain.component';
+import { CatComponent } from './inspector/complainlist/passengercomplain/cat/cat.component';
 import { NgChartsModule } from 'ng2-charts';
-
-
+import { DailyComponent } from './inspector/idashboard/report/daily/daily.component';
+import { WeeklyComponent } from './inspector/idashboard/report/weekly/weekly.component';
+import { MonthlyComponent } from './inspector/idashboard/report/monthly/monthly.component';
+import { ReportcatComponent } from './inspector/idashboard/report/reportcat/reportcat.component';
+import { DailycomplainComponent } from './inspector/complainlist/passengercomplain/dailycomplain/dailycomplain.component';
+import { WeeklycomplainComponent } from './inspector/complainlist/passengercomplain/weeklycomplain/weeklycomplain.component';
+import { MonthlycomplainComponent } from './inspector/complainlist/passengercomplain/monthlycomplain/monthlycomplain.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PaycatComponent } from './inspector/payment/paycat/paycat.component';
+import { DailypaymentsComponent } from './inspector/payment/dailypayments/dailypayments.component';
+import { MonthlypaymentsComponent } from './inspector/payment/monthlypayments/monthlypayments.component';
+import { WeeklypaymentsComponent } from './inspector/payment/weeklypayments/weeklypayments.component';
 
 
 
@@ -101,7 +114,21 @@ import { NgChartsModule } from 'ng2-charts';
     OtpComponent,
     UpdatepasswordComponent,
     ErrorComponent,
+    TransactionComponent,
     ReportComponent,
+    PassengercomplainComponent,
+    CatComponent,
+    DailyComponent,
+    WeeklyComponent,
+    MonthlyComponent,
+    ReportcatComponent,
+    DailycomplainComponent,
+    WeeklycomplainComponent,
+    MonthlycomplainComponent,
+    PaycatComponent,
+    DailypaymentsComponent,
+    MonthlypaymentsComponent,
+    WeeklypaymentsComponent
 
   ],
   imports: [
@@ -115,7 +142,8 @@ import { NgChartsModule } from 'ng2-charts';
     FormsModule,
     NgxSpinnerModule,
     Ng2SearchPipeModule,
-    NgChartsModule
+    NgChartsModule,
+  NgxSpinnerModule,NgxPaginationModule,NgChartsModule,Ng2SearchPipeModule
 
   ],
   // imports: [

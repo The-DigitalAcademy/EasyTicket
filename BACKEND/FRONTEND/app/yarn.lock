@@ -2319,7 +2319,7 @@
   "resolved" "https://registry.npmjs.org/charenc/-/charenc-0.0.2.tgz"
   "version" "0.0.2"
 
-"chart.js@^3.4.0 || ^4.0.0":
+"chart.js@^3.4.0 || ^4.0.0", "chart.js@^4.2.1":
   "integrity" "sha512-6YbpQ0nt3NovAgOzbkSSeeAQu/3za1319dPUQTXn9WcOpywM8rGKxJHrhS8V8xEkAlk8YhEfjbuAPfUyp6jIsw=="
   "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-4.2.1.tgz"
   "version" "4.2.1"
@@ -4449,6 +4449,13 @@
   "integrity" "sha512-noN8R+Gyxo5ZuboEOvq+u0zKio6pEf1IVYQTCZfAfXm6ONmzWu/M2xK0di9oVUprDbPBQXCGUuvD5i2GD+35HA=="
   "resolved" "https://registry.npmjs.org/ng2-search-filter/-/ng2-search-filter-0.5.1.tgz"
   "version" "0.5.1"
+
+"ngx-pagination@^6.0.3":
+  "integrity" "sha512-lONjTQ7hFPh1SyhwDrRd5ZwM4NMGQ7bNR6vLrs6mrU0Z8Q1zCcWbf/pvyp4DOlGyd9uyZxRy2wUsSZLeIPjbAw=="
+  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-6.0.3.tgz"
+  "version" "6.0.3"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "ngx-scanner-qrcode@1.2.1":
   "integrity" "sha512-7LSwDJxBvp9s84v/xdYx1vmwckOWHMn40Wj4QUxsMafYHZmt/14jl086U3T0qHgr0dg31aqA5FRP9gzcX9Dv+A=="
