@@ -312,7 +312,8 @@ export class IdashboardComponent implements OnInit {
 
   act:any;
   susp:any;
-
+  passengers:any
+  allpassengers:any
 user = {
   cat:'',
   status:'',
@@ -321,29 +322,45 @@ user = {
 
 }
 
+newActive:any;
+newSuspended:any;
 
   ngOnInit(): void {
 
-   
+    this.inspectorService.getSuspended().subscribe((suspended:any) => {
+      let result=suspended;
+      this.newSuspended=result[0];
+      console.log('new',this.newSuspended)
+    })
 
-      this.inspectorService.getStatus().subscribe((status:any) => {
+    this.inspectorService.getActive().subscribe((active:any) => {
+      let result=active;
+      this.newActive=result[0];
+      console.log('new',this.newActive)
+    })
+
+      this.inspectorService.getStatusDate().subscribe((status:any) => {
         let result=status;
+        this.active=result.filter((res: { cat: string; }) => res.cat===("active"));
+        console.log('ACTIVE ',this.active)
+        this.suspended=result.filter((res: { cat: string; }) => res.cat===("suspended"));
+        console.log('SUSPENDED ',this.suspended)
 
-        console.log('here',result)
-     
-        this.suspended=status[0];
-        this.active=status[1];
+    //  console.log('result',result)
+        // this.suspended=status.filter((res: { cat: string; }) => res.cat===("suspended"));
+       
+        // this.active=status[1];
         // console.log('here   ',this.active)
-console.log('suspended ',this.suspended.count)
+      // console.log('suspended ',this.suspended.count)
 
         
       //pie chart
 
-let active= parseInt(this.active.count);
-let suspend= parseInt(this.suspended.count);
+let active= parseInt(this.newActive.count);
+let suspend= parseInt(this.newSuspended.count);
 
       this.chartOption = {
-        series: [active,suspend],
+        series: [suspend,active],
         chart: {
           width: "100%",
           height:"900",
@@ -376,17 +393,18 @@ let suspend= parseInt(this.suspended.count);
         ]
       };
 
-
-
-
-
-
-
-
-
       })
 
-      console.log('stolendata',)
+      //get the no of passengers
+      this.inspectorService.getNopassenger().subscribe((res:any) => {
+
+
+        this.passengers=res;
+
+        this.allpassengers=this.passengers[0].passengertot
+        console.log(this.passengers[0].passengertot)
+
+      });
       
       this.inspectorService.getStatusDate().subscribe((res:any) => {
           let result=res;

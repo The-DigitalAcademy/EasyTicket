@@ -35,6 +35,17 @@ getStatusDate(){
   return this.http.get(this.baseUrl +"/getStatusDate");
 }
 
+// getActive
+getActive(){
+  return this.http.get(this.baseUrl +"/getActive");
+}
+
+
+// getActive
+getSuspended(){
+  return this.http.get(this.baseUrl +"/getSuspended");
+}
+
 getReport(){
   return this.http.get(this.baseUrl +"/getReport");
 }
@@ -91,6 +102,9 @@ getWeeklyProof(){
 
 getMonthlyProof(){
   return this.http.get(this.baseUrl +"/getMonthlyProof");
+}
+getNopassenger(){
+  return this.http.get(this.baseUrl +"/getNopassenger");
 }
 }
 

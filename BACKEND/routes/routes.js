@@ -191,8 +191,13 @@ router.post('/register', register.registerUser)
   router.put('/activatePassenger/:id', suspend.activatePassenger)
   //transactions for passenger
   router.get('/getTransactionbyId/:id', history.getTransactionbyId)
- 
+ //passenger  count
+ router.get('/getNopassenger', status.getNopassenger)
 
+//  getActive
+router.get('/getActive', status.getActive)
+// getSuspended
+router.get('/getSuspended', status.getSuspended)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)
