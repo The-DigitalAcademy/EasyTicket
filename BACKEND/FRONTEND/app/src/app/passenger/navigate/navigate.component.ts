@@ -72,14 +72,14 @@ export class NavigateComponent implements OnInit {
           ]
         })
         routing.addTo(map);
-        console.clear()
+       // console.clear()
       
       });
     })
 
 
 
-   setTimeout(()=>console.clear(),1000);
+  // setTimeout(()=>console.clear(),1000);
     
   }
 

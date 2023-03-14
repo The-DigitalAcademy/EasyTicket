@@ -193,8 +193,9 @@ router.post('/register', register.registerUser)
   router.get('/getTransactionbyId/:id', history.getTransactionbyId)
  //passenger  count
  router.get('/getNopassenger', status.getNopassenger)
-
-
+ router.get('/countActive', status.countActive)
+ router.get('/countInActive', status.countInActive)
+ 
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

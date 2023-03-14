@@ -95,6 +95,17 @@ getMonthlyProof(){
 getNopassenger(){
   return this.http.get(this.baseUrl +"/getNopassenger");
 }
+
+
+countActive(){
+  return this.http.get(this.baseUrl +"/countActive");
+}
+
+countInActive(){
+  return this.http.get(this.baseUrl +"/countInActive");
+}
+
+    
 }
 
 
