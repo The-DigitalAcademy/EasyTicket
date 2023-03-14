@@ -32,7 +32,7 @@ uploadno:any;
 uploads:any;
 complainno:any;
 complains:any;
-
+positives:any
 
   ngOnInit(): void {
 
@@ -81,8 +81,21 @@ this.Passenger.getUserComplain(id).subscribe((data)=>{
 
         this.points=next[0].points;
         this.potion=(this.points + this.wallet[0].amount);
+        if(this.points==null)
+        {
+          
+          this.positives='0.00';
+          
+  
+        }else
+        {
+  
+          this.positives= this.points;
+  
+        }
       
     })
+
 
 
 
@@ -91,6 +104,8 @@ this.Passenger.getUserComplain(id).subscribe((data)=>{
       })
 
 
+
+      console.clear();
 
   }
 

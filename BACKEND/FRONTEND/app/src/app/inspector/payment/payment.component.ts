@@ -15,6 +15,8 @@ export class PaymentComponent implements OnInit {
   constructor( private inspectorService:InspectorService,private router:Router, private formBuilder: FormBuilder,private toast : NgToastService,private http:HttpClient) { }
   info:any;
   inf=[];
+  q:any
+  searchText:any
   
   ngOnInit(): void {
 

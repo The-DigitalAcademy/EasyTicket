@@ -62,7 +62,7 @@ allsearch:any
   public onEvent(e: ScannerQRCodeResult[]): void {
    
     this.output = e[0].value;
-    console.log(this.output);
+   // console.log(this.output);
 
     if (this.output == 'Your trip has started😀') {
 
@@ -104,6 +104,8 @@ allsearch:any
   };
   ngOnInit(): void {
     this.storedaddress = sessionStorage.getItem('Destination');
+
+    console.clear();
   }
 
   PunchOut() {
@@ -171,7 +173,7 @@ navigator.geolocation.getCurrentPosition((position) => {
       this.getAddress(currentCod).subscribe((data: any) => {
 
 
-       console.log(data.results[0].formatted)
+      //console.log(data.results[0].formatted)
 
         this.user = this.jwtService.getDetails(
             localStorage.getItem('token')
@@ -186,7 +188,7 @@ navigator.geolocation.getCurrentPosition((position) => {
           departing_from:data.results[0].formatted,
           departing_to:sessionStorage.getItem('Destination')
         }
-        console.log(search)
+        //console.log(search)
   
         this.passenger.searchStation(search).subscribe(data => {
           this.allsearch=data;

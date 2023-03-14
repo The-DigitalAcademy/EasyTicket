@@ -15,6 +15,7 @@ export class WalletComponent implements OnInit {
   init:any
   single:any
   wallet:any
+  positives:any
 
 
   user = {
@@ -38,6 +39,20 @@ export class WalletComponent implements OnInit {
     this.Passenger.getUserUsedTokens(id).subscribe((next:any) => {
 
       this.points=next[0].points;
+      if(this.points==null)
+      {
+        
+        this.positives='0.00';
+        
+
+      }else
+      {
+
+        this.positives=this.points;
+
+      }
+
+      
     
   })
 

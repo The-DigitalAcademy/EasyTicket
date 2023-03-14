@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class InspectorService {
+
  baseUrl = "http://localhost:3001"
   
   constructor(private http:HttpClient) { }
@@ -38,5 +39,64 @@ getReport(){
   return this.http.get(this.baseUrl +"/getReport");
 }
 
- 
+getdailyReport(){
+  return this.http.get(this.baseUrl +"/dailyreport");
 }
+
+
+getWeeklyReport(){
+  return this.http.get(this.baseUrl +"/weeklyreport");
+}
+
+getMonthlyReport(){
+  return this.http.get(this.baseUrl +"/monthlyreport");
+}
+
+getAllUsersActive(){
+  return this.http.get(this.baseUrl +"/getAllUsersActive");
+}
+
+getAllUsersInActive(){
+  return this.http.get(this.baseUrl +"/getAllUsersInActive");
+}
+
+
+suspendAccount(id:any){
+
+  return this.http.put(this.baseUrl +"/updateStatus/"+id,{});
+ 
+
+}
+
+activateAccount(id:any){
+
+  return this.http.put(this.baseUrl +"/activatePassenger/"+id,{});
+ 
+
+}
+
+getTransactionbyId(id:any){
+  return this.http.get(this.baseUrl +"/getTransactionbyId/"+id);
+}
+//payement
+getDailyProof(){
+  return this.http.get(this.baseUrl +"/getDailyProof");
+}
+
+
+getWeeklyProof(){
+  return this.http.get(this.baseUrl +"/getWeeklyProof");
+}
+
+
+getMonthlyProof(){
+  return this.http.get(this.baseUrl +"/getMonthlyProof");
+}
+getNopassenger(){
+  return this.http.get(this.baseUrl +"/getNopassenger");
+}
+}
+
+
+
+

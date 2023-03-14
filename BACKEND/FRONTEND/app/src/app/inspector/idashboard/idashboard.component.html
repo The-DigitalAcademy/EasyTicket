@@ -7,20 +7,21 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" style="background-color: #303030;">
                 <!---top-->
+                
         <app-topnav></app-topnav>
               <!---top-->
-                <div class="container">
+                <div class="container" >
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="mb-0" style="font-size: 20px;color: rgb(255,255,255);">Dashboard</h3><a class="btn btn-sm d-none d-sm-inline-block" role="button" href="#" style="background: rgb(246,152,4);color: rgb(255,255,255);"><i class="fas fa-download fa-sm text-white-50"></i>Report</a>
+                        <h3 class="mb-0" style="font-size: 20px;color: rgb(255,255,255);">Dashboard</h3><a class="btn btn-sm d-none d-sm-inline-block" role="button" routerLink="/report" style="background: rgb(246,152,4);color: rgb(255,255,255);"><i class="fas fa-download fa-sm text-white-50"></i>Report</a>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow-lg border-start-primary py-2" style="border-radius: 15px;border-style: none;border-left-style: none;">
+                            <div class="card shadow-lg border-start-primary py-2" style="border-style: none;border-left-style: none;">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;">Master wallet</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);font-size: 13px;">0</span></div>
+                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span class="text-capitalize" style="color: rgb(246,152,4);font-size: 15px;">Total passengers</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);font-size: 13px;">{{allpassengers}}</span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-wallet fa-2x text-gray-300" style="font-size: 20px;"></i></div>
                                     </div>
@@ -28,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;">
+                            <div class="card shadow-lg border-start-primary py-2" style="border-style: none;">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
@@ -41,7 +42,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;">
+                            <div class="card shadow-lg border-start-primary py-2" style="border-style: none;">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
@@ -56,7 +57,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow-lg border-start-primary py-2" style="background: #444141;border-style: none;">
+                            <div class="card shadow-lg border-start-primary py-2" style="border-style: none;">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
@@ -68,29 +69,97 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <app-graph></app-graph> -->
-                        <div class="col-md-6 col-xl-4 mb-4">
-                            <div class="card shadow-lg border-start-primary py-2" style="background: #f7f5f5;border-style: none;">
 
-                                <div id="chart">
-                                    <apx-chart
-                                    [series]="chartOptions.series"
-                                    [chart]="chartOptions.chart"
-                                    [xaxis]="chartOptions.xaxis"
-                                    [dataLabels]="chartOptions.dataLabels"
-                                    [grid]="chartOptions.grid"
-                                    [stroke]="chartOptions.stroke"
-                                    [title]="chartOptions.title"
-                                    ></apx-chart>
+                        <div class="row">
+                            <div class="col-lg-7 col-xl-8">
+                                <div class="card shadow mb-4 h-100" style="border-style: none;">
+                                    <div class="card-header d-flex justify-content-between align-items-center"style="background-color: #303030;">
+                                        <h6 class="text fw-bold m-0">Monthly Active And Suspended Passengers</h6>
+                                       
+                                    </div>
+                                    <div class="card-body">
+                                    <div class="card shadow-lg border-start-primary py-2 mt-4" style="background: #f7f5f5;border-style: none;">
+
+                                        <div id="chart" >
+                                            <apx-chart
+                                            [series]="chartOptions.series"
+                                            [chart]="chartOptions.chart"
+                                            [xaxis]="chartOptions.xaxis"
+                                            [dataLabels]="chartOptions.dataLabels"
+                                            [grid]="chartOptions.grid"
+                                            [stroke]="chartOptions.stroke"
+                                            [title]="chartOptions.title"
+                                            ></apx-chart>
+                                        </div>
+                                    </div>
+                                </div>
+                               
                                 </div>
                             </div>
+                            <div class="col-lg-5 col-xl-4">
+                                <div class="card shadow mb-4 h-100"style="border-style: none;">
+                                    <div class="card-header shadow-lg d-flex justify-content-between align-items-center" style="background-color: #303030;">
+                                        <h6 class="text fw-bold m-0">Active And Suspended Passengers</h6>
+                                     
+                                    </div>
+                                    <div class="card-body  h-100">
+                                        <figure class="highcharts-figure">
+                                          
+                                            <div class="card shadow-lg border-start-primary py-2 mt-4" style="background: #f7f5f5;border-style: none;">
+                                               
+                                                    <div id="chart">
+                                                    <apx-chart
+                                                        [series]="chartOption.series"
+                                                        [chart]="chartOption.chart"
+                                                        [labels]="chartOption.labels"
+                                                        [title]="chartOption.title"
+                                                        [theme]="chartOption.theme"
+                                                        [responsive]="chartOption.responsive" 
+                                                    ></apx-chart>
+                                                    </div>
+                                                </div>
+                                                <div class="card shadow-lg border-start-primary py-2 mt-4" style="background: #f7f5f5;border-style: none;">
+                                                    <p>Overall Statistics</p>
+                                                    <div id="chart">
+                                               
+                                                        <h4 class="small fw-bold">Active Passengers<span class="float-end">{{suspended.count}}%</span></h4> 
+                                                        <div class="progress mb-2">
+                                                            <div class="progress-bar bg-warning" style="width:70%">{{suspended.count}}%</div>
+                                                          </div>
+
+                                                          <h4 class="small fw-bold">Suspended Passengers<span class="float-end">60%</span></h4> 
+                                                          <div class="progress mb-2">
+                                                            <div class="progress-bar bg-danger" style="width:70%">70%</div>
+                                                          </div>
+                                                          <h4 class="small fw-bold">Customer Database<span class="float-end">60%</span></h4> 
+                                                          <div class="progress mb-2">
+                                                            <div class="progress-bar bg-success" style="width:70%">70%</div>
+                                                          </div> 
+                                                          <h4 class="small fw-bold">Customer Database<span class="float-end">60%</span></h4> 
+                                                          <div class="progress mb-2">
+                                                            <div class="progress-bar" style="width:70%">70%</div>
+                                                          </div>
+
+                                                        
+                                                    </div>
+                                                </div>
+                                            
+                                          </figure>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                         
-<app-report></app-report>
+
+
                     </div>
                 </div>
             </div>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div>
     </div>
    
 </body>
+
+

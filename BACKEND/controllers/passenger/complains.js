@@ -5,7 +5,7 @@ const handleErr = (err, req, res, next) => {
 }
 
 const getComplains = (request, res) => {
-    pool.query('SELECT fullname,complains FROM public.complains,public.users WHERE public.complains.user_id=public.users.id ', (error, results) => {
+    pool.query('SELECT * FROM public.complains,public.users WHERE public.complains.user_id=public.users.id ', (error, results) => {
      
       res.status(200).json(results.rows)
     }),handleErr
@@ -92,10 +92,32 @@ const getUserComplainByUserid = (req, res) => {
   }),handleErr
   
 }
+//daily complain
+const getDailyComplains = (request, res) => {
+  pool.query(`SELECT * FROM public.complains,public.users WHERE date_created >= date_trunc('day', now()) AND public.complains.user_id=public.users.id `, (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+//weekly complaints
+const getWeeklyComplains = (request, res) => {
+  pool.query(`SELECT * FROM public.complains,public.users WHERE date_created >= date_trunc('week', now()) AND public.complains.user_id=public.users.id `, (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+//monthly complaint
+const getMonthlyComplains = (request, res) => {
+  pool.query(`SELECT * FROM public.complains,public.users WHERE date_created >= date_trunc('month', now()) AND public.complains.user_id=public.users.id `, (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
 module.exports = {
     getAllComplains,
     getComplains,
     postComplains,getUserComplain,
     ComplainsPerMonth,getUserComplainByUserid,
-    readComplain,deleteComplain
+    readComplain,deleteComplain,getDailyComplains,
+    getMonthlyComplains,getWeeklyComplains
   }
