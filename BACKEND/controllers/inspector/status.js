@@ -70,6 +70,12 @@ const getDates = (request, res) => {
   }),handleErr
 }
 
+
+
+// SELECT COUNT(id)
+// 	FROM public.users
+// 	WHERE id>6;
+
 module.exports = {
     getUsers,
     getAllUsers,

@@ -170,10 +170,12 @@ navigator.geolocation.getCurrentPosition((position) => {
       }
 
       let currentCod = this.lat + ',' + this.lng;
+
+
       this.getAddress(currentCod).subscribe((data: any) => {
 
-
-      //console.log(data.results[0].formatted)
+         
+      console.log(data.results[0].formatted)
 
         this.user = this.jwtService.getDetails(
             localStorage.getItem('token')

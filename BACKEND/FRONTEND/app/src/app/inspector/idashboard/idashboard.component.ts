@@ -350,8 +350,8 @@ let suspend= parseInt(this.suspended.count);
           type: "pie"
         },
         labels: [
-          "Active",
-          "Suspended"
+          "Suspended",
+          "Active"
         ],
         theme: {
           monochrome: {
@@ -446,11 +446,11 @@ let suspend= parseInt(this.suspended.count);
       this.chartOptions = {
         series: [
           {
-            name: "Suspended",
+            name: "Active",
             data: this.temp3
           },
           {
-            name: "Active",
+            name: "Suspended",
             data: this.temp
           }
         ],
