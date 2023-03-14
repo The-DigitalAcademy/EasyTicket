@@ -324,37 +324,53 @@ user = {
 
 }
 
+newActive:any;
+newSuspended:any;
 
   ngOnInit(): void {
 
-   
+    this.inspectorService.getSuspended().subscribe((suspended:any) => {
+      let result=suspended;
+      this.newSuspended=result[0];
+      console.log('new',this.newSuspended)
+    })
 
-      this.inspectorService.getStatus().subscribe((status:any) => {
+    this.inspectorService.getActive().subscribe((active:any) => {
+      let result=active;
+      this.newActive=result[0];
+      console.log('new',this.newActive)
+    })
+
+      this.inspectorService.getStatusDate().subscribe((status:any) => {
         let result=status;
+        this.active=result.filter((res: { cat: string; }) => res.cat===("active"));
+        console.log('ACTIVE ',this.active)
+        this.suspended=result.filter((res: { cat: string; }) => res.cat===("suspended"));
+        console.log('SUSPENDED ',this.suspended)
 
-
-     
-        this.suspended=status[0];
-        this.active=status[1];
+    //  console.log('result',result)
+        // this.suspended=status.filter((res: { cat: string; }) => res.cat===("suspended"));
+       
+        // this.active=status[1];
         // console.log('here   ',this.active)
-console.log('suspended ',this.suspended.count)
+      // console.log('suspended ',this.suspended.count)
 
         
       //pie chart
 
-let active= parseInt(this.active.count);
-let suspend= parseInt(this.suspended.count);
+let active= parseInt(this.newActive.count);
+let suspend= parseInt(this.newSuspended.count);
 
       this.chartOption = {
-        series: [active,suspend],
+        series: [suspend,active],
         chart: {
           width: "100%",
           height:"900",
           type: "pie"
         },
         labels: [
-          "Active",
-          "Suspended"
+          "Suspended",
+          "Active"
         ],
         theme: {
           monochrome: {
@@ -476,11 +492,11 @@ let suspend= parseInt(this.suspended.count);
       this.chartOptions = {
         series: [
           {
-            name: "Suspended",
+            name: "Active",
             data: this.temp3
           },
           {
-            name: "Active",
+            name: "Suspended",
             data: this.temp
           }
         ],
