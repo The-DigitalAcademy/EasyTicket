@@ -37,8 +37,8 @@ const updatePassword = (request, res) => {
     host: 'smtp.gmail.com',
     port: 587,
     auth: {
-        user: 'easytickets.technerds@gmail.com',
-        pass: 'nbjdnjcavnlctqds'
+        user: 'kabelomighty@gmail.com',
+        pass: 'mqlxgpqeklpncnev'
     }
 });
 

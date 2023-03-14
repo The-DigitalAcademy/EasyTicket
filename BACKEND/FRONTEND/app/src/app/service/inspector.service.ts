@@ -116,6 +116,10 @@ countInActive(){
   return this.http.get(this.baseUrl +"/countInActive");
 }
 
+alltokensused(){
+  return this.http.get(this.baseUrl +"/alltokensused");
+}
+
     
 }
 

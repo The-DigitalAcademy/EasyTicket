@@ -198,6 +198,8 @@ router.post('/register', register.registerUser)
 router.get('/getActive', status.getActive)
 // getSuspended
 router.get('/getSuspended', status.getSuspended)
+//all tokens
+router.get('/alltokensused', status.alltokensused)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

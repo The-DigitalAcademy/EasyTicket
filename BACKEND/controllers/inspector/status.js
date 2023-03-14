@@ -111,6 +111,23 @@ const getSuspended = (request, res) => {
     res.status(200).json(results.rows)
   }),handleErr
 }
+
+
+const alltokensused = (request, res) => {
+
+  // const {status} = request.body
+
+  let suspended='suspended';
+  
+  let idvalue=6;
+
+  pool.query('SELECT SUM(tokens) as Alltokens FROM public.historytrip', (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+
+
 module.exports = {
     getUsers,
     getAllUsers,
@@ -121,6 +138,6 @@ module.exports = {
     getNopassenger,
     getNopassenger,
     getActive,
-    getSuspended
+    getSuspended,alltokensused
   }
 

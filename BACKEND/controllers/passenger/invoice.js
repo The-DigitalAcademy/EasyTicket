@@ -29,7 +29,7 @@ const handleErr = (err, req, res, next) => {
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-    pool.query('INSERT INTO public.payment(user_id, proof,date) VALUES ($1,$2,$3)', [user_id,proof,date], (error, results) => {
+    pool.query('INSERT INTO public.payment(user_id, proof,datecreated) VALUES ($1,$2,$3)', [user_id,proof,date], (error, results) => {
       if (error) {
         throw error
       }

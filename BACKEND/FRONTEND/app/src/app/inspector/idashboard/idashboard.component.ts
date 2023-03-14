@@ -326,9 +326,19 @@ user = {
 
 newActive:any;
 newSuspended:any;
+allT:any
 
   ngOnInit(): void {
 
+
+
+
+    this.inspectorService.alltokensused().subscribe((res:any) => {
+      let alltokens=res;
+      this.allT=alltokens[0].alltokens;
+      console.log(this.allT)
+    
+    })
     this.inspectorService.getSuspended().subscribe((suspended:any) => {
       let result=suspended;
       this.newSuspended=result[0];
@@ -515,7 +525,7 @@ let suspend= parseInt(this.newSuspended.count);
             show: false
           }
         },
-        colors: ["#", "#"],
+        colors: ["black", "#383845"],
         dataLabels: {
           enabled: true
         },
