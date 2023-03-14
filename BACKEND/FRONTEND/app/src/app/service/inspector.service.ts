@@ -35,6 +35,17 @@ getStatusDate(){
   return this.http.get(this.baseUrl +"/getStatusDate");
 }
 
+// getActive
+getActive(){
+  return this.http.get(this.baseUrl +"/getActive");
+}
+
+
+// getActive
+getSuspended(){
+  return this.http.get(this.baseUrl +"/getSuspended");
+}
+
 getReport(){
   return this.http.get(this.baseUrl +"/getReport");
 }
@@ -95,6 +106,17 @@ getMonthlyProof(){
 getNopassenger(){
   return this.http.get(this.baseUrl +"/getNopassenger");
 }
+
+
+countActive(){
+  return this.http.get(this.baseUrl +"/countActive");
+}
+
+countInActive(){
+  return this.http.get(this.baseUrl +"/countInActive");
+}
+
+    
 }
 
 

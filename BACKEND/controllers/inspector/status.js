@@ -79,6 +79,38 @@ const getNopassenger = (request, res) => {
     res.status(200).json(results.rows)
   }),handleErr
 }
+//count passengers
+
+
+
+
+const getActive = (request, res) => {
+
+  // const {status} = request.body
+
+  let active='active';
+  let idvalue=6;
+
+  pool.query('SELECT COUNT(id) FROM public.users WHERE status=$1 and id > $2',[active,idvalue], (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
+
+
+const getSuspended = (request, res) => {
+
+  // const {status} = request.body
+
+  let suspended='suspended';
+  
+  let idvalue=6;
+
+  pool.query('SELECT COUNT(id) FROM public.users WHERE status=$1 and id > $2',[suspended,idvalue], (error, results) => {
+   
+    res.status(200).json(results.rows)
+  }),handleErr
+}
 module.exports = {
     getUsers,
     getAllUsers,
@@ -86,6 +118,9 @@ module.exports = {
     getStatusDate,
     getAllUsersActive,
     getAllUsersInActive,
-    getNopassenger
+    getNopassenger,
+    getNopassenger,
+    getActive,
+    getSuspended
   }
 

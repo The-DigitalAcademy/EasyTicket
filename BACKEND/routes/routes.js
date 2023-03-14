@@ -194,7 +194,10 @@ router.post('/register', register.registerUser)
  //passenger  count
  router.get('/getNopassenger', status.getNopassenger)
 
-
+//  getActive
+router.get('/getActive', status.getActive)
+// getSuspended
+router.get('/getSuspended', status.getSuspended)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)
